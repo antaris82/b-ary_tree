@@ -24,7 +24,7 @@
 \newcommand{\Frac}{\operatorname{Frac}}
 \newcommand{\rays}{\partial T}
 \newcommand{\ltn}{\mathrel{<}}
-\title[Path arithmetic and child-coordinate decompositions]{Path Arithmetic, Child-Coordinate Decompositions, and Constructive Cauchy Structures on Rooted Word Trees}
+\title[From Primitive Words to Arithmetic]{From Primitive Words to Arithmetic: Constructions, Dependencies, and Limitations}
 % No author is designated; the editor is credited separately below the abstract.
 % No affiliation is asserted in the title block.
 % Editor name and email are printed below the abstract.
@@ -47,6 +47,11 @@ We examine several distinct algebraic and topological constructions carried by r
 
 \clearpage
 \section{Introduction}\label{sec:intro}
+The number systems discussed here are familiar; reconstructing them is neither a replacement for conventional number theory nor, by itself, a claim of mathematical novelty. Instead, this investigation asks how far an explicitly restricted primitive construction can be developed, which definitions and logical assumptions each extension requires, and which features are attached to particular representations rather than to the resulting abstract mathematical objects.
+
+The construction does not presuppose a general graph or an abstract rooted tree. It starts from finite words and their extension operation, defines incidence, and subsequently proves the relevant tree properties. This reverses the order of exposition, not the established theory of trees. The method provides a way to inspect dependencies without asserting that mathematical structures emerge from an assumption-free logical foundation.
+
+
 A rooted word tree provides an elementary setting in which one can separate the information contained in the \emph{length} of a path from the information carried by its \emph{letters}. Iteration of a single edge constructs an arithmetic carrier; the set of children of a fixed vertex provides a different, finite coordinate carrier; and an infinite string of child labels gives a point on a tree boundary. These carriers have different algebraic and topological invariants. The aim here is to develop the precise relationships established by the underlying constructive formalization, without identifying objects merely because they arise from the same tree.
 
 This work is not a rationally labelled graph construction of Stern--Brocot type. We construct the parent--child incidence of finite words first and then, within one explicitly ordered foundational development, construct path-count arithmetic, signed differences and a representation of the rational fraction field. Neither a pre-existing rational number attached to each vertex nor the mediant rule is part of the primitive edge relation. See Section~\ref{sec:words} for the exact distinction.
@@ -79,6 +84,26 @@ Quotient types and structural induction are part of the background logic. The pr
 \medskip
 
 \clearpage
+\section{Motivation and scope of the construction}\label{sec:motivation}
+\subsection{Why reconstruct familiar number systems?}
+The natural numbers, integers, rational numbers and real numbers admit many established constructions. The object of the present investigation is therefore the construction process, not a purported discovery of new number systems. We ask which operations and relations can be obtained from primitive finite-word data, which auxiliary structures are required, and what is preserved when passing from a particular construction to a familiar abstract object. The known endpoint makes these questions testable; it does not make the intermediate dependencies mathematically irrelevant.
+
+\subsection{A tree as a consequence rather than a prerequisite}
+We begin with finite words, an empty word and an extension operation. Parent--child incidence is defined from extension; unique predecessors, root paths and appropriate forms of connectedness and acyclicity are then proved (Section~\ref{sec:words}). A general graph and tree axioms are not input data. This does not preclude interpreting the resulting incidence as a graph, nor does it remove the inductive and logical infrastructure of the ambient type theory. The distinction is the precise order of definitions and proofs.
+
+\subsection{Construction-dependent information}
+Two presentations can give isomorphic ordered fields while retaining different representatives, path addresses, incidence relations or enumerations. An ordered-field isomorphism alone does not establish preservation of such additional data. Rationally labelled tree constructions, including the Stern--Brocot arrangement, illustrate this distinction; their prior rational labels and mediant relations are not part of the present primitive incidence (Section~\ref{subsec:sternbrocot}). Additional structure may be useful for one question and extraneous for another. We therefore compare stated structures and maps, without treating one representation as universally superior.
+
+\subsection{Formalization with restricted numerical foundations}
+The formal development intentionally avoids mathlib and does not use imported standard number structures as the carriers of the path-based arithmetic it constructs. This makes recursion, normalization, quotient relations, arithmetic laws and witness construction explicit rather than delegating them to a library. The restriction is relative to Lean's permitted kernel and type theory: inductive types, logical inference and quotient principles are still available. Nor does it imply that technical uses of existing internal facilities are absent from all implementation details. Generic results stated under a field interface must retain that interface as a hypothesis.
+
+\subsection{Transfers, difficulties and boundaries}
+The word and path counts lead to a unary natural carrier and normalized signed integers; an internal positive-denominator fraction field is then constructed. Admissible triples give representatives of that field, but the triple-class operations are transported from the previously established fraction field. Such transport is a valid construction, not an independent derivation of the field laws from branching alone (Section~\ref{sec:rationals}).
+
+The rational Cauchy quotient and the prefix boundary of infinite rays are distinct subsequent structures. Their shared combinatorial origin supplies no automatic numerical or topological identification. Moreover, the constructive Cauchy results prove inversion for apart elements and several specifically qualified completeness principles, not an unconditional classical real-field package (Sections~\ref{sec:cauchy}--\ref{sec:logic}).
+
+Finally, obstacles require classification. Incompatibility under one specified embedding is not impossibility under all embeddings; a conditional theorem is not unconditional; and an unproved identification remains open rather than refuted. Throughout the paper, the relevant question is whether a difficulty lies in the carrier, in a selected operation or representation, in a transition map, or in the supplied logical assumptions. The limits of the present development are therefore reported as carefully as its successes.
+
 \section{Finite words and rooted incidence}\label{sec:words}
 \subsection{Words, root and parent relation}\label{main:sub-01}
 Fix a type $A$ of letters. Write $A^{<\omega}$ for finite words; its root is the empty word $\epsilon$. We follow the inductive orientation of the source: a child of $w$ is $a::w$, with $a\in A$ prepended to $w$. An oriented edge has endpoints $(w,a::w)$. Its depth $d(w)$ is its word length, a unary count constructed below. The immediate parent of $a::w$ is $w$; $\epsilon$ has no parent. These facts are immediate from injectivity and disjointness of the list constructors.
@@ -295,6 +320,10 @@ A normalized integer is nonnegative exactly when its negative component is zero.
 
 \clearpage
 \section{Path-triple rational numbers}\label{sec:rationals}
+\subsection*{Where rational operations come from}
+The source distinguishes the internally constructed positive-denominator fraction field from its later path-triple representation. Word lengths, unary operations and normalized differences supply the earlier algebraic ingredients. The field operations on admissible triple classes are then \emph{transported} from that fraction field along the established representation. Consequently the branching data supply representatives and witnesses, while the field laws are inherited from an independently established internal arithmetic construction. Neither an imported rational field at the outset nor an independent combinatorial derivation of the triple-class field operations is being claimed.
+
+
 \subsection{Admissible data}\label{main:sub-14}
 For an alphabet $A$, an admissible path triple $t=(P_1,P_2,P_3)$ consists of three pairwise distinct finite words with $d(P_2)>d(P_3)$. Define
 \[
@@ -834,6 +863,10 @@ Choose two different child letters and one distinguished parent address. Swap th
 
 \clearpage
 \section{A constructive rational Cauchy quotient}\label{sec:cauchy}
+\subsection*{Arithmetic completion versus the ray boundary}
+A quotient of modulated rational Cauchy sequences is a numerical construction; the separate boundary of infinite words carries a prefix-cylinder topology (Section~\ref{sec:boundary}). A common origin in finite-word incidence does not imply a homeomorphism or compatible identification. Such a result would require an explicitly defined map and proofs of its advertised properties. No such general identification is established here. In addition, inversion from apartness and conditional forms of completeness must not be conflated with an unconditional classical characterization of the real numbers.
+
+
 \subsection{Precision and modulated sequences}\label{main:sub-40}
 Fix $K$ equipped with the project's \emph{specific} interface $\mathsf{TOField}(K)$, extending its characteristic-zero field interface. In addition to the usual algebraic laws, this supplies a predicate $\mathsf{Nonneg}_K(x)$ and a \emph{decision procedure} for that predicate at every $x\in K$, closure of the cone under addition and multiplication, totality $\mathsf{Nonneg}_K(x)\lor\mathsf{Nonneg}_K(-x)$ and antisymmetry. Crucially it also supplies \emph{data}, not merely existence: a function
 \[
@@ -1370,6 +1403,9 @@ There are five different cases that must remain distinct: (i) a theorem proved u
 
 \clearpage
 \section{Conclusion}\label{sec:conclusion}
+The aim was not to replace established number systems, but to make visible the sequence of definitions and mathematical obligations needed to reconstruct them in a deliberately restricted setting. Word extension precedes proved tree structure; unary counting precedes signed differences; and the internal fraction field precedes its path-triple representation. The distinction between independently derived operations, transported structure, conditional extensions and open identifications is itself an outcome of the investigation.
+
+
 Unlike an arbitrary graph with word-address labels or the mediant-labelled Stern--Brocot tree, the present parent--child incidence is generated intrinsically from finite words before any rational field is available. The word tree and the subsequent number systems and related algebraic and analytic constructions are parts of one dependency-ordered foundational development, rather than a tree defined \emph{over} a presupposed $\mathbb Q$. The finite-word incidence relation supports literal unit-edge counting and normalized signed differences. Admissible path triples represent positive-denominator fractions, with their field operations explicitly \emph{transported} from the previously defined auxiliary fraction field. The rational quotient is insensitive, up to ordered-field isomorphism, to the choice of an alphabet with two distinct letters. The separate finite child-coordinate module admits an explicit rank-one uniform line, a rank-$b-1$ zero-sum subspace, complementary linear idempotent projections with explicit images and kernels, and a symmetric bilinear form that splits orthogonally along these projections for positive $b$. Under countable branching the transverse basis is preserved algebraically, but the finite uniform lines fail to be compatible under zero padding. The native ray boundary carries its own prefix topology and automorphism actions. A modulated rational Cauchy quotient provides a constructive ring, apartness-based inversion, tracked limits, data-bearing suprema and precise conditional forms of stronger properties. None of these results alone identifies boundary topology, coordinate modules and numerical completion, or upgrades the Cauchy ring to an unconditional classically complete ordered field.
 
 
