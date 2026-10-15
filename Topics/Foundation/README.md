@@ -4,7 +4,7 @@ The Task-06 mathematical theme paper and frozen Lean 4.28.0 source are stored **
 
 ## Start here
 
-- **[Paper overview](paper/README.md)** and **[56-page PDF](paper/main.pdf)**
+- **[Paper overview](paper/README.md)** and **[current PDF](paper/main.pdf)**
 - [LaTeX manuscript with integrated mathematical proofs](paper/main.tex), [bibliography](paper/references.bib)
 - [Proof correspondence](paper/docs/proof_correspondence.md), [verification report](paper/docs/verification_report.md), [open questions](paper/docs/open_questions.md)
 - [89 inline proof locations](paper/docs/scope_89.md) and [historical mathematical outline](docs/PAPER_OUTLINE_AND_SOURCE_MAP.md)
