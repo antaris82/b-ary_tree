@@ -1,11 +1,20 @@
 # TASK 01 — Embedded Local Stars, Intrinsic Unit-Edge Network, and Exact Port Measurements
 
-**Target repository:** https://github.com/antaris82/b-ary_tree  
-**Authoritative upstream Foundation:** https://github.com/antaris82/b-ary_tree/tree/main/Topics/Foundation  
-**Existing upstream Lean sources:** https://github.com/antaris82/b-ary_tree/tree/main/Topics/Foundation/lean  
+**Repository of origin (provenance only, no access required):** https://github.com/antaris82/b-ary_tree  
+**Authoritative upstream Foundation:** `Topics/Foundation/lean` **inside the supplied archive**; original online reference: https://github.com/antaris82/b-ary_tree/tree/main/Topics/Foundation  
+**Existing Foundation Lean sources (local):** `Topics/Foundation/lean`  
 **Work directory:** `Topics/Local_Star/lean`  
 **Research plan:** `Topics/Local_Star/_formalization/MASTER_PLAN.md`  
 **Toolchain:** Lean `leanprover/lean4:v4.28.0`.
+
+## OFFLINE EXECUTION AND WRITE BOUNDARY — HIGHEST PRIORITY
+
+The **single supplied ZIP is the complete local source of truth**. It contains **both** `Topics/Foundation/` and `Topics/Local_Star/` as sibling directories in one repository snapshot. GitHub access is **not required** and must not be used as an excuse to skip the task. Unpack the archive and work entirely within it.
+
+**READ-ONLY FOUNDATION:** The complete subtree `Topics/Foundation/` must remain *byte-for-byte unchanged*. Do not create, edit, delete, rename, reformat, regenerate, patch, or replace files under it; do not change its Lake settings, toolchain, tests, scripts, or documentation. Foundation is a pre-existing immutable dependency. **All new or modified files must be inside `Topics/Local_Star/`**, including Lean sources, test cases, local auditors, documentation and any package configuration. Ephemeral Lake build outputs are allowed, but they are not source changes and must not be included as modifications to Foundation. Do not commit changes to Foundation. Verify before delivery that the preexisting Foundation source files are unchanged.
+
+This is an offline repository **implementation** task, not a remote GitHub operation. Return the updated `Topics/Local_Star/` tree and a source diff/change inventory. The supplied project structure is a starting point, not a proof.
+
 
 ## OBJECTIVE
 
@@ -25,11 +34,11 @@ This is a substantial first formalization of the local electrical object. The fu
 
 ## SOURCE OF TRUTH AND PERMITTED DEPENDENCIES
 
-Use the EXISTING, unmodified `Topics/Foundation/lean` implementation as the **only mathematical dependency**. Import its modules directly from the new local Lake package; it already declares `[[require]] name = "TreeFoundations", path = "../../Foundation/lean"`. Preserve the one-way dependency `Foundation → Local_Star`; never modify any Foundation file.
+Use the EXISTING, unmodified `Topics/Foundation/lean` implementation provided **inside the same archive** as the **only mathematical dependency**. Import its modules directly from the new local Lake package; it already declares `[[require]] name = "TreeFoundations", path = "../../Foundation/lean"`. Preserve the one-way dependency `Foundation → Local_Star`; never modify any Foundation file.
 
 **No legacy-code reuse.** Older `FloatingStar` material, if available, is mathematical historical evidence only. Do not import, copy, translate, rename, port, or adapt its Lean definitions, proof scripts, matrix utilities, number carriers, or architecture. Write every new Local_Star mathematical declaration independently against the current Foundation interfaces.
 
-Open and inspect the actual source, checking elaborated signatures and implicit assumptions before coding:
+Read the actual **local** Foundation source files, checking elaborated signatures and implicit assumptions before coding:
 
 - `PrimitiveTree.FiniteWords`: `Word α := List α`, `Word.root`, `Word.IsParent`, `Word.Edge`, `Word.edgeTo`, `Word.child_injective`, `Word.parent_unique`, `Word.Edge.eq_of_child`.
 - `PrimitiveTree.FiniteChild`: `Child b`, `Child.ext`, `Child.decEq`, `Child.one_unique`, `Child.zero_empty`, `Child.enum`.
@@ -42,7 +51,7 @@ Open and inspect the actual source, checking elaborated signatures and implicit 
 - `DimensionFoundation.FiniteSums`: existing finite sum over `Child b` (`FinSum.sumC`), use for star energies and currents; no second finite-index arithmetic.
 - `DimensionFoundation.FiniteChildModule`: child potential functions and finite dot/sum operators if useful, without creating a parallel module theory.
 
-Links to inspect:
+For provenance, the following optional web links mirror the **already included** local paths. **Do not require network access to complete the task:**
 https://github.com/antaris82/b-ary_tree/blob/main/Topics/Foundation/lean/PrimitiveTree/FiniteWords.lean  
 https://github.com/antaris82/b-ary_tree/blob/main/Topics/Foundation/lean/PrimitiveTree/RootEdges.lean  
 https://github.com/antaris82/b-ary_tree/blob/main/Topics/Foundation/lean/TreeNumbers/PathNaturals.lean  
@@ -139,12 +148,12 @@ Avoid replacing required proofs with an abstract structure that merely **assumes
 
 All requested checks must be performed on the finished source, not just planned:
 
-1. A real successful `lake build LocalStar` with the unchanged Foundation dependency on Lean 4.28.0; record upstream Foundation commit SHA and the new Local_Star commit SHA.
+1. A real successful `lake build LocalStar` from `Topics/Local_Star/lean` with the unchanged local Foundation dependency on Lean 4.28.0; record the source snapshot commit SHA and actual local changes (do not invent a new commit SHA if no commit is created).
 2. Exact elaborated declaration signatures for the embedding, overlap, unit-edge law, energy, Laplacian, PSD/grounded-PD, both port measurements and identity Gram.
 3. `#print axioms` for the main theorem endpoints and their actual transitive imported requirements; explicitly distinguish `Quot.sound`, `propext`, `Classical.choice`, `sorryAx` and any custom axioms.
-4. Apply the **actual** Foundation mathematical-source restrictions (`Topics/Foundation/lean/scripts/source_check.py`), adapted as needed to cover all new `LocalStar/*.lean` and `LocalStar.lean` without weakening the prohibition list or modifying Foundation. Report how the check was executed.
+4. Inspect the **actual** Foundation mathematical-source restrictions in `Topics/Foundation/lean/scripts/source_check.py`; implement any needed Local_Star-only source checker under `Topics/Local_Star/` (do **not** modify the Foundation checker), matching the restrictions without weakening them. Report the command actually executed. Report how the check was executed.
 5. Lean-level constructive tests for `b=1` and `b=2`, plus at least one `b=4` port/Gram test; also test center `Word.root` and a nonroot center. No external numerical carriers anywhere in these tests.
 6. A direct consistency check that energy `0` forces constant potentials, yet nonconstant grounded potentials give positive energy; and that two-child port current satisfies zero injection at the center.
-7. Show a concise final inventory of created/modified files and direct imports, with any genuinely unresolved statements listed as OPEN. Do not replace failed proofs by additional assumptions or silently change their types/quantifiers.
+7. Verify and report that all existing `Topics/Foundation/` source files remain byte-for-byte unchanged; show a concise final inventory of files created/modified **only in `Topics/Local_Star/`**, with direct imports and any genuinely unresolved statements listed as OPEN. Do not replace failed proofs by additional assumptions or silently change their types/quantifiers.
 
 **STOP CONDITION:** Do not implement the full DtN `31/27` census, general coupled-block gluing, arbitrary global root-to-depth resistance, infinite-network boundary values, exterior algebras, Clifford/spin structures, or physical interpretations in Task 01. These require their own later, interface-checked tasks. Deliver the actual complete locally measured unit-star construction first.

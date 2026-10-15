@@ -13,6 +13,8 @@ Unit *path count* already belongs to Foundation; **unit electrical conductance i
 This topic contains geometrical rank classifications and mathematically qualified candidate arity-selection principles, but no Clifford/spin/quaternion/Lorentz analyses or independent number systems. Never identify native infinite ray ends with resistance-metric completion without a proof.
 
 ## Navigation
+- [Offline handoff — read first](_formalization/OFFLINE_HANDOFF.md)
+- [Starting guide](docs/START_HERE.md)
 - [Mathematical scope](docs/MATHEMATICAL_SCOPE.md)
 - [PSD, PD and identity metric](docs/METRIC_FORMS_AND_POSITIVITY.md)
 - [Boundary census](docs/DTN_CENSUS.md)
