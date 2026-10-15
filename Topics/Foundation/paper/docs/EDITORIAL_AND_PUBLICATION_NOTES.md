@@ -1,6 +1,6 @@
 # Editorial metadata, source distinction, and release staging
 
-Editor: **Jan Seeck**. Editor contact: **jan.seeck1@gmail.com** (confirmed by the editor on 15 October 2026). No author or affiliation was supplied; the author fields remain placeholders by design and should not be filled without explicit instruction.
+Editor: **Jan Seeck**. Editor contact: **jan.seeck1@gmail.com** (confirmed by the editor on 15 October 2026). No author or affiliation has been designated, so no author or affiliation field is printed. Jan Seeck is credited as Editor, not as an author.
 
 The paper explicitly distinguishes its intrinsic word-tree incidence `(w, a::w)` from (i) arbitrary graphs equipped with address labels and (ii) Stern--Brocot rational mediant-labelled binary trees. The tree is not first posited as a rational-labelled graph: within one dependency-ordered mathematical development, unary path counts, normalized integers, fractions and triple representations are constructed starting from the primitive word tree. Statements about Stern--Brocot are mathematical background, *not* newly formalized Lean theorems or claims of generic graph-model inequivalence.
 

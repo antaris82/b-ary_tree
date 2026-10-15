@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.6)  15 OCT 2026 07:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.6)  15 OCT 2026 09:31
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
@@ -827,7 +828,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  14903 strings out of 473197
  228205 string characters out of 5718606
- 670606 words of memory out of 5000000
+ 670461 words of memory out of 5000000
  37058 multiletter control sequences out of 15000+600000
  654190 words of font info for 304 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -849,10 +850,9 @@ nts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pf
 b></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (56 pages, 723806 bytes).
+Output written on main.pdf (56 pages, 724415 bytes).
 PDF statistics:
  1479 PDF objects out of 1728 (max. 8388607)
  1354 compressed objects within 14 object streams
  290 named destinations out of 1000 (max. 500000)
  48529 words of extra memory for PDF output out of 51595 (max. 10000000)
-

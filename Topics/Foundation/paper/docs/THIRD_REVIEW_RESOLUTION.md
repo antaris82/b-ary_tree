@@ -35,4 +35,4 @@ The two user-provided third reviews found no new mathematical error in the 25 na
 
 ## Release limitation
 
-Author/affiliation information remains outstanding because the user only supplied an **editor** identity. The supplied email is `jan.seeck1@gmail.com` (corrected and confirmed by the editor on 15 October 2026). The user requests **no solicitation of external opinion until the repository has been published and this documentation integrated**; neither has been performed in this editorial revision.
+No author or affiliation has been designated; the title block deliberately omits those fields and identifies the **editor** separately. The supplied email is `jan.seeck1@gmail.com` (corrected and confirmed by the editor on 15 October 2026). The user requests **no solicitation of external opinion until the repository has been published and this documentation integrated**; neither has been performed in this editorial revision.
