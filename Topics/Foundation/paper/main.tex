@@ -66,7 +66,7 @@ The relevant external settings are the theory of rooted trees and ends \cite{ser
 
 Our algebraic results have two different invariance patterns. All alphabets with two distinguished different letters yield isomorphic rational fields. In contrast, when the number of children is the positive finite unary count $b$, the zero-sum subspace of child coordinates has rank $b-1$, with complementary linear projections and an orthogonal splitting for its defined symmetric coordinate form. In countable branching this subspace has a countably indexed algebraic basis, whereas the finite uniform lines are not preserved under their specified zero-padding inclusions. The boundary of rays and the rational Cauchy quotient add independent topological and analytic constructions.
 
-\par\smallskip\noindent\emph{Reading the proofs.} Detailed supporting arguments, hypotheses and scope clarifications appear immediately after the relevant main-text discussion under unnumbered headings. Only source-verification material remains in the technical appendices; no separate catalogue of mathematical proofs is needed.\par\smallskip
+\par\smallskip\noindent\emph{Reading the proofs.} Detailed supporting arguments, hypotheses and scope clarifications appear immediately after the relevant main-text discussion under unnumbered headings. Apart from Appendix A\textquotesingle s focused mathematical estimates, only source-verification material remains in the other technical appendices; no separate catalogue of mathematical proofs is needed.\par\smallskip
 \begin{remark}[Foundational scope]
 The natural, integral and rational carriers are \emph{internally represented} respectively by unary words, normalized signed pairs and quotients of admissible path triples, although their ordinary mathematical behavior is familiar. This is not a new axiomatization of arithmetic in the Lean kernel. The generic field interfaces used later explicitly include characteristic zero. The formal library avoids external imported arithmetic and does not import mathlib. Statements involving completion, positivity, order or infinite families are made only under the exact hypotheses recorded below. The theorem-to-source correspondence and the recorded local verification are supplied separately.
 \end{remark}
@@ -144,7 +144,7 @@ the mediant operation
 \frac{p}{q}\mathbin{\oplus_{\mathrm{med}}}\frac{r}{s}
    :=\frac{p+r}{q+s},
 \]
-starting from rational boundary data; the resulting enumeration of
+starting from the formal boundary pairs $0/1$ and $1/0$; the resulting enumeration of
 positive rational numbers is studied in the original work of Stern
 \cite{stern1858} and, for exact arithmetic on that representation, by
 Niqui \cite{niqui2007}. No Stern--Brocot mediant, Farey-neighbour
