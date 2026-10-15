@@ -1,0 +1,10 @@
+name = "LocalStar"
+defaultTargets = ["LocalStar"]
+
+[[require]]
+name = "TreeFoundations"
+path = "../../Foundation/lean"
+
+[[lean_lib]]
+name = "LocalStar"
+globs = ["LocalStar", "LocalStar.+"]
