@@ -1,6 +1,6 @@
 # Foundation — arithmetic reconstruction from finite words
 
-The Task-06 mathematical theme paper and frozen Lean 4.28.0 source are stored **unpacked** in this directory. The folder name **Foundation** identifies a project topic, not a claim to introduce new foundations of mathematics. The paper emphasizes the shared finite-word and path-count representations of familiar arithmetic while distinguishing the different operations required at each step.
+The Task-06 mathematical theme paper and frozen Lean 4.28.0 source are stored **unpacked** in this directory. The arithmetic is also intended for reuse as a restricted numerical infrastructure in later project formalizations; the present mathematical results do not themselves establish those applications or unrestricted executability. The folder name **Foundation** identifies a project topic, not a claim to introduce new foundations of mathematics. The paper emphasizes the shared finite-word and path-count representations of familiar arithmetic while distinguishing the different operations required at each step.
 
 ## Start here
 
