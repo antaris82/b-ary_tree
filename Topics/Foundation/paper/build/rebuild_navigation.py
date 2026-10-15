@@ -45,13 +45,13 @@ for n,l in enumerate(lines,1):
     m=re.match(r'\\subsection\{([^}]+)\}',l)
     if m:sections.append((sec,m.group(1),n,"main:sub-" in l))
 assert sum(t for *_,t in sections)==63
-assert len(sections)==72,len(sections)
-out=["# Main-text subsection map — current manuscript","","Includes 63 established numbered mathematical subsections, five motivation subsections, and four technical appendix subsections. The 89 inline treatments have a separate navigation map.","","| No. | Section | Subsection | main.tex line | Original plan topics | Status |","|---:|---|---|---:|---|---|"]
+assert len(sections)==73,len(sections)
+out=["# Main-text subsection map — current manuscript","","Includes 63 established numbered mathematical subsections, six motivation subsections, and four technical appendix subsections. The 89 inline treatments have a separate navigation map.","","| No. | Section | Subsection | main.tex line | Original plan topics | Status |","|---:|---|---|---:|---|---|"]
 for i,(sec,title,n,tracked) in enumerate(sections,1):
     status="main mathematics" if tracked else ("motivation" if sec.startswith("Motivation") else "technical appendix")
     out.append("| {} | {} | {} | {} | {} | {} |".format(i,sec,title,n,topic.get(title,"—"),status))
 (docs/"MAIN_TEXT_SUBSECTION_MAP.md").write_text("\n".join(out)+"\n")
-print("PASS: 25 results, 72 subsections, 89 PDF destinations")
+print("PASS: 25 results, 73 subsections, 89 PDF destinations")
 
 # A generated checksum register cannot include its own checksum.
 # Hash every Git-tracked Foundation file present in the checked-out worktree.
