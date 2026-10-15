@@ -55,17 +55,18 @@ The relevant external settings are the theory of rooted trees and ends \cite{ser
 
 Our algebraic results have two different invariance patterns. All alphabets with two distinguished different letters yield isomorphic rational fields. In contrast, when the number of children is the positive finite unary count $b$, the zero-sum subspace of child coordinates has rank $b-1$, with complementary linear projections and an orthogonal splitting for its defined symmetric coordinate form. In countable branching this subspace has a countably indexed algebraic basis, whereas the finite uniform lines are not preserved under their specified zero-padding inclusions. The boundary of rays and the rational Cauchy quotient add independent topological and analytic constructions.
 
+\par\smallskip\noindent\emph{Navigation to the detailed proofs.} Appendix~\ref{app:longform} expands the mathematical arguments in 89 individually numbered entries; each entry links back to the corresponding main-text discussion. The initial contextual entries refer to this Introduction rather than to nonexistent subsections.\par\smallskip
 \begin{remark}[Foundational scope]
 The natural, integral and rational carriers are \emph{internally represented} respectively by unary words, normalized signed pairs and quotients of admissible path triples, although their ordinary mathematical behavior is familiar. This is not a new axiomatization of arithmetic in the Lean kernel. The generic field interfaces used later explicitly include characteristic zero. The formal library avoids external imported arithmetic and does not import mathlib. Statements involving completion, positivity, order or infinite families are made only under the exact hypotheses recorded below. The theorem-to-source correspondence and the recorded local verification are supplied separately.
 \end{remark}
 
 \clearpage
 \section{Finite words and rooted incidence}\label{sec:words}
-\subsection{Words, root and parent relation}
+\subsection{Words, root and parent relation}\label{main:sub-01}
 Fix a type $A$ of letters. Write $A^{<\omega}$ for finite words; its root is the empty word $\epsilon$. We follow the inductive orientation of the source: a child of $w$ is $a::w$, with $a\in A$ prepended to $w$. An oriented edge has endpoints $(w,a::w)$. Its depth $d(w)$ is its word length, a unary count constructed below. The immediate parent of $a::w$ is $w$; $\epsilon$ has no parent. These facts are immediate from injectivity and disjointness of the list constructors.
 
 
-\subsection{Intrinsic word trees versus rationally labelled graph models}\label{subsec:sternbrocot}
+\subsection{Intrinsic word trees versus rationally labelled graph models}\label{main:sub-02}\label{subsec:sternbrocot}
 The construction begins with the carrier $A^{<\omega}$ and its 
 \emph{defining} incidence $w\longrightarrow a::w$. Thus the empty word, the
 unique predecessor of each nonempty word, and the finite root-edge lists
@@ -115,15 +116,15 @@ For every word $w$, there is exactly one oriented finite edge list from $\epsilo
 For the root the empty edge list is the required path. If $w=a::v$, any directed root path ending at $w$ must have the edge $(v,a::v)$ as its last edge, since $w$ has the unique immediate parent $v$. Removing this last edge leaves a directed root path to $v$. Induction on $v$ proves existence and uniqueness and reconstructs exactly the recursively defined list of root edges. The argument asserts uniqueness of \emph{directed root-path edge lists}, not uniqueness among arbitrary undirected walks with repetitions.
 \end{proof}
 
-\subsection{Connectedness, cycles and depth}
+\subsection{Connectedness, cycles and depth}\label{main:sub-03}
 Every vertex has a directed route from the root by Proposition~\ref{prop:path}. Thus any two vertices have a connecting undirected walk obtained by concatenating one reversed root path with the other. A nontrivial directed cycle is excluded because every child has strictly larger depth than its parent. More strongly, the underlying \emph{undirected} incidence graph admits no nonempty closed walk with pairwise distinct edges. To see this, every edge $e=(v,a::v)$ separates the descendants of $a::v$ from all other vertices: a path leaving that descendant subtree must use $e$. If a closed walk traversed $e$ once and never repeated an edge, the remaining walk would have to cross the same cut to return to its initial vertex, hence reuse $e$, a contradiction. This cut argument applies to undirected traversals; backtracking walks with repeated edges are not ruled out. For a supplied letter $a$, the words $a^n$ show unbounded depth. Without a letter the only word is the root, so unboundedness is not asserted.
 
-\subsection{Finite and countable branching}
+\subsection{Finite and countable branching}\label{main:sub-04}
 Once the unary carrier $\N$ is defined in Section~\ref{sec:naturals}, the alphabet of arity $b\in\N$ is $\Fin(b)=\{i\in\N:i<b\}$. The countably branching tree has alphabet $\N$ itself. The source constructs successor-arity word embeddings $\Fin(b)^{<\omega}\to\Fin(b+1)^{<\omega}$ and embeddings into the countably branching words. For $b\le c$, finite iteration of successor embeddings gives a compatible word injection into the $c$-ary tree; this iterated map is a mathematical consequence, not a separate named source theorem. Every finite $\N$-word uses finitely many letters. Take a unary count strictly greater than all those letters to see it as an image of a finite-arity word; the same reasoning applies to a finite edge. Accordingly the union of finite-arity vertices and edges gives the countably branching \emph{finite-word} tree, but not its entire ray boundary.
 
 \clearpage
 \section{Unit-edge path sums}\label{sec:pathsum}
-\subsection{Finite sums on the actual root-edge list}
+\subsection{Finite sums on the actual root-edge list}\label{main:sub-05}
 Assign the unit contribution to each oriented parent--child edge. Define $s(w)$ by folding addition over the finite edge list of Proposition~\ref{prop:path}, with initial value zero. This is genuinely a finite edge sum, not a label introduced independently at each vertex.
 \begin{proposition}[Path sum equals depth]\label{prop:pathsum}
 For every finite word $w$, $s(w)=d(w)$.
@@ -131,12 +132,12 @@ For every finite word $w$, $s(w)=d(w)$.
 \begin{proof}
 The two functions vanish at $\epsilon$. The recursively extended root path to $a::w$ appends one unit edge, so $s(a::w)=s(w)+1$. Word depth obeys the same successor equation. Structural induction gives the result.
 \end{proof}
-\subsection{Primitive observations along rays}
+\subsection{Primitive observations along rays}\label{main:sub-06}
 If $\xi$ is an infinite ray, its prefix of depth $n$ has $s(\xi|_n)=n$ by Proposition~\ref{prop:pathsum}. This value is independent of every letter of the ray. Under the rational Cauchy criterion of Section~\ref{sec:cauchy}, the raw sequence $n\mapsto n$ is not Cauchy: consecutive indices arbitrarily far along the tail have difference one, exceeding a sufficiently small dyadic tolerance. This is an obstruction for this \emph{particular observable}; it says nothing about other ray encodings.
 
 \clearpage
 \section{The unary natural semiring}\label{sec:naturals}
-\subsection{Construction and recursion}
+\subsection{Construction and recursion}\label{main:sub-07}
 Let $U$ be the one-letter type and let $\N=U^{<\omega}$. Its empty word $0$ and unique-letter extension $\mathsf{s}(n)$ serve as zero and successor. Addition is concatenation. Multiplication is repeated concatenation: with the conventions fixed by the recursion in the source,
 \begin{equation}\label{eq:recn}
 m+0=m,\quad m+\mathsf{s}(n)=\mathsf{s}(m+n),\quad m0=0,\quad m\mathsf{s}(n)=mn+m.
@@ -150,10 +151,10 @@ The carrier $\N$ with these operations is a commutative semiring with distinct z
 Associativity of concatenation supplies that of addition. Inducting on $n$ in $m+n=n+m$, the successor equation in \eqref{eq:recn} reduces the step to the compatibility of successor with addition in both arguments, itself proved by induction. The multiplication recursion gives $m(n+p)=mn+mp$ by induction on $p$; its symmetric recursion is obtained inductively and yields commutativity of multiplication. Inducting again and using distributivity gives associativity of multiplication. Empty-word and unique-letter constructor equations prove the zero, one and no-collapse laws. These are precisely induction arguments on $U^{<\omega}$, not an appeal to a pre-existing integral domain.
 \end{proof}
 
-\subsection{Order and cancellation}
+\subsection{Order and cancellation}\label{main:sub-08}
 Write $m\le n$ when $n=m+k$ for some unary $k$. Concatenation cancellation, obtained from structural recursion, makes this order antisymmetric; induction gives totality and successor trichotomy. Translation preserves and reflects order. The strict relation $m<n$ means $n=m+\mathsf{s}(k)$ for some $k$, agreeing with the path-order interface. The arithmetic steps used below, especially positivity of products of strictly positive unary counts, follow by induction from these definitions.
 
-\subsection{Equal-depth quotients}
+\subsection{Equal-depth quotients}\label{main:sub-09}
 For an alphabet $A$ set $w\sim_d v$ exactly when $s(w)=s(v)$. Let $D(A)=A^{<\omega}/\!\sim_d$. The operations on classes are defined by
 \[
  [w]+_D[v]=[\operatorname{graft}(w,v)],\qquad
@@ -164,34 +165,34 @@ Here $\operatorname{graft}$ is word concatenation and $\operatorname{repeatW}(w,
 
 \clearpage
 \section{Signed path differences}\label{sec:integers}
-\subsection{Difference pairs and equivalence}
+\subsection{Difference pairs and equivalence}\label{main:sub-10}
 For $m,n,p,q\in\N$ define $(m,n)\sim_Z(p,q)$ if $m+q=p+n$. Reflexivity and symmetry are immediate. To prove transitivity, combine $m+q=p+n$ and $p+s=r+q$ and cancel the common $p+q$ terms, using commutativity and unary cancellation, to obtain $m+s=r+n$. The relation describes the abstract difference quotient, but the constructed carrier $\Z$ is \emph{not} literally that quotient: it is the type of normal-form pairs described next.
-\subsection{Normal forms}
+\subsection{Normal forms}\label{main:sub-11}
 Define the actual carrier
 \[
  \Z=\{(m,n)\in\N^2 : m=0\ \text{or}\ n=0\}.
 \]
 Repeatedly cancel a common successor from both entries of $(m,n)$ until at least one is zero. Each step preserves $\sim_Z$; termination follows by structural recursion on the pair. The normalization map sends each raw pair to a related normal-form pair (\texttt{TreeZ.mkZ\_pairEq}). If two raw pairs are related, their normal forms are equal (\texttt{TreeZ.mkZ\_sound}); conversely, equality of normal forms implies that the raw pairs are related (\texttt{TreeZ.mkZ\_exact}). The first implication is proved by uniqueness of normalized representatives. Hence each equivalence class has exactly one normal representative. This argument is more than a choice of notation: it supplies decidable comparison and the explicit sign cases used in rational inversion.
-\subsection{Arithmetic and integral-domain laws}
+\subsection{Arithmetic and integral-domain laws}\label{main:sub-12}
 On raw pairs, before normalization, define
 \begin{equation}\label{eq:integerops}
 (m,n)+(p,q)=(m+p,n+q),\quad -(m,n)=(n,m),\quad
 (m,n)(p,q)=(mp+nq,mq+np).
 \end{equation}
 Operations on $\Z$ are obtained by applying these formulas to raw components and \emph{normalizing} the result. The relation is respected by each operation because the relevant cross-sums become equal after distributive expansion. For example a replacement $(m,n)\sim_Z(m',n')$ in a product replaces the formal difference $m-n$ by the equal formal difference $m'-n'$, and expanding both products gives equal cross-sums without ever performing subtraction in $\N$. All associative, commutative and distributive laws reduce to semiring identities in $\N$; additive inverses reduce to cancellation of equal entries. To exclude zero divisors, use the three normalized sign cases and positivity of a product of positive unary counts. This is the explicit ordered integral-domain argument implemented in the source.
-\subsection{Natural embedding and order}
+\subsection{Natural embedding and order}\label{main:sub-13}
 The map $n\mapsto(n,0)\in\Z$ is injective: equality of normalized pairs forces $n=m$. The corresponding equality of difference classes likewise follows from the defining relation. Positive and negative normalized classes define the signed order. Its totality follows from the normal form; compatibility of the embedding with order follows from its construction. These facts are later used to ensure that every positive unary denominator is nonzero in $\Z$.
 
 \clearpage
 \section{Path-triple rational numbers}\label{sec:rationals}
-\subsection{Admissible data}
+\subsection{Admissible data}\label{main:sub-14}
 For an alphabet $A$, an admissible path triple $t=(P_1,P_2,P_3)$ consists of three pairwise distinct finite words with $d(P_2)>d(P_3)$. Define
 \[
 a(t)=d(P_1)-d(P_2)\in\Z,\qquad d(t)=d(P_2)-d(P_3)\in\N^{+}.
 \]
 Here the two differences are the signed and positive-count operations just constructed. The representation constraint is not merely a denominator convention: two distinct letters are used to ensure that every desired numerator and denominator admit three \emph{pairwise distinct} word representatives.
 
-\subsection{The auxiliary fraction relation}
+\subsection{The auxiliary fraction relation}\label{main:sub-15}
 Let $\mathcal F=\{(a,d):a\in\Z,\ d\in\N^{+}\}$. Write $\bar d\in\Z$ for the natural embedding. Set
 \begin{equation}\label{eq:fracrel}
 (a,d)\sim_F(c,e)\quad\Longleftrightarrow\quad a\bar e=c\bar d.
@@ -203,7 +204,7 @@ The relation \eqref{eq:fracrel} is an equivalence relation.
 Only transitivity requires argument. Given $a\bar e=c\bar d$ and $c\bar f=g\bar e$, multiplication gives $(a\bar f)\bar e=(g\bar d)\bar e$. Since $e>0$, its image $\bar e$ is nonzero. Cancellation in the constructed integral domain gives $a\bar f=g\bar d$. Reflexivity and symmetry are immediate.
 \end{proof}
 
-\subsection{Congruence of operations and field laws}
+\subsection{Congruence of operations and field laws}\label{main:sub-16}
 Define on raw fractions
 \begin{align}\label{eq:fracops}
 (a,d)+(c,e)&=(a\bar e+c\bar d,de),& (a,d)(c,e)&=(ac,de),\\
@@ -233,7 +234,7 @@ the raw denominators differ by a factor $d$, which is removed only after applyin
 If $a=0$, define $(a,d)^{-1}=0$. If $a>0$, its normalized integer form is $\bar n$ with $n>0$, and set $(a,d)^{-1}=(\bar d,n)$. If $a<0$, write $a=-\bar n$ with $n>0$ and set $(a,d)^{-1}=(-\bar d,n)$. Equivalent nonzero fractions have like signs because both denominators are positive; their inverse cross-product identities are the original identities with the two factors interchanged (and a common minus sign in the negative case). Therefore inversion respects equivalence. For nonzero $a$ the displayed fraction and its inverse multiply to a class equivalent to $(1,1)$. Finally $n/1=0/1$ implies $n=0$, so no positive unary numeral vanishes in the quotient. Thus characteristic zero holds.
 \end{proof}
 
-\subsection{Universal triple witnesses}
+\subsection{Universal triple witnesses}\label{main:sub-17}
 Here is the concrete witness underlying the surjectivity assertion. Fix distinct letters $a_0,a_1$ and let $a=\bar p-\bar q$ be the normalized signed-pair presentation. For a positive denominator $D$, take
 \[
 P_1=a_0^{\,p+2+D},\qquad
@@ -242,7 +243,7 @@ P_3=a_0::a_1^{\,q+1}.
 \]
 Their respective depths are $p+2+D$, $q+2+D$ and $q+2$. The second--third depth gap is $D$ and the first--second depth difference is $p-q=a$. They are pairwise distinct: $P_1$ and $P_2$ begin with different letters; $P_2$ and $P_3$ do also; while $P_1$ begins with two $a_0$ letters and $P_3$ with $a_0,a_1$. These are precisely the word patterns used in the source's \texttt{TriplePath.witness}. Therefore every $a\in\Z$ and $D>0$ admits an admissible triple of the required arithmetic data. Denote the quotient of triples by $\Q(A)$. Its equivalence identifies triples precisely when the associated auxiliary fractions satisfy \eqref{eq:fracrel}. Therefore the map $[t]\mapsto[(a(t),d(t))]$ is well defined and surjective by the witness theorem; it is injective by exactness of the quotient relation. The unary triple representation is exceptional: in the one-letter alphabet distinct words have distinct lengths. Every admissible triple has $a=d_1-d_2$ and $D=d_2-d_3>0$. Pairwise distinctness gives $d_1\ne d_2$ and $d_1\ne d_3$, so $a\ne0$ and $a\ne-D$. Consequently the values $0$ and $-1$ \emph{cannot} be represented by unary admissible triples. The zero obstruction is a named Lean theorem; the exclusion of $-1$ is an elementary mathematical deduction from the formalized triple constraints, \emph{not} an additionally kernel-checked unary-image theorem. We make no formal claim here that these are exactly the omitted values. The obstruction concerns the triple representation, not the existence of rational arithmetic on unary path counts.
 
-\subsection{Transported field structure and order}
+\subsection{Transported field structure and order}\label{main:sub-18}
 Write $F=\Frac(\Z)$, and let $\Phi_A:\Q(A)\to F$ take an admissible triple class to its associated positive-denominator fraction. The witness construction above defines its inverse $\Psi_A:F\to\Q(A)$ for a supplied pair of distinct letters. \emph{The path-triple operations are defined by transport through $F$:}
 \begin{align}\label{eq:transport}
  x\oplus y&=\Psi_A(\Phi_A(x)+\Phi_A(y)), &
@@ -264,11 +265,11 @@ shows that nonnegativity of the right side transfers to the left by positivity a
 
 \clearpage
 \section{Ordered fraction comparison and arity independence}\label{sec:arity}
-\subsection{Identification with the internal fraction field}
+\subsection{Identification with the internal fraction field}\label{main:sub-19}
 \begin{theorem}[Ordered-field comparison]\label{thm:fraciso}
 For every alphabet $A$ equipped with two distinct letters, the maps
 \[
-\Phi_A:\Q(A)\longrightarrow\Frac(\Z),\qquad [t]\longmapsto[(a(t),d(t))],
+\Phi_A:\Q(A)\longrightarrow\Frac(\Z),\quad [t]\longmapsto[(a(t),d(t))],
 \]
 \[
 \Psi_A:\Frac(\Z)\longrightarrow\Q(A)
@@ -278,7 +279,7 @@ where $\Psi_A$ uses the explicit triple witnesses, are mutually inverse ordered-
 \begin{proof}
 Both maps descend to classes by the fraction congruence and triple exactness. On a raw fraction $f$, the witness triple has precisely the numerator and denominator of $f$, giving $\Phi_A\Psi_A([f])=[f]$. Conversely, if $[t]$ is a triple class, the witness corresponding to its fraction is equivalent to $t$ by the cross-product relation; hence $\Psi_A\Phi_A([t])=[t]$. By the explicit transport definitions \eqref{eq:transport} and the inverse identities, $\Phi_A$ preserves zero, one, addition, multiplication, negation and the sign-corrected inverse. The field comparison is therefore structural \emph{by construction}, not a newly deduced operation law of parent--child incidence. Finally both orders are induced by \eqref{eq:orderfrac}; the representative-independence calculation above proves both preservation and reflection. These are equality-on-quotient arguments, not identifications of individual paths.
 \end{proof}
-\subsection{Comparison across alphabets}
+\subsection{Comparison across alphabets}\label{main:sub-20}
 \begin{corollary}[Arity independence]\label{cor:arity}
 If $A$ and $B$ are alphabets each equipped with two distinct letters, then
 $\Q(A)\cong\Q(B)$ as ordered fields. In particular finite arities $b,c\ge2$ have isomorphic rational fields.
@@ -286,12 +287,12 @@ $\Q(A)\cong\Q(B)$ as ordered fields. In particular finite arities $b,c\ge2$ have
 \begin{proof}
 Compose $\Phi_A$ with $\Psi_B$ from Theorem~\ref{thm:fraciso}. The underlying comparison is a field isomorphism; order preservation is additionally provided in the source by \texttt{TreeQ.transfer\_le}. Applying the inverse transfer gives order reflection. Preservation of the natural embedding follows from the defining numerator-one denominator-one representatives. Identity and composition of these transfers reduce to cancellation of inverse maps through the shared fraction field.
 \end{proof}
-\subsection{What the comparison does not identify}
+\subsection{What the comparison does not identify}\label{main:sub-21}
 The isomorphism forgets the letters of a triple, retaining only two signed path-count differences. It is not a rooted-tree isomorphism, not a map between individual vertices preserving child labels, and not a statement about the coordinate ranks of the next section. The arithmetic representation requires two letters to realize all triples; the abstract auxiliary fraction field does not.
 
 \clearpage
 \section{Finite child-coordinate modules}\label{sec:finite}
-\subsection{Coordinates and the chosen bilinear form}
+\subsection{Coordinates and the chosen bilinear form}\label{main:sub-22}
 Fix a carrier $K$ satisfying the project's characteristic-zero field interface, and a positive unary arity $b$. Put $F_b=K^{\Fin(b)}$, with pointwise addition and scalar multiplication. Let $e_i$ be the vector supported with coefficient one at $i$. Define the coordinate sum and symmetric bilinear form by
 \[
 \sigma_b(x)=\sum_{i<b}x_i,\qquad B_b(x,y)=\sum_{i<b}x_iy_i.
@@ -324,7 +325,7 @@ Distributing in the second coordinate proves the other additive identity. Scalar
 using associativity; the right-hand argument follows using commutativity and associativity of multiplication. Finally, $x_i y_i=y_i x_i$ pointwise proves symmetry. Additivity applied to $0+0$ and $x+(-x)$, or direct finite-sum calculations, yields the zero and negative identities. No positive-arity assumption and no order axioms enter any of these identities.
 \end{proof}
 
-\subsection{Longitudinal and transverse subspaces}
+\subsection{Longitudinal and transverse subspaces}\label{main:sub-23}
 Let $u_b=(1,\ldots,1)$ and set
 \[
 L_b=\{a u_b:a\in K\},\qquad S_b=\ker\sigma_b.
@@ -349,7 +350,7 @@ x=\sum_{j=1}^{b-1}x_j(e_j-e_0).
 This is spanning by an explicit finite linear combination. In the unary case there are no $v_j$, so $S_1=\{0\}$ and the empty family is its basis. The ranks asserted are the ordinary algebraic cardinalities of these displayed bases, not instances of an imported \texttt{finrank} API.
 \end{proof}
 
-\subsection{Projections and direct sum}
+\subsection{Projections and direct sum}\label{main:sub-24}
 \begin{theorem}[Finite decomposition]\label{thm:directsum}
 For $b>0$ in a field of characteristic zero, define
 \[
@@ -365,7 +366,7 @@ The first inclusion is by construction. Since $\sigma_b(u_b)=b\cdot1_K$ and its 
 For uniqueness let $au_b\in L_b\cap S_b$; the coordinate sum is $ba=0$, hence $a=0$. Subtracting two decompositions shows that their longitudinal components lie in this intersection; both are therefore equal. The operator relations that follow from this uniqueness are established separately in the next theorem and are also direct, named results of the formal development.
 \end{proof}
 
-\subsection{Complementary linear projections and their images}
+\subsection{Complementary linear projections and their images}\label{main:sub-25}
 \begin{theorem}[Complementary projection operators]\label{thm:projectionlaws}
 Let $b>0$ and let $K$ satisfy the characteristic-zero field interface above. The maps $P_L,P_S:F_b\to F_b$ are linear, and for every $x\in F_b$,
 \begin{gather*}
@@ -401,7 +402,7 @@ The formula $P_L+P_S=I$ was part of the constructed decomposition.
 Every image point of $P_L$ belongs to $L_b$. Conversely, if $\ell\in L_b$, then $\ell=P_L\ell$; hence $\operatorname{im}P_L=L_b$. The argument for $P_S$ and $S_b$ is identical. If $x\in S_b$, then $P_Lx=0$; conversely if $P_Lx=0$, the decomposition $x=P_Sx$ shows $x\in S_b$. Thus $\ker P_L=S_b$. Interchanging the components gives $\ker P_S=L_b$.
 \end{proof}
 
-\subsection{Orthogonality and the splitting of the bilinear form}
+\subsection{Orthogonality and the splitting of the bilinear form}\label{main:sub-26}
 \begin{theorem}[Algebraic orthogonal splitting]\label{thm:bilinearsplit}
 Under the hypotheses of Theorem~\ref{thm:projectionlaws},
 \[
@@ -427,12 +428,12 @@ $x=P_Lx+P_Sx$ and $y=P_Ly+P_Sy$, where the first components belong to $L_b$ and 
 Equation~\eqref{eq:bilinearsplit} is an identity for the \emph{specified symmetric bilinear form}. No positive-definiteness, metric, Hilbert-space completion, canonical tangent space, or geometric dimension of the tree follows from this algebraic identity. See \cite[\S 9A]{axler} for the standard distinction between symmetric bilinear forms and inner products.
 \end{remark}
 
-\subsection{Permutations and the unary exception}
+\subsection{Permutations and the unary exception}\label{main:sub-27}
 Every permutation of the $b$ child indices preserves $\sigma_b$ and $B_b$, by finite reindexing. Consequently it preserves the two displayed subspaces. For $b=1$ the transverse space is zero; for $b=0$ the positive-arity hypotheses of the direct-sum theorem do not apply. Neither $b-1$ nor any of these coordinate ranks measures the topological dimension of the rooted tree or of its boundary.
 
 \clearpage
 \section{Countably branching algebraic coordinates}\label{sec:omega}
-\subsection{Finite support and coordinate sums}
+\subsection{Finite support and coordinate sums}\label{main:sub-28}
 Let $K^{(\N)}$ denote functions $x:\N\to K$ with finite support, with pointwise operations. Since a finite support lies below some unary bound, $\sigma_\omega(x)=\sum_i x_i$ means the stabilized finite sum. Write
 \[
 S_\omega=\{x\in K^{(\N)}:\sigma_\omega(x)=0\}.
@@ -448,7 +449,7 @@ A finite linear combination $\sum_{i\in I}a_iv_i=0$ gives $a_i=0$ on each positi
 because the positive coordinates agree and the zeroth coordinate is forced by the zero-sum condition. No limiting infinite series is invoked.
 \end{proof}
 
-\subsection{Compatible embeddings}
+\subsection{Compatible embeddings}\label{main:sub-29}
 Zero-padding a vector of arity $b$ into the first $b$ coordinates of arity $b+1$ preserves addition, scalar multiplication, finite coordinate sums, and hence the zero-sum condition. The same construction embeds finite transverse vectors into $S_\omega$. Each $e_j-e_0$ maps to the corresponding vector at the next arity, giving compatibility of the explicit transverse bases.
 
 \begin{theorem}[Longitudinal incompatibility for zero-padding]\label{thm:omegauniform}
@@ -458,18 +459,18 @@ For positive finite arity $b$, the zero-padding image of the uniform vector $u_b
 The zero-padded $u_b$ has coefficient one at coordinate zero (as $b>0$) and zero at the new coordinate $b$. If it equalled $a u_{b+1}$, inspection of these two coordinates would give $a=1$ and $a=0$, contrary to nontriviality of $K$. The everywhere-one function has nonzero coefficients at arbitrarily large unary indices; its support is therefore not finite. Thus it cannot be in the algebraic direct sum.
 \end{proof}
 
-\subsection{Exact limiting conclusion}
+\subsection{Exact limiting conclusion}\label{main:sub-30}
 The transverse inclusions define an algebraically compatible directed family. The longitudinal inclusions do not, with these embeddings. The theorem neither prohibits alternative transport rules nor proves a universal absence of limiting longitudinal directions in every ambient space. In particular it does not construct a tangent vector at infinity.
 
 \clearpage
 \section{Infinite rays and the prefix boundary}\label{sec:boundary}
-\subsection{Rays and finite prefixes}
+\subsection{Rays and finite prefixes}\label{main:sub-31}
 For an alphabet $A$, a ray is a function $\xi:\N\to A$, denoted $\xi\in\rays_A=A^{\N}$. The prefix $\xi|_n$ is the source-oriented word containing its first $n$ symbols. Equality of rays follows from agreement at every finite prefix, since evaluation at the index $n$ can be recovered from a sufficiently long prefix. Along a ray the prefix depths are unbounded if its alphabet is inhabited.
 
-\subsection{Noncommutation with finite-arity unions}
+\subsection{Noncommutation with finite-arity unions}\label{main:sub-32}
 Every finite-arity ray maps into the countable-arity ray space by its letter inclusion. But the ray $\xi(n)=n$ in $\N^{\N}$ has unbounded letters; if it came from any fixed $\Fin(b)$, then every $n$ would be $<b$, a contradiction at $n=b$. Hence the union of the finite subboundaries is a proper subset of the countably branching boundary, although the union of finite-word vertices is exhaustive.
 
-\subsection{Cylinders and topology}
+\subsection{Cylinders and topology}\label{main:sub-33}
 For a finite word $w$ define the cylinder $C(w)=\{\xi:w\text{ is a prefix of }\xi\}$. The prefix topology declares $U$ open if every $\xi\in U$ lies in a cylinder $C(\xi|_n)$ contained in $U$ for some finite $n$. This is the usual cylinder-basis pattern, expressed by the project's own \texttt{PrefixOpen} predicate \cite{kechris}. Each cylinder is open by its definition. If a ray $\xi$ fails to lie in $C(w)$, every ray having the same prefix of length $d(w)$ as $\xi$ also fails to lie in $C(w)$: otherwise prefix agreement would imply $\xi\in C(w)$, a contradiction. Hence the complement of $C(w)$ is open \emph{without} assuming decidable equality of letters. A supplied differing coordinate, rather than this complement argument, is used for the explicit separation of two distinct rays.
 
 \begin{proposition}[Separated rays]\label{prop:separate}
@@ -479,10 +480,10 @@ If two rays differ at a specified index, disjoint clopen cylinders separate them
 Given $n$ with $\xi(n)\ne\eta(n)$, take their prefixes of length $n+1$. Any ray in both corresponding cylinders would agree in its $n$th letter with each given ray, contradicting the inequality. Both cylinders are clopen by the preceding finite-prefix argument.
 \end{proof}
 
-\subsection{Connectedness and isolated points}
+\subsection{Connectedness and isolated points}\label{main:sub-34}
 Assume here that the alphabet $A$ has decidable equality (the source hypothesis \texttt{[DecidableEq $A$]}). The separation in Proposition~\ref{prop:separate}, together with the particular connectedness predicate used by the source, implies that a connected subset of the boundary is a subsingleton. Indeed, for any $\xi,\eta$ in such a subset and any index $n$, decidability gives either $\xi(n)=\eta(n)$ or a witnessed inequality. The latter would split the connected subset by disjoint clopen cylinders; hence every coordinate agrees, and function extensionality gives $\xi=\eta$. Under an alphabet with two distinguished different letters, a ray inside an open cylinder admits a different ray sharing that prefix: retain the prescribed finite prefix, then alter one later symbol. Accordingly no point is isolated. For unary branching, conversely, all rays agree letterwise and the boundary has exactly one point.
 
-\subsection{Countable-arity compactness obstruction}
+\subsection{Countable-arity compactness obstruction}\label{main:sub-35}
 \begin{proposition}[Noncompact countable cylinders]\label{prop:noncompact}
 In the source's open-cover definition of compactness, no cylinder in $\N^{\N}$ is compact. Consequently the countably branching boundary is not locally compact at any point in its corresponding neighborhood definition.
 \end{proposition}
@@ -490,17 +491,17 @@ In the source's open-cover definition of compactness, no cylinder in $\N^{\N}$ i
 Fix $C(w)$. Partition it by its next letter: the cylinders $C(a::w)$, $a\in\N$, form an open cover. If finitely many of them were sufficient, collect their finitely many next-letter indices and choose a unary index larger than all of them. Extend $w$ by that letter and then indefinitely; the resulting ray lies in $C(w)$ but none of the selected subcylinders. This refutes compactness. For local compactness, argue by contradiction from a compact set $H$ containing a prefix-open neighborhood of a given ray $\xi$. By the cylinder-basis definition, there exists a prefix $w=\xi|_n$ such that $\xi\in C(w)\subseteq H$. The source proves the closed-subspace finite-cover lemma \texttt{Ray.compact\_cyl\_of\_sub}: if $H$ is compact and $C(w)$ is contained in $H$, then $C(w)$ is compact. To see the cover argument, extend any open cover of $C(w)$ to a cover of $H$ by adjoining the open complement of $C(w)$. A finite subcover of $H$, after discarding the complement index, is a finite subcover of $C(w)$. This contradicts the noncompact-cylinder argument. Thus no such compact neighborhood exists. The conclusion is about the project's \texttt{Compact} and \texttt{LocallyCompactAt} predicates and does not supply an unproved compactness theorem for finite alphabets.
 \end{proof}
 
-\subsection{Manifold-chart questions}
+\subsection{Manifold-chart questions}\label{main:sub-36}
 The project's \texttt{Chart} is a homeomorphism between indicated open subsets with the corresponding relative continuity properties, not a differentiable atlas. A chart from a nonunary ray boundary to the singleton space would isolate its domain point; therefore no such zero-dimensional chart exists under the nonisolatedness hypotheses. The unary boundary, being a singleton, has the explicit trivial chart.
 
 For a proposed positive-dimensional target topology, the source proves a generic obstruction \emph{if every inhabited target open set contains a connected subset with two different points}. Connectedness transported through a chart contradicts the boundary's connected-subsingleton property. Applied to its constructed real-line topology, this conclusion is \emph{conditional} on the additional proposition \texttt{IntervalsConnected $K$}; the latter is not proved for the constructive real line. No arbitrary $K^d$ chart theorem is claimed for $d\ge2$.
 
-\subsection{Optional numerical encodings}
+\subsection{Optional numerical encodings}\label{main:sub-37}
 The separate binary encoding of rays is not part of the native boundary definition. The source supplies a noninjectivity example for the chosen encoding and establishes dependence on the selection of designated letters. Therefore it does not identify the boundary with the Cauchy quotient as topological spaces or as carriers.
 
 \clearpage
 \section{Tree automorphisms and ray invariance}\label{sec:automorphisms}
-\subsection{Levelwise actions}
+\subsection{Levelwise actions}\label{main:sub-38}
 A levelwise permutation family $P=(P_n)_{n\in\N}$ consists of explicitly invertible bijections of the alphabet. The word map transforms a new letter above a word $w$ using $P_{d(w)}$ and recursively transforms $w$. Its inverse uses $P_n^{-1}$ at each level; induction proves it preserves root, depth, and parent--child incidence. On rays the same rule becomes $(P\xi)(n)=P_n(\xi(n))$ and is compatible with finite prefixes.
 
 \begin{proposition}[Ray transitivity and invariant maps]\label{prop:transitivity}
@@ -510,12 +511,12 @@ For an alphabet with decidable equality, the levelwise family of automorphisms a
 For rays $\xi,\eta$, let $P_n$ swap $\xi(n)$ with $\eta(n)$ and fix all other letters. Decidable equality gives this explicit involution, and $(P\xi)(n)=\eta(n)$ at every index. If $f$ is invariant, then $f(\eta)=f(P\xi)=f(\xi)$. No invariance is asserted of arbitrary noninvariant numerical encodings.
 \end{proof}
 
-\subsection{A non-levelwise automorphism}
+\subsection{A non-levelwise automorphism}\label{main:sub-39}
 The levelwise family does not comprise every rooted-tree automorphism. With two letters $a\ne b$, interchange selected descendant subtrees under a particular first-level vertex, while fixing descendants under a different first-level vertex. Such a substitution is defined at a fixed vertex, extends identically to its descendants and has an explicit inverse, so it preserves incidence. At the same depth it acts differently on child letters according to the parent address. A single levelwise permutation cannot reproduce that behavior. This gives an explicit counterexample to \emph{levelwise completeness}, not a classification of the full group \cite{bassetal}.
 
 \clearpage
 \section{A constructive rational Cauchy quotient}\label{sec:cauchy}
-\subsection{Precision and modulated sequences}
+\subsection{Precision and modulated sequences}\label{main:sub-40}
 Fix $K$ equipped with the project's \emph{specific} interface $\mathsf{TOField}(K)$, extending its characteristic-zero field interface. In addition to the usual algebraic laws, this supplies a predicate $\mathsf{Nonneg}_K(x)$ and a \emph{decision procedure} for that predicate at every $x\in K$, closure of the cone under addition and multiplication, totality $\mathsf{Nonneg}_K(x)\lor\mathsf{Nonneg}_K(-x)$ and antisymmetry. Crucially it also supplies \emph{data}, not merely existence: a function
 \[
  \mathsf{archBound}:K\longrightarrow\N,
@@ -536,7 +537,7 @@ A \emph{modulated Cauchy datum} is a sequence $s:\N\to K$ with a function $\mu:\
 \end{equation}
 The ordinary Cauchy predicate, which asks for a suitable tail index separately for every $\delta>0$, need not provide one modulus function $\mu$ without a choice principle. A \emph{regular} sequence satisfies $|s_m-s_n|\le\eps_m+\eps_n$ for every $m,n$.
 
-\subsection{Regularization and equivalence}
+\subsection{Regularization and equivalence}\label{main:sub-41}
 Two modulated data are equivalent when, for every $k$, there exists $N$ such that $|s_n-t_n|\le\eps_k$ for all $n\ge N$. Reflexivity is immediate and symmetry follows from $|s_n-t_n|=|t_n-s_n|$. For transitivity, choose the two tail indices for precision $k+1$, replace both by their maximum, and use
 \[
 |s_n-u_n|\le |s_n-t_n|+|t_n-u_n|\le 2\eps_{k+1}=\eps_k.
@@ -553,7 +554,7 @@ interchanging $m,n$ handles the other case. Thus $r$ is regular. For any $k$, ch
 \]
 is the numerical carrier studied below.
 
-\subsection{Addition, negation and products}
+\subsection{Addition, negation and products}\label{main:sub-42}
 The termwise sum of $s$ and $t$ has modulus
 \[
 \mu_{s+t}(k)=\max\{\mu_s(k+1),\mu_t(k+1)\};
@@ -592,7 +593,7 @@ The quotient $\RR(K)$ is a nontrivial commutative ring, and the constant-sequenc
 The congruence just proved permits evaluation of every algebraic equality on representatives. Associativity, distributivity, commutativity, unit and inverse-for-addition equations then hold pointwise and hence on quotient classes. The constant sequence $c_n=a$ satisfies every Cauchy bound. If the constant data of $a,b$ are equivalent, then $|a-b|\le\eps_k$ for every $k$, and Archimedean smallness forces $a=b$. This proves injectivity and also distinguishes the constant zero and one classes.
 \end{proof}
 
-\subsection{Positive cone, weak order and apartness}
+\subsection{Positive cone, weak order and apartness}\label{main:sub-43}
 The project's positivity predicate says that \emph{some} representative is eventually bounded below by a fixed positive dyadic precision; its nonnegativity predicate says that \emph{there exists a single representative} that is eventually at least $-\eps_k$ for \emph{every} precision $k$. More explicitly, for a rational sequence $r$ write
 \[
 \mathsf{Pos}(r)\iff\exists k,N\ \forall n\ge N:\ r_n\ge\eps_k,
@@ -646,7 +647,7 @@ Thus $x<z$. In the second alternative the same control gives
 so $z<y$. This is a decision about \emph{rational approximants at a chosen index}; no excluded-middle decision of either real inequality is used. Addition and positive-multiplication compatibility follow by taking common tails, bounding the factors where needed, and splitting the error budget into smaller dyadic tolerances. The last multiplication step uses the bound-shifting argument of Lemma~\ref{lem:product}; it does not treat arbitrary nonnegative representatives as pointwise nonnegative.
 \end{proof}
 
-\subsection{Inverses for apart elements}\label{subsec:inverse}
+\subsection{Inverses for apart elements}\label{main:sub-44}\label{subsec:inverse}
 The distinction between apartness and negated equality is substantial. From a specified witness $x\Apt0$, a representative may be obtained with a positive or negative tail gap. In the positive case suppose $s_n\ge\eps_\kappa>0$ for $n\ge N$. Resample beyond $N$ and set $t_n=1/s_{N+n}$. It obeys $|t_n|\le2^\kappa$, and
 \begin{equation}\label{eq:inversebound}
 |t_m-t_n|=|s_{N+n}-s_{N+m}|\,|t_mt_n|
@@ -661,7 +662,7 @@ For $x\in\RR(K)$, if $x\Apt0$ then there exists $y\in\RR(K)$ with $xy=1$. No unc
 Use the positive or negative separation witness as above; the resampled reciprocal satisfies \eqref{eq:inversebound} and yields the required inverse class. For nonzero-as-negation alone the displayed reciprocal construction lacks a positive lower gap; the project's relevant logical characterization is treated in Section~\ref{sec:logic}.
 \end{proof}
 
-\subsection{Density, Archimedean control and arity transfer}
+\subsection{Density, Archimedean control and arity transfer}\label{main:sub-45}
 The rational images are order-dense between strictly separated real elements. In detail, if $x<y$ choose Cauchy data $a,b$ and $k,N$ such that $b_n-a_n\ge\eps_k$ for all $n\ge N$. Put $q=k+2$ and choose $n_0$ beyond $N$ and both precision-$q$ Cauchy moduli. The rational number
 \[
  t=a_{n_0}+\eps_{k+1}
@@ -676,7 +677,7 @@ Thus $x<\iota(t)<y$. This is the explicit witness of \texttt{TreeR.exists\_rat\_
 
 \clearpage
 \section{Convergence and qualified completeness}\label{sec:complete}
-\subsection{Convergence and its uniqueness}
+\subsection{Convergence and its uniqueness}\label{main:sub-46}
 A sequence $f_n\in\RR(K)$ converges to $L$ if
 \begin{equation}\label{eq:conv}
 \forall k\ \exists N\ \forall n\ge N:\quad
@@ -684,7 +685,7 @@ f_n\le L+\iota(\eps_k),\quad L\le f_n+\iota(\eps_k).
 \end{equation}
 If it converges to $L$ and $L'$, choose common indices for precision $k+1$, combine the two one-sided estimates and use $2\eps_{k+1}=\eps_k$ to obtain $L\le L'+\iota(\eps_k)$ and its reverse for every $k$. Archimedean order closure yields $L\le L'$ and $L'\le L$; antisymmetry gives equality. For a modulated rational datum $(s,\mu)$, the embedded sequence $\iota(s_n)$ converges to $[s]$, directly by its Cauchy modulus.
 
-\subsection{Tracked diagonal limits}
+\subsection{Tracked diagonal limits}\label{main:sub-47}
 A real sequence with a supplied real Cauchy modulus $\nu$ is not, by that fact alone, a sequence of \emph{chosen rational representatives}. A second datum, called rational tracking, consists of $q_n\in K$ and $M:\N\to\N$ with
 \begin{equation}\label{eq:tracking}
  n\ge M(k)\quad\Longrightarrow\quad
@@ -698,7 +699,7 @@ Thus $q$ has an explicit rational Cauchy modulus. Its class $[q]$ is a limit of 
 
 The source also packages a tower of specified rational Cauchy representatives and a real-level modulus, obtains a monotone diagonal index by resampling, and proves convergence of the resulting diagonal class. Closure of these tracked families under constants, negation, addition and multiplication requires the same bound-shifting argument as Lemma~\ref{lem:product}; the resulting tracked finite expressions converge to the corresponding expressions of limits. The pointwise ring laws alone are insufficient to supply a uniform Cauchy product modulus; in the tracked-product argument one first obtains an eventual numerical bound for both factors, then applies the shifted rational precision exactly as in Lemma~\ref{lem:product}. This proof is therefore conditional on the supplied tracking and real Cauchy schedules, not a completeness theorem for arbitrary untracked sequences.
 
-\subsection{Exact characterization of modulated completeness}
+\subsection{Exact characterization of modulated completeness}\label{main:sub-48}
 Let $\mathsf{UC}(K)$ mean that \emph{every real-valued Cauchy sequence equipped with a real Cauchy modulus} converges. Let $\mathsf{CA}(K)$ mean that every such sequence admits rational tracking as in \eqref{eq:tracking}. The latter property is not supplied by the definition of a real Cauchy modulus.
 
 \begin{theorem}[Modulated completeness characterization]\label{thm:uc}
@@ -710,10 +711,10 @@ For each base satisfying the ordered-field interface, the following are equivale
 If $\mathsf{CA}(K)$ holds, obtain tracking for the supplied real Cauchy sequence and apply the diagonal limit construction above. Conversely, assume its limit $L$ exists. Fix \emph{one} rational Cauchy representative $c$ of $L$ and take its explicit rational approximations $q_i$ at precision $i$. Convergence of $f_i$ to $L$, the closeness of $q_i$ to $L$, and a schedule $M(k)$ majorizing the real modulus at $k+1$ and the index $k+1$ give $\operatorname{RClose}(f_i,\iota(q_i),\eps_k)$ whenever $i\ge M(k)$. This is precisely the required rational tracking datum. The proof does not select representatives for every $f_i$.
 \end{proof}
 
-\subsection{Choice and modulus-free statements}
+\subsection{Choice and modulus-free statements}\label{main:sub-49}
 The project's \texttt{ChoiceNN} is a specified countable-choice proposition for its unary-indexed families of unary outputs. Assuming it, finite dyadic rational approximants to quotient elements are selected coherently; the source derives $\mathsf{CA}(K)$ and therefore $\mathsf{UC}(K)$. It also derives modulus selection and, with that selection, \emph{modulus-free} completeness for sequences satisfying the ordinary real Cauchy predicate. No converse of completeness to \texttt{ChoiceNN} and no unconditional modulus selection are proved. In particular the theorem label ``unrestricted completeness'' in the repository still denotes the \emph{modulated} property $\mathsf{UC}(K)$.
 
-\subsection{Supplied data for least upper bounds}\label{subsec:supdata}
+\subsection{Supplied data for least upper bounds}\label{main:sub-50}\label{subsec:supdata}
 For a predicate $S\subseteq\RR(K)$, define $\mathsf{SupData}(S)$ to comprise for every $k$ a rational $u_k\in K$ and a member $s_k\in S$ such that
 \begin{equation}\label{eq:supdata}
 \forall x\in S:\ x\le\iota(u_k),\qquad
@@ -734,7 +735,7 @@ Symmetrically $u_k\le u_m+\eps_k$. By order reflection of the rational embedding
 Thus $u$ is regular and defines $U=[u]$. For $x\in S$, every $u_n$ is an upper bound; passing to the limit of the embedded rational sequence and using closure of $\le$ under arbitrarily small added errors yields $x\le U$. If $y$ is any other upper bound, then $s_k\le y$ and \eqref{eq:supdata} yields $\iota(u_k)\le y+\iota(\eps_k)$. Convergence to $U$ and arbitrarily small error closure give $U\le y$. Hence $U$ is the least upper bound. Two supplied data sets for the same $S$ produce the same $U$ by antisymmetry.
 \end{proof}
 
-\subsection{Explicit finite and monotone cases}
+\subsection{Explicit finite and monotone cases}\label{main:sub-51}
 For a singleton $S=\{[c]\}$ with \emph{specified} representative $c$, let $a_k$ be a rational approximation to $[c]$ within $\eps_{k+1}$. Choose $u_k=a_k+\eps_{k+1}$ and $s_k=[c]$. Then $[c]\le\iota(u_k)\le[c]+\iota(\eps_k)$. For two predicates with supplied $\mathsf{SupData}$, compare the two rational upper bounds at each $k$ and select the larger together with its near-attaining member; the rational comparison is decidable. This constructs data for their union. Induction gives least upper bounds for nonempty finite lists of \emph{specified Cauchy representatives}.
 
 For a monotone real sequence $f$, a supplied real Cauchy modulus $\nu$ and rational tracking $q,M$, choose
@@ -749,15 +750,15 @@ For $i\le N_k$, $f_i\le f_{N_k}$. For $i>N_k$, the real Cauchy estimate gives $f
 \]
 This supplies $\mathsf{SupData}$ for the range of $f$ and hence a least upper bound. These arguments do \emph{not} prove that an arbitrary bounded inhabited predicate has a supremum.
 
-\subsection{Extension of uniformly continuous rational maps}
+\subsection{Extension of uniformly continuous rational maps}\label{main:sub-52}
 A rational self-map $h:K\to K$ with the source's explicit uniform-continuity modulus maps a modulated Cauchy representative termwise to another such representative. If $s\sim t$, the continuity modulus transfers their eventual closeness to $h\circ s\sim h\circ t$, so $h$ descends to a map on $\RR(K)$. The constructed extension is compatible with the rational embedding; composition and uniqueness use the repository's specified rational-sequence continuity notion. This is not a general universal mapping property into arbitrary complete metric spaces.
 
 \clearpage
 \section{Logical strength of additional principles}\label{sec:logic}
-\subsection{Boolean-sequence principles}
+\subsection{Boolean-sequence principles}\label{main:sub-53}
 The principles MP, LPO and WLPO are understood in the exact Boolean-sequence formulations of the source, using $p:\N\to\{\mathsf{false},\mathsf{true}\}$. In particular LPO decides whether some success occurs or all values are false; WLPO decides the all-false proposition versus its negation. The project's MP converts the appropriate double-negated existence of a success into a genuine witnessing index. Their definitions are propositions, \emph{not} imported axioms of the formal development \cite{bridgesrichman,lubarsky}.
 
-\subsection{From a Boolean stream to a rational Cauchy encoding}
+\subsection{From a Boolean stream to a rational Cauchy encoding}\label{main:sub-54}
 For a stream $p$, let $j_m$ be its least successful index detected by a finite search through stage $m$, when such an index exists. Define
 \[
 a_m=\begin{cases}\eps_{j_m},&\text{if success has been detected by stage }m,\\0,&\text{otherwise.}\end{cases}
@@ -793,7 +794,7 @@ Assume MP and take $x\ne0$, represented by a regular $r$. If all rational gap te
 For the second, LPO applied to the Boolean stream $G_x$ provides either a successful gap, making $x\Apt0$, or failure at every index, making $x=0$. Conversely apply the proposed zero-or-apartness disjunction to $X_p$: equality to zero yields the all-false branch by \eqref{eq:boolean}; apartness supplies a successful index. For the third, decidable zero of $X_p$ yields the all-false statement or its negation and hence WLPO. Conversely WLPO applied to $G_x$ gives either that all gaps fail, so $x=0$, or the negation of that statement, in which case $x\ne0$ (if $x=0$, no gap can succeed). This gives decidable zero. Trichotomy reduces to the second equivalence by applying zero-or-apartness to $y-x$; conversely trichotomy at $(x,0)$ yields zero-or-apartness. The source formalizes each step without asserting MP, LPO or WLPO unconditionally.
 \end{proof}
 
-\subsection{Lower bounds for stronger completeness principles}
+\subsection{Lower bounds for stronger completeness principles}\label{main:sub-55}
 Define the unrestricted LUB assertion for \emph{every} inhabited bounded-above predicate $S\subseteq\RR(K)$, and bounded monotone convergence for \emph{every} bounded nondecreasing real sequence. Neither is assumed in Theorem~\ref{thm:sup}.
 \begin{proposition}[One-way logical lower bounds]\label{prop:lowerbounds}
 The source proves
@@ -810,24 +811,24 @@ For the second statement set $f_n=1$ if the finite prefix up to $n$ has a succes
 
 \clearpage
 \section{Relationships among the constructions}\label{sec:relationships}
-\subsection{Equal fraction fields and unequal coordinate ranks}
+\subsection{Equal fraction fields and unequal coordinate ranks}\label{main:sub-56}
 For $b,c\ge2$, Corollary~\ref{cor:arity} gives an isomorphism of the corresponding rational fields. Over either field, Theorem~\ref{thm:finitebasis} gives transverse ranks $b-1$ and $c-1$. This is not a contradiction: the field isomorphism concerns the arithmetic quotient; the varying ranks concern \emph{different child-coordinate carriers}. No invariant called the dimension of the tree is obtained from these ranks.
-\subsection{Primitive observations do not classify rays}
+\subsection{Primitive observations do not classify rays}\label{main:sub-57}
 The equality $s(\xi|_n)=n$ for every ray $\xi$ and every $n$ shows that primitive unit-edge sums erase the letter data. Consequently these observations cannot provide an injective map of rays via a putative Cauchy limit of the unmodified prefix counts. Non-invariant numerical encodings are not excluded.
-\subsection{Three incompatible kinds of completion or limit}
+\subsection{Three incompatible kinds of completion or limit}\label{main:sub-58}
 The algebraic direct sum $K^{(\N)}$, the prefix boundary $A^{\N}$, and the quotient $\RR(K)$ of modulated rational sequences are different carriers, constructed with different equivalence relations and operations. No canonical identification among them, no metric identification of the boundary with $\RR(K)$, and no transport of a longitudinal vector follows from the displayed results. This is a statement about the scope of constructed maps, \emph{not} a universal nonexistence theorem.
-\subsection{Formal level labels}
+\subsection{Formal level labels}\label{main:sub-59}
 The auxiliary extended-level bookkeeping places the root at the finite level zero, $\mathsf{vertexLevel}(\epsilon)=\mathsf{finite}(0)$, and gives every ray the constant marker $\mathsf{posInfinity}$. The marker $\mathsf{negInfinity}$ was not assigned to the root in the frozen source. These labels are not a constructed metric coordinate on a bi-infinite line.
 
 \clearpage
 \section{Limitations and open mathematical questions}\label{sec:limitations}
-\subsection{Universal algebraic characterizations}
+\subsection{Universal algebraic characterizations}\label{main:sub-60}
 The explicit carrier isomorphisms above do not by themselves prove general universal mapping properties of free semirings, Grothendieck completions, abstract fraction fields or Cauchy completions. Those would require separately quantified target structures and uniquely characterized extension maps.
-\subsection{Constructive completeness and choice}
+\subsection{Constructive completeness and choice}\label{main:sub-61}
 Full sequential completeness without supplied modulus, rational tracking or a choice hypothesis is not an unconditional theorem of the source. The formal equivalence in Theorem~\ref{thm:uc} is a characterization, not a proof of either side. Lubarsky's independent metamathematical results on other constructive theories provide context but do not establish an independence theorem for these exact internal predicates \cite{lubarsky}.
-\subsection{Order, inverses and suprema}
+\subsection{Order, inverses and suprema}\label{main:sub-62}
 The constructed ring has inverses for apart elements. Nonzero inversion is equivalent to the project's MP; classical trichotomy is tied to LPO, while decidability of zero is tied to WLPO. Arbitrary bounded-set LUB remains unproved. No conjecture of universal impossibility or independence is extracted from the mere absence of an unconditional Lean theorem.
-\subsection{Unbounded branching and topology}
+\subsection{Unbounded branching and topology}\label{main:sub-63}
 The finite-support uniform obstruction concerns the specified zero-padding maps. Finite-arity boundary compactness is not kernel-proved in this repository; the real-chart obstruction needs \texttt{IntervalsConnected $K$}; higher finite-dimensional target models have not been fully formalized. The automorphism group is not classified, although a levelwise-only classification has been explicitly refuted.
 
 \clearpage

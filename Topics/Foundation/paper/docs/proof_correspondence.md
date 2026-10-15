@@ -3600,7 +3600,7 @@ The source archived Task--6 signature register and earlier frozen individual aud
 
 ## 89-topic long-form mathematical proof correspondence (documentation-only update)
 
-The additional mathematical exposition lives in `extended_proof_details.tex`, included by `main.tex` as Appendix B. It is organized as 89 separately labeled subsections matching original outline entries `1.1` through `17.2`. Their exact original Lean navigation paths and final PDF pages are supplied in `scope_89.md` and `scope_89.csv` (89/89 rows checked), which form part of this correspondence by reference. In particular:
+The additional mathematical exposition lives in `extended_proof_details.tex`, included by `main.tex` as Appendix B. It contains 89 consecutively numbered subsections **B.1–B.89**, each with an internal hyperlink to an existing main-text section or subsection. The updated `scope_89.md` and `scope_89.csv` provide the B numbering, main-text target, source files, and current PDF pages (89/89 entries). The original planning numbers are retained only as internal source-history keys, not as a second numbering scheme in the paper. In particular:
 
 - `12.6` reconstructs the source's **tail-resampled inverse** `TreeAnalysis/CauchyOps.lean:invSeqFun` and `invSeq_isMod`, including modulus `j+(k+k)` and the product equivalence estimate.
 - `13.2` reconstructs the source's **single-sequence rational approximation** `TreeAnalysis/CompletenessStrength.lean:ApproxData`, `approxMod`, `approxSeq`, and `limit_of_approx`; it uses a single `q : TreeN → K` and precisely preserves the two precision schedules.

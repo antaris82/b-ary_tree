@@ -5,7 +5,7 @@
 - Task--06 source fingerprint: `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`.
 - Lean version in the frozen archive: 4.28.0.
 - Mathematical manuscript: `main.tex` including `extended_proof_details.tex`.
-- All **89** numbered topics of the original scope have one distinct Appendix B subsection, with labels `supp:1-1` through `supp:17-2`; see the generated `scope_89.md` and `scope_89.csv` for names, original code paths and actual PDF page numbers.
+- All **89** mathematical topics have one Appendix-B subsection numbered **B.1–B.89**, each linking to a real main-text discussion (internal source labels `supp:1-1` through `supp:17-2` remain stable); see the generated `scope_89.md` and `scope_89.csv` for names, original code paths and actual PDF page numbers.
 - The appendix is arranged by mathematical dependence, not Task chronology. Definitions, limitations and open problems are not presented as proof obligations.
 
 ## Explicit mathematical proof obligations addressed
