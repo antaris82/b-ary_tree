@@ -1,6 +1,6 @@
 # Detailed proof chains for the 25 named main results
 
-Each entry is a human-readable dependency outline, not a substitute for the full theorem proof in `main.tex`, Appendix B, or the exact Lean signature in `proof_correspondence.md`.
+Each entry is a human-readable dependency outline, not a substitute for the full theorem proof in `main.tex` (including the integrated detailed arguments), or the exact Lean signature in `proof_correspondence.md`.
 
 ## 1. Unique finite root path (proposition, main.tex:112)
 

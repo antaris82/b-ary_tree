@@ -1,12 +1,16 @@
+# Systematic proof-expansion audit — integrated edition
+
+The **current edition** places all 89 detailed mathematical treatments inside their corresponding Sections 1–17, with stable unnumbered `supp:...` source anchors. The previous Appendix-B structure is historical only. `scope_89.csv` contains 89/89 currently compiled page locations. No new Lean proof is claimed or required by this editorial relocation.
+
 # Systematic mathematical proof-expansion audit — Task 06
 
 ## Frozen source and deliverable
 
 - Task--06 source fingerprint: `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`.
 - Lean version in the frozen archive: 4.28.0.
-- Mathematical manuscript: `main.tex` including `extended_proof_details.tex`.
-- All **89** mathematical topics have one Appendix-B subsection numbered **B.1–B.89**, each linking to a real main-text discussion (internal source labels `supp:1-1` through `supp:17-2` remain stable); see the generated `scope_89.md` and `scope_89.csv` for names, original code paths and actual PDF page numbers.
-- The appendix is arranged by mathematical dependence, not Task chronology. Definitions, limitations and open problems are not presented as proof obligations.
+- Mathematical manuscript: `main.tex`, with integrated detailed proof text.
+- All **89** mathematical topics have their own unnumbered, anchored detail heading in the corresponding main-text discussion (internal source labels `supp:1-1` through `supp:17-2` remain stable); see the generated `scope_89.md` and `scope_89.csv` for names, original code paths and actual PDF page numbers.
+- The integrated presentation follows the mathematical dependencies of the main sections. Definitions, limitations and open problems are not presented as proof obligations.
 
 ## Explicit mathematical proof obligations addressed
 
@@ -35,7 +39,7 @@
 
 ## What is and is not closed
 
-**Closed as exposition:** all 89 planned mathematical topics have individual, referenceable treatment (not 89 independent Lean theorems), including proof steps for the previously sketched topics, and the substantial constructive error estimates are spelled out. The original 26-page compact version is retained as the principal text; the long-form mathematical appendix is added without erasing its original theorem statements.
+**Closed as exposition:** all 89 planned mathematical topics have individual, referenceable treatment directly in the main text (not 89 independent Lean theorems), including proof steps for the previously sketched topics, and the substantial constructive error estimates are spelled out. The original 26-page compact version is retained as the principal text; the long-form mathematical appendix is added without erasing its original theorem statements.
 
 **Not a new theorem:** this writing expansion does not add or change any Lean proof. A line-by-line restatement of every definitional rewrite made by the Lean tactics is neither claimed nor needed for a mathematical paper when the arithmetic steps are explicitly reconstructible.
 

@@ -1,3 +1,5 @@
+**ARCHIVED CHANGELOG — superseded by [INTEGRATION_89.md](INTEGRATION_89.md). The current paper no longer contains Appendix B.**
+
 # Appendix-B numbering and back-reference repair — 15 October 2026
 
 ## Reader-facing change

@@ -1,52 +1,27 @@
-# Task-06 mathematical foundations — third-review editorial revision
+# Task-06 foundations — mathematical manuscript with integrated proofs
 
-**Editor:** Jan Seeck (`jan.seeck1@gmail.com`, confirmed on 15 October 2026). **Authorship:** No author or affiliation is designated in the title block; the stated role of Jan Seeck is Editor only. This version adds an acknowledgement of AI-assisted work, including Aristotle, and differentiates the intrinsically constructed word tree from the rationally labelled Stern--Brocot tree and arbitrary graphs with address labels.
+**Editor:** Jan Seeck — jan.seeck1@gmail.com. **Date:** 15 October 2026.
+**Formally checked source:** frozen Task-06 Lean 4.28.0; source fingerprint `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`.
 
-The table of contents and every top-level `\section` in the manuscript start on a fresh page. Subsections within a section do not each start a new page.
+The manuscript treats rooted word-tree incidence, unary arithmetic, normalized integers, transported rational fraction structures, finite child-coordinate decomposition, countably supported transverse bases, native ray topology and automorphisms, and constructive Cauchy quotients with explicitly limited completeness and order claims. It carefully distinguishes this intrinsic word-tree construction from rationally labelled Stern--Brocot trees.
 
-# Rooted-tree mathematical foundations — Task--06 long-form manuscript
+## Read the paper
 
-**Documentary revision:** 15 October 2026. The primary formal archive is unchanged: Lean 4.28.0; source fingerprint `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`.
+- [`main.pdf`](main.pdf): **56-page** compiled mathematical manuscript with all detailed arguments in the relevant sections.
+- [`main.tex`](main.tex): complete, self-contained mathematical LaTeX source for **89 inline supporting treatments**; there is **no separate Appendix B of mathematical proofs**.
+- [`references.tex`](references.tex) is the typeset bibliography; [`references.bib`](references.bib) supplies structured metadata.
+- [`scope_89.md`](scope_89.md) and [`scope_89.csv`](scope_89.csv): 89 mathematical topics matched to their real inline LaTeX anchors and PDF pages.
+- [`proof_correspondence.md`](proof_correspondence.md): independent Lean theorem correspondence, assumptions and archival verification status.
+- [`MAIN_RESULT_PROOF_CHAINS.md`](MAIN_RESULT_PROOF_CHAINS.md): main theorem dependencies; [`INTEGRATION_89.md`](INTEGRATION_89.md): integration methodology and acceptance checks.
 
-The Task--06 foundation paper has been expanded from a 26-page compact draft via 46-page long form to a **59-page** mathematical text. It retains the conventional theorem-led 17-section presentation and adds **Appendix B with 89 numbered entries B.1–B.89** with live main-text correspondence. They include detailed proofs for previously sketched auxiliary arguments and explicit descriptions of the genuinely conditional/open items. This is not a task chronology or a Lean-code review.
+## Document structure
 
-## Primary manuscript files
+Sections 1–17 contain definitions, statements, mathematical proofs and **all 89 previously separate explanations** in context. The unnumbered third-level headings improve scanning without expanding the numbered table of contents. For introduction/conclusion topics without dedicated main-text subsections, details occur in the containing main *section*. The remaining appendices cover focused technical estimates and formal verification/source declarations; they do not duplicate the 89-topic proof catalogue.
 
-- `main.tex`: mathematical text, including `\input{extended_proof_details.tex}`.
-- `extended_proof_details.tex`: expanded mathematical derivations and exact scope statements for 89/89 outline entries.
-- `main.pdf`: successfully typeset third-review editorial revision (59 pages).
-- `references.tex`: the bibliography actually typeset in this version; `references.bib` retains structured BibTeX metadata.
+## Rebuilding
 
-## Proof evidence and coverage
+Run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`, then `python3 build_scope.py`. The latter requires the generated `main.aux` and updates `scope_89.csv` page numbers. Source-level proof verifications are archival, not freshly rerun by this manuscript editing operation.
 
-- `scope_89.md` and `scope_89.csv`: one canonical Appendix-B identifier (B.1–B.89), linked main-text target, source module navigation, and current PDF pages. This was validated against the 89 TeX labels and actual compiled PDF page locations.
-- `proof_correspondence.md`: prior exact Lean declaration mapping, Task--06 additions, and an addendum linking the long-form reconstruction to named definitions.
-- `25_MAIN_RESULTS_CROSSWALK.md`: prior main-theorem mapping; no stronger main claims introduced by this revision.
-- `PROOF_EXPANSION_AUDIT.md`: mathematical proof obligations, reconstruction details and their status.
-- `LEAN_PROOF_REQUIREMENTS.md` and `open_questions.md`: precise distinctions between already verified statements, optional new Lean theorem names, and unproved stronger principles.
-- `verification_report.md`: reported Lean releases vs document-authoring checks, with no invented new Lean build.
-- `evidence/`: unchanged Task--06 source archive, release outputs and the earlier supplemental logs, for independent source-level checking.
+## Scope and submission
 
-## Rebuild the PDF
-
-Run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` with the two TeX files and `references.tex` present. The PDF was rendered and reviewed. No external referee review is claimed.
-
-## Mathematical caution
-
-The included proof reconstructions are independent mathematical explanations; they are not newly compiled Lean declarations. Generic interfaces retain all original hypotheses. The unproved stronger choices, trichotomy, unrestricted completeness, arbitrary-set suprema, and canonical boundary identifications remain outside the theorem claims. A finite number of routine associative/distributive rewrites are presented concisely rather than line-for-line as they appear inside Lean proofs.
-
-## Second-review update
-
-The second ChatGPT/Claude reviews are consolidated in `SECOND_REVIEW_RESOLUTION.md`. The 89-topic Appendix B and 25 named main theorems are separately counted. `MAIN_TEXT_SUBSECTION_MAP.md` maps all 63 main-body subsections; `MAIN_RESULT_PROOF_CHAINS.md` supplies dependency chains. Both `compile.log` (recomputed for this delivery) and the original `evidence/projS_inS_check.log` are included.
-
-## Third-review editorial updates
-
-- The reviewers reported no new mathematical error in the 25 qualified main results. Remaining editorial R1--R4 are being closed in the accompanying mappings, proof chains, status labels and build instructions.
-- **`build_scope.py` requires `main.aux`:** first run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` in this directory, then `python3 build_scope.py`. Do not run `build_scope.py` before LaTeX creates `main.aux`.
-- The bibliography used by the PDF is `references.tex` (synchronised with `references.bib`). Its new Stern/Niqui entries describe literature context, not proof dependencies of the Lean formalization.
-- Repository publication and integration of the documentation should precede solicitation of external expert opinion. No external referee report or journal acceptance is implied by the current reviews.
-- The editor confirmed the contact address as `jan.seeck1@gmail.com` on 15 October 2026; the earlier `gmai.com` spelling was a typo and is not used in this revision.
-
-## Appendix B navigation (updated 15 October 2026)
-
-Appendix B has only one numbering system, **B.1–B.89**. Every item has a clickable link to an existing discussion in the main text. Entries without a separate corresponding subsection link explicitly to Introduction, Limitations, or Conclusion, as appropriate. See [the 89-row correspondence](scope_89.md). Do not confuse these 89 mathematical treatments with 89 independent Lean theorems.
+Additional logical principles (`ChoiceNN`, MP, LPO, WLPO) are never assumed globally. All statements about inversion from mere non-equality, unrestricted modulated or modulus-free completeness, general suprema, boundary-to-reals identifications and positive-dimensional charts remain conditional or open exactly as in the frozen source. Aristotle and other AI assistance are acknowledged; AI review does not replace independent expert peer review. External review may follow the publication of the integrated repository, not precede it.

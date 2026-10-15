@@ -1,3 +1,11 @@
+# Current integrated-edition verification — 15 October 2026
+
+**Present document state (56-page integrated edition, rebuilt with `latexmk -g -pdf` and validated via `build_scope.py`):** All 89 former Appendix-B mathematical treatments were relocated into Sections 1–17 of `main.tex`; their arguments and restrictive conditions were retained, with unnumbered headings and active anchors. The older B numbering and external `\input{extended_proof_details.tex}` are absent. The current edition's PDF page count, manuscript recompile status and fresh scope-89 navigation checks are recorded in `INTEGRATION_89.md` and `scope_89.csv`. No new Lean kernel build was executed for this editorial revision. Lean 4.28.0 and frozen Task-06 source fingerprint `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e` remain unchanged.
+
+The historical report below documents successive **superseded** PDF editions (46, 56 and 59 pages); it must not be read as the current pagination.
+
+---
+
 # Verification and reproducibility — Task--06 manuscript revision
 
 **Source:** Lean 4.28.0, Lake project `TreeFoundations`, no external packages in `lake-manifest.json`. **Frozen source fingerprint:** `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`. The exact uploaded source archive is provided at `evidence/task06_frozen_source.tar.gz`. The archived release report is `evidence/verification_output.txt`; individual declaration printouts are available in `evidence/declaration_signatures.txt`.

@@ -1,0 +1,29 @@
+# Editorial integration of 89 mathematical treatments
+
+**15 October 2026.** The appendix was reorganized to optimize human mathematical reading, not to change theorems or Lean proofs.
+
+## Method
+
+- Moved the full mathematical bodies of all 89 former Appendix-B entries into their actual main-text sections and subsections; retained each source label `supp:...` for stable cross-references.
+- All 82 direct placements follow numbered main-text subsections; seven contextual placements occur in Introduction, Limitations or Conclusion without pretending a nonexistent section 1.1.
+- Removed the duplicate numerical catalogue and `\input{extended_proof_details.tex}` from the compiled manuscript. Unnumbered third-level headings distinguish the material while keeping the table of contents short.
+- Kept the focused technical-estimates appendix and the formal verification/source-map appendices, which serve different purposes.
+- No source `.lean` files, theorem statements or Axiom declarations were modified.
+
+## Editorial acceptance criteria
+
+- 89/89 `supp:` labels present in the compiled `main.tex`, each exactly once.
+- No visible former B or Plan numbering in the current paper.
+- PDF compiles without undefined references or overfull boxes; PDF pages checked through `main.aux`.
+- `scope_89.csv` and `.md` point to in-place mathematical treatments rather than a separate appendix.
+- The 25 theorem environment locations and 63 numbered subsection start-lines are updated.
+
+**Formal caveat:** A correct LaTeX build and editorial relocation do not amount to new Lean proof checking or independent referee validation.
+
+## Executed manuscript checks
+
+- `latexmk -g -pdf -interaction=nonstopmode -halt-on-error main.tex`: succeeded, **56 pages**.
+- All 89 inline `supp:` labels appear exactly once in `main.tex` and are resolved in `main.aux`.
+- `build_scope.py` verified the 89 destinations and regenerated `scope_89.csv`.
+- The final `main.log` contains no overfull boxes or undefined citations/references.
+- All 25 principal results and 63 numbered main subsections retain their definitions and have updated source-line indices.

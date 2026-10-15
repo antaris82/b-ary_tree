@@ -1,3 +1,5 @@
+**Historical review acceptance record. Current mathematical arguments have since been integrated into the main text; see `INTEGRATION_89.md`.**
+
 # Final review-resolution and acceptance report — Task--06
 
 The source revision remains fixed to fingerprint `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`. Only **documentation** has been edited; no new Lean declaration is asserted. Original reviewers and the manuscript-authoring environment are distinguished in `verification_report.md`.
