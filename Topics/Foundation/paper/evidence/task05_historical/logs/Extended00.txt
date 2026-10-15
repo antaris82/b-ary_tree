@@ -1,0 +1,128 @@
+@DepthQuotient.cls_eq_iff : ∀ {α : Type} (w v : Word α),
+  And
+    (@Eq.{1} (DepthQuotient.DepthClass α) (@DepthQuotient.cls α w) (@DepthQuotient.cls α v) →
+      @Eq.{1} TreeN (@Word.pathSum α w) (@Word.pathSum α v))
+    (@Eq.{1} TreeN (@Word.pathSum α w) (@Word.pathSum α v) →
+      @Eq.{1} (DepthQuotient.DepthClass α) (@DepthQuotient.cls α w) (@DepthQuotient.cls α v))
+'DepthQuotient.cls_eq_iff' depends on axioms: [Quot.sound]
+@DepthQuotient.count_add : ∀ {α : Type} (x y : DepthQuotient.DepthClass α),
+  @Eq.{1} TreeN
+    (@DepthQuotient.count α
+      (@HAdd.hAdd.{0, 0, 0} (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α)
+        (@instHAdd.{0} (DepthQuotient.DepthClass α) (@DepthQuotient.instAddDepthClass α)) x y))
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) (@DepthQuotient.count α x)
+      (@DepthQuotient.count α y))
+'DepthQuotient.count_add' depends on axioms: [Quot.sound]
+@DepthQuotient.count_cls : ∀ {α : Type} (w : Word α),
+  @Eq.{1} TreeN (@DepthQuotient.count α (@DepthQuotient.cls α w)) (@Word.pathSum α w)
+'DepthQuotient.count_cls' does not depend on any axioms
+@DepthQuotient.count_injective : ∀ {α : Type} {x y : DepthQuotient.DepthClass α}
+  (h : @Eq.{1} TreeN (@DepthQuotient.count α x) (@DepthQuotient.count α y)), @Eq.{1} (DepthQuotient.DepthClass α) x y
+'DepthQuotient.count_injective' depends on axioms: [Quot.sound]
+@DepthQuotient.count_mul : ∀ {α : Type} (x y : DepthQuotient.DepthClass α),
+  @Eq.{1} TreeN
+    (@DepthQuotient.count α
+      (@HMul.hMul.{0, 0, 0} (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α)
+        (@instHMul.{0} (DepthQuotient.DepthClass α) (@DepthQuotient.instMulDepthClass α)) x y))
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) (@DepthQuotient.count α x)
+      (@DepthQuotient.count α y))
+'DepthQuotient.count_mul' depends on axioms: [Quot.sound]
+@DepthQuotient.count_realize : ∀ {α : Type} (a : α) (n : TreeN),
+  @Eq.{1} TreeN (@DepthQuotient.count α (@DepthQuotient.realize α a n)) n
+'DepthQuotient.count_realize' does not depend on any axioms
+@DepthQuotient.count_surjective : ∀ {α : Type} (a : α) (n : TreeN),
+  @Exists.{1} (DepthQuotient.DepthClass α) fun (x : DepthQuotient.DepthClass α) =>
+    @Eq.{1} TreeN (@DepthQuotient.count α x) n
+'DepthQuotient.count_surjective' does not depend on any axioms
+@DepthQuotient.csr : {α : Type} → (a : α) → CSR (DepthQuotient.DepthClass α)
+'DepthQuotient.csr' depends on axioms: [Quot.sound]
+@DepthQuotient.depthRel_iff_depth : ∀ {α : Type} (w v : Word α),
+  And (@DepthQuotient.DepthRel α w v → @Eq.{1} TreeN (@Word.depth α w) (@Word.depth α v))
+    (@Eq.{1} TreeN (@Word.depth α w) (@Word.depth α v) → @DepthQuotient.DepthRel α w v)
+'DepthQuotient.depthRel_iff_depth' does not depend on any axioms
+@DepthQuotient.depthRel_refl : ∀ {α : Type} (w : Word α), @DepthQuotient.DepthRel α w w
+'DepthQuotient.depthRel_refl' does not depend on any axioms
+@DepthQuotient.depthRel_symm : ∀ {α : Type} {w v : Word α} (h : @DepthQuotient.DepthRel α w v),
+  @DepthQuotient.DepthRel α v w
+'DepthQuotient.depthRel_symm' does not depend on any axioms
+@DepthQuotient.depthRel_trans : ∀ {α : Type} {w v u : Word α} (h1 : @DepthQuotient.DepthRel α w v)
+  (h2 : @DepthQuotient.DepthRel α v u), @DepthQuotient.DepthRel α w u
+'DepthQuotient.depthRel_trans' does not depend on any axioms
+DepthQuotient.empty_no_one : Not
+  (@Exists.{1} (DepthQuotient.DepthClass Empty) fun (x : DepthQuotient.DepthClass Empty) =>
+    @Eq.{1} TreeN (@DepthQuotient.count Empty x) TreeN.one)
+'DepthQuotient.empty_no_one' does not depend on any axioms
+@DepthQuotient.eq_zeroD_of_noLetter : ∀ {α : Type} (hα : ∀ (a : α), False) (x : DepthQuotient.DepthClass α),
+  @Eq.{1} (DepthQuotient.DepthClass α) x (@DepthQuotient.zeroD α)
+'DepthQuotient.eq_zeroD_of_noLetter' depends on axioms: [Quot.sound]
+@DepthQuotient.led_iff_graft : ∀ {α : Type} (a : α) (x y : DepthQuotient.DepthClass α),
+  And
+    (@DepthQuotient.LED α x y →
+      @Exists.{1} (DepthQuotient.DepthClass α) fun (z : DepthQuotient.DepthClass α) =>
+        @Eq.{1} (DepthQuotient.DepthClass α) y
+          (@HAdd.hAdd.{0, 0, 0} (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α)
+            (@instHAdd.{0} (DepthQuotient.DepthClass α) (@DepthQuotient.instAddDepthClass α)) x z))
+    ((@Exists.{1} (DepthQuotient.DepthClass α) fun (z : DepthQuotient.DepthClass α) =>
+        @Eq.{1} (DepthQuotient.DepthClass α) y
+          (@HAdd.hAdd.{0, 0, 0} (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α)
+            (@instHAdd.{0} (DepthQuotient.DepthClass α) (@DepthQuotient.instAddDepthClass α)) x z)) →
+      @DepthQuotient.LED α x y)
+'DepthQuotient.led_iff_graft' depends on axioms: [Quot.sound]
+@DepthQuotient.oneD_letter_indep : ∀ {α : Type} (a b : α),
+  @Eq.{1} (DepthQuotient.DepthClass α) (@DepthQuotient.oneD α a) (@DepthQuotient.oneD α b)
+'DepthQuotient.oneD_letter_indep' depends on axioms: [Quot.sound]
+@DepthQuotient.realize_add : ∀ {α : Type} (a : α) (m n : TreeN),
+  @Eq.{1} (DepthQuotient.DepthClass α)
+    (@DepthQuotient.realize α a (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m n))
+    (@HAdd.hAdd.{0, 0, 0} (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α)
+      (@instHAdd.{0} (DepthQuotient.DepthClass α) (@DepthQuotient.instAddDepthClass α)) (@DepthQuotient.realize α a m)
+      (@DepthQuotient.realize α a n))
+'DepthQuotient.realize_add' depends on axioms: [Quot.sound]
+@DepthQuotient.realize_count : ∀ {α : Type} (a : α) (x : DepthQuotient.DepthClass α),
+  @Eq.{1} (DepthQuotient.DepthClass α) (@DepthQuotient.realize α a (@DepthQuotient.count α x)) x
+'DepthQuotient.realize_count' depends on axioms: [Quot.sound]
+@DepthQuotient.realize_le : ∀ {α : Type} (a : α) (m n : TreeN),
+  And (TreeN.PathLE m n → @DepthQuotient.LED α (@DepthQuotient.realize α a m) (@DepthQuotient.realize α a n))
+    (@DepthQuotient.LED α (@DepthQuotient.realize α a m) (@DepthQuotient.realize α a n) → TreeN.PathLE m n)
+'DepthQuotient.realize_le' does not depend on any axioms
+@DepthQuotient.realize_letter_indep : ∀ {α : Type} (a b : α) (n : TreeN),
+  @Eq.{1} (DepthQuotient.DepthClass α) (@DepthQuotient.realize α a n) (@DepthQuotient.realize α b n)
+'DepthQuotient.realize_letter_indep' depends on axioms: [Quot.sound]
+@DepthQuotient.realize_mul : ∀ {α : Type} (a : α) (m n : TreeN),
+  @Eq.{1} (DepthQuotient.DepthClass α)
+    (@DepthQuotient.realize α a (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m n))
+    (@HMul.hMul.{0, 0, 0} (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α) (DepthQuotient.DepthClass α)
+      (@instHMul.{0} (DepthQuotient.DepthClass α) (@DepthQuotient.instMulDepthClass α)) (@DepthQuotient.realize α a m)
+      (@DepthQuotient.realize α a n))
+'DepthQuotient.realize_mul' depends on axioms: [Quot.sound]
+@DepthQuotient.rep_letter_dependent : ∀ {α : Type} {a b : α} (hab : @Ne.{1} α a b) (n : TreeN),
+  @Ne.{1} (Word α) (@Word.rep α a (TreeN.succ n)) (@Word.rep α b (TreeN.succ n))
+'DepthQuotient.rep_letter_dependent' does not depend on any axioms
+DepthQuotient.unary_cls_eq_iff : ∀ (w v : Word UnitChild),
+  And
+    (@Eq.{1} (DepthQuotient.DepthClass UnitChild) (@DepthQuotient.cls UnitChild w) (@DepthQuotient.cls UnitChild v) →
+      @Eq.{1} (Word UnitChild) w v)
+    (@Eq.{1} (Word UnitChild) w v →
+      @Eq.{1} (DepthQuotient.DepthClass UnitChild) (@DepthQuotient.cls UnitChild w) (@DepthQuotient.cls UnitChild v))
+'DepthQuotient.unary_cls_eq_iff' depends on axioms: [Quot.sound]
+DepthQuotient.unary_count_cls : ∀ (p : TreeN),
+  @Eq.{1} TreeN (@DepthQuotient.count UnitChild (@DepthQuotient.cls UnitChild p)) p
+'DepthQuotient.unary_count_cls' does not depend on any axioms
+@DepthQuotient.word_eq_root_of_noLetter : ∀ {α : Type} (hα : ∀ (a : α), False) (w : Word α),
+  @Eq.{1} (Word α) w (@List.nil.{0} α)
+'DepthQuotient.word_eq_root_of_noLetter' does not depend on any axioms
+@Frac.inv_resp : ∀ {f f' : Frac} (h : Frac.Eqv f f'), Frac.Eqv (Frac.inv f) (Frac.inv f')
+'Frac.inv_resp' does not depend on any axioms
+@Frac.neg_resp : ∀ {f f' : Frac} (h : Frac.Eqv f f'), Frac.Eqv (Frac.neg f) (Frac.neg f')
+'Frac.neg_resp' does not depend on any axioms
+FracQ.charZero' : ∀ (n : TreeN),
+  @Ne.{1} FracQ
+    (@natCastWith FracQ FracQ.zeroF FracQ.oneF
+      (fun (x y : FracQ) => @HAdd.hAdd.{0, 0, 0} FracQ FracQ FracQ (@instHAdd.{0} FracQ FracQ.instAdd) x y)
+      (TreeN.succ n))
+    FracQ.zeroF
+'FracQ.charZero'' depends on axioms: [Quot.sound]
+@FracQ.exact : ∀ {f g : Frac} (h : @Eq.{1} FracQ (FracQ.mk f) (FracQ.mk g)), Frac.Eqv f g
+'FracQ.exact' does not depend on any axioms
+FracQ.instCRing : CRing FracQ
+'FracQ.instCRing' depends on axioms: [Quot.sound]

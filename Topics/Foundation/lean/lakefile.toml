@@ -1,0 +1,18 @@
+name = "TreeFoundations"
+defaultTargets = ["TreeFoundations", "TreeAnalysis"]
+
+[[lean_lib]]
+name = "TreeFoundations"
+globs = ["TreeFoundations", "PrimitiveTree.+", "TreeNumbers.+", "TreeFoundation.+", "DimensionFoundation.+"]
+
+[[lean_lib]]
+name = "TreeAnalysis"
+globs = ["TreeAnalysis", "TreeAnalysis.*", "BoundaryTopology.+"]
+
+[[lean_lib]]
+name = "Audit"
+globs = ["Audit.+"]
+
+[[lean_lib]]
+name = "ReleaseAudit"
+globs = ["ReleaseAudit.+"]

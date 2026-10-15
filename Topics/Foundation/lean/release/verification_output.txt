@@ -1,0 +1,144 @@
+
+=== 1. toolchain, manifest, fingerprint ===
+lean-toolchain: leanprover/lean4:v4.28.0
+Lean (version 4.28.0, x86_64-unknown-linux-gnu, commit 7e01a1bf5c70fc6167d49c345d3bf80596e9a79b, Release)
+Lake version 5.0.0-src+7e01a1b (Lean version 4.28.0)
+lake-manifest.json:
+{"version": "1.1.0",
+ "packagesDir": ".lake/packages",
+ "packages": [],
+ "name": "TreeFoundations",
+ "lakeDir": ".lake"}
+git commit: 2897ec5e8ad89bc6e2e6552f6ac636e729723bc3
+source files: 75
+source fingerprint (sha256 of sorted per-file sha256 list): 7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e
+
+=== 2. build mathematical libraries ===
+Build completed successfully (67 jobs).
+
+=== 3. source-level check ===
+source check: 64 mathematical source files scanned, 64 reachable from the roots
+source check passed: no forbidden token, numeric literal or foreign import
+
+=== 4. kernel-level fail-closed audit ===
+ _aux_TreeNumbers_AlgebraInterface___unexpand_CSR_zero_1] exempt from the number-carrier check only); axiom-free: 2162, using propext: 245, using Quot.sound: 817; no axiom outside [propext, Quot.sound]
+info: ReleaseAudit/Run.lean:17:0: all 60 required declarations present
+Build completed successfully (69 jobs).
+fail-closed audit passed: 64 project modules, 3014 constants audited (488 generated constants and 6 syntax declarations [«_aux_TreeNumbers_AlgebraInterface___macroRules_term𝟘_1»,
+ «_aux_TreeNumbers_AlgebraInterface___macroRules_term𝟙_1»,
+ «term𝟘»,
+ _aux_TreeNumbers_AlgebraInterface___unexpand_CSR_one_1,
+ «term𝟙»,
+ _aux_TreeNumbers_AlgebraInterface___unexpand_CSR_zero_1] exempt from the number-carrier check only); axiom-free: 2162, using propext: 245, using Quot.sound: 817; no axiom outside [propext, Quot.sound]
+all 60 required declarations present
+
+=== 5. axiom report (informational) ===
+TreeN.instCSR: []
+Task04.treeN_certificate: []
+TreeN.recN_unique: []
+TreeN.mul_left_cancel: []
+TreeZ.instCRing: []
+Task04.treeZ_certificate: []
+TreeZ.mul_eq_zero: []
+TreeZ.mkZ_exact: []
+TreeQ.instTField: [Quot.sound]
+TreeQ.instTOField: [Quot.sound]
+Task04.treeQ_certificate: [Quot.sound]
+TreeQ.exact: []
+TriplePath.universal_witness: []
+TreeQ.arityIso: [Quot.sound]
+TreeQ.fieldIso_unique: [Quot.sound]
+TreeR.instCRing: [Quot.sound]
+Task04.treeR_unconditional_certificate: [Quot.sound, propext]
+Task04.treeR_conditional_certificate: [Quot.sound, propext]
+Task04.treeR_convergence_certificate: [Quot.sound, propext]
+TreeR.realIso_unique: [Quot.sound, propext]
+DepthQuotient.depthIso: [Quot.sound]
+DepthQuotient.cls_eq_iff: [Quot.sound]
+DepthQuotient.realize_letter_indep: [Quot.sound]
+DepthQuotient.no_positive_count_of_noLetter: []
+DepthQuotient.eq_zeroD_of_noLetter: [Quot.sound]
+DepthQuotient.unary_cls_eq_iff: [Quot.sound]
+DepthQuotient.led_iff_graft: [Quot.sound]
+TreeQ.mk_eq_of_pathSum_eq: [Quot.sound]
+FracQ.instTField: [Quot.sound]
+TreeQ.orderedFieldIsoFracQ: [Quot.sound]
+TreeQ.lt_iff_toFracQ: [Quot.sound]
+TreeQ.toFracQ_inv_zero: [Quot.sound]
+TreeQ.ofFracQ_letter_indep: [Quot.sound]
+TreeQ.toFracQ_transfer: [Quot.sound]
+TreeQ.toFracQ_fieldIso: [Quot.sound]
+TreeQ.arityIso_fracQ: [Quot.sound]
+TreeR.realArityIso_ofFracQ: [Quot.sound]
+TreeR.realIso_ofFracQ: [Quot.sound, propext]
+TriplePath.unary_toFracQ_ne_zero: [Quot.sound]
+TriplePath.unary_obstruction_scope: [Quot.sound]
+RayAutomorphism.treeAut: []
+RayAutomorphism.prefixAt_rayAct: []
+RayAutomorphism.rayAct_swapPerm: [Quot.sound]
+RayAutomorphism.treeAut_swapPerm_prefix: [Quot.sound]
+RayAutomorphism.invariant_const: [Quot.sound]
+RayAutomorphism.swapInvariant_const: [Quot.sound]
+finiteRay_homogeneous: [Quot.sound]
+omegaRay_homogeneous: [Quot.sound]
+TreeR.TExpr.lim_tracked: [Quot.sound, propext]
+TreeR.TExpr.converges_evalSeq: [Quot.sound, propext]
+
+=== 6. negative fixtures ===
+OK   (fails as required, exit 1): user axiom
+       /tmp/tmp.yZRvN65O5Z/NegAxiom.lean:4:0: error: FAIL-CLOSED AUDIT FAILED: 3 violation(s)
+       fixtureUsesBogus: forbidden axioms [fixtureBogus]
+       fixtureBogus: forbidden axioms [fixtureBogus]
+OK   (fails as required, exit 1): Classical.em (Classical.choice)
+       /tmp/tmp.yZRvN65O5Z/NegClassical.lean:3:0: error: FAIL-CLOSED AUDIT FAILED: 2 violation(s)
+       fixtureEm: forbidden axioms [Classical.choice]
+       fixtureEm: mentions classical constants [Classical.em]
+OK   (fails as required, exit 1): sorry (sorryAx)
+       /tmp/tmp.yZRvN65O5Z/NegSorry.lean:3:0: error: FAIL-CLOSED AUDIT FAILED: 2 violation(s)
+       fixtureSorry: forbidden axioms [sorryAx]
+       fixtureSorry: mentions built-in number constants [OfNat.ofNat, Nat]
+OK   (fails as required, exit 1): built-in Nat carrier
+       /tmp/tmp.yZRvN65O5Z/NegNat.lean:3:0: error: FAIL-CLOSED AUDIT FAILED: 1 violation(s)
+       fixtureNatCarrier: mentions built-in number constants [Nat, Nat, OfNat.ofNat]
+OK   (fails as required, exit 1): native_decide (trust axiom)
+       /tmp/tmp.yZRvN65O5Z/NegNative.lean:5:0: error: FAIL-CLOSED AUDIT FAILED: 5 violation(s)
+       fixtureNative._proof_1_1: forbidden axioms [Lean.ofReduceBool, Lean.trustCompiler]
+       fixtureNative._proof_1_1: mentions built-in number constants [Nat, OfNat.ofNat, Nat, OfNat.ofNat]
+OK   (fails as required, exit 1): opaque constant
+       /tmp/tmp.yZRvN65O5Z/NegOpaque.lean:3:0: error: FAIL-CLOSED AUDIT FAILED: 1 violation(s)
+OK   (fails as required, exit 1): missing required declaration
+       /tmp/tmp.yZRvN65O5Z/NegMissing.lean:2:0: error: FAIL-CLOSED AUDIT FAILED: missing required declarations [Nonexistent.declaration]
+OK   (fails as required, exit 1): release audit without the libraries loaded
+       /tmp/tmp.yZRvN65O5Z/NegCoverage.lean:2:0: error: FAIL-CLOSED AUDIT FAILED: 1 violation(s)
+OK   (passes as required, exit 0): positive control (inductive type + structural proof)
+OK   (fails as required, exit 1): source-level fixture
+       source check: 3 mathematical source files scanned, 3 reachable from the roots
+       SOURCE CHECK FAILED: 4 violation(s)
+         PrimitiveTree.Bad:2: non-project import `Lean`
+         PrimitiveTree.Bad:3: forbidden token `Nat`
+         PrimitiveTree.Bad:3: numeric literal `3`
+         PrimitiveTree.Bad:4: forbidden token `simp`
+NEGATIVE FIXTURES: all expectations met
+
+=== 7. leanchecker ===
+using /root/.elan/bin/leanchecker
+leanchecker --fresh TreeFoundations
+  ok (exit 0)
+leanchecker --fresh TreeAnalysis
+  ok (exit 0)
+leanchecker PrimitiveTree (replay every module with this prefix)
+  ok (exit 0)
+leanchecker TreeNumbers (replay every module with this prefix)
+  ok (exit 0)
+leanchecker TreeFoundation (replay every module with this prefix)
+  ok (exit 0)
+leanchecker DimensionFoundation (replay every module with this prefix)
+  ok (exit 0)
+leanchecker TreeAnalysis (replay every module with this prefix)
+  ok (exit 0)
+leanchecker BoundaryTopology (replay every module with this prefix)
+  ok (exit 0)
+leanchecker ReleaseAudit (replay every module with this prefix)
+  ok (exit 0)
+
+RELEASE VERIFICATION PASSED

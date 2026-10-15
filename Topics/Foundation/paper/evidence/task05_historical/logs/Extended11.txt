@@ -1,0 +1,105 @@
+TriplePath.unary_obstruction_scope : And
+  (∀ (x : TreeQ UnitChild),
+    @Ne.{1} FracQ (@TreeQ.toFracQ UnitChild x) (@CSR.zero FracQ (@CRing.toCSR FracQ FracQ.instCRing)))
+  (And
+    (@Ne.{1} FracQ (@CSR.zero FracQ (@CRing.toCSR FracQ FracQ.instCRing))
+      (@CSR.one FracQ (@CRing.toCSR FracQ FracQ.instCRing)))
+    (∀ (y : FracQ),
+      @Ne.{1} FracQ y (@CSR.zero FracQ (@CRing.toCSR FracQ FracQ.instCRing)) →
+        @Eq.{1} FracQ
+          (@HMul.hMul.{0, 0, 0} FracQ FracQ FracQ (@instHMul.{0} FracQ FracQ.instMul) y
+            (@TField.inv FracQ FracQ.instTField y))
+          (@CSR.one FracQ (@CRing.toCSR FracQ FracQ.instCRing))))
+'TriplePath.unary_obstruction_scope' depends on axioms: [Quot.sound]
+TriplePath.unary_toFracQ_ne_zero : ∀ (x : TreeQ UnitChild),
+  @Ne.{1} FracQ (@TreeQ.toFracQ UnitChild x) (@CSR.zero FracQ (@CRing.toCSR FracQ FracQ.instCRing))
+'TriplePath.unary_toFracQ_ne_zero' depends on axioms: [Quot.sound]
+@TriplePath.witness_denom : ∀ {α : Type} [inst : TwoLetters α] (p q D : TreeN) (hD : TreeN.PathLT TreeN.zero D),
+  @Eq.{1} TreeN (@TriplePath.denom α (@TriplePath.witness α inst p q D hD)) D
+'TriplePath.witness_denom' does not depend on any axioms
+@TriplePath.witness_numer : ∀ {α : Type} [inst : TwoLetters α] (p q D : TreeN) (hD : TreeN.PathLT TreeN.zero D),
+  @Eq.{1} TreeZ (@TriplePath.numer α (@TriplePath.witness α inst p q D hD)) (TreeZ.mkZ p q)
+'TriplePath.witness_numer' does not depend on any axioms
+UnaryPath.zero_or_extend : ∀ (p : UnaryPath),
+  Or (@Eq.{1} UnaryPath p UnaryPath.zeroPath)
+    (@Exists.{1} UnaryPath fun (q : UnaryPath) => @Eq.{1} UnaryPath p (UnaryPath.extend q))
+'UnaryPath.zero_or_extend' does not depend on any axioms
+UnaryTree.count_realized : ∀ (n : TreeN),
+  @Exists.{1} (Word UnitChild) fun (v : Word UnitChild) => @Eq.{1} TreeN (@Word.pathSum UnitChild v) n
+'UnaryTree.count_realized' does not depend on any axioms
+@UnaryTree.count_unique : ∀ {v w : Word UnitChild}
+  (h : @Eq.{1} TreeN (@Word.pathSum UnitChild v) (@Word.pathSum UnitChild w)), @Eq.{1} (Word UnitChild) v w
+'UnaryTree.count_unique' does not depend on any axioms
+UnaryTree.pathSum_self : ∀ (p : UnaryPath), @Eq.{1} TreeN (@Word.pathSum UnitChild p) p
+'UnaryTree.pathSum_self' does not depend on any axioms
+@Word.unitSum_nil : ∀ {α : Type}, @Eq.{1} TreeN (@Word.unitSum α (@List.nil.{0} (Word.Edge α))) TreeN.zero
+'Word.unitSum_nil' does not depend on any axioms
+@Word.unitSum_snoc : ∀ {α : Type} (es : List.{0} (Word.Edge α)) (e : Word.Edge α),
+  @Eq.{1} TreeN
+    (@Word.unitSum α (@ListOps.appL (Word.Edge α) es (@List.cons.{0} (Word.Edge α) e (@List.nil.{0} (Word.Edge α)))))
+    (TreeN.succ (@Word.unitSum α es))
+'Word.unitSum_snoc' does not depend on any axioms
+binary_levelwise_converse_false : Not
+  (∀ (T : RayAutomorphism.TreeAut (Child TreeN.two)),
+    @Exists.{1} (RayAutomorphism.LevelPerm (Child TreeN.two)) fun (P : RayAutomorphism.LevelPerm (Child TreeN.two)) =>
+      @Eq.{1} (Word (Child TreeN.two) → Word (Child TreeN.two))
+        (@RayAutomorphism.TreeAut.toFun (Child TreeN.two) (@RayAutomorphism.treeAut (Child TreeN.two) P))
+        (@RayAutomorphism.TreeAut.toFun (Child TreeN.two) T))
+'binary_levelwise_converse_false' does not depend on any axioms
+finiteArityIso : (b b' : TreeN) →
+  [inst : AtLeastTwo b] →
+    [inst_1 : AtLeastTwo b'] →
+      @FieldIso (TreeQb b) (TreeQb b') (@TreeQ.instTField (Child b) (@instTwoLettersChildOfAtLeastTwo b inst))
+        (@TreeQ.instTField (Child b') (@instTwoLettersChildOfAtLeastTwo b' inst_1))
+'finiteArityIso' depends on axioms: [Quot.sound]
+finiteOmegaIso : (b : TreeN) →
+  [inst : AtLeastTwo b] →
+    @FieldIso (TreeQb b) TreeQOmega (@TreeQ.instTField (Child b) (@instTwoLettersChildOfAtLeastTwo b inst))
+      (@TreeQ.instTField ChildOmega instTwoLettersChildOmega)
+'finiteOmegaIso' depends on axioms: [Quot.sound]
+finiteRay_homogeneous : ∀ (b : TreeN) (ξ η : RayFinite b),
+  @Eq.{1} (Ray (Child b))
+    (@RayAutomorphism.rayAct (Child b) (@RayAutomorphism.swapPerm (Child b) (@Child.instDecidableEq b) ξ η) ξ) η
+'finiteRay_homogeneous' depends on axioms: [Quot.sound]
+natR_eq_ofZR : ∀ (n : TreeN),
+  @Eq.{1} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+    (@TreeR.natR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) n) (ofZR (TreeZ.ofN n))
+'natR_eq_ofZR' depends on axioms: [Quot.sound]
+@ofZR_injective : ∀ {z z' : TreeZ} (h : @Eq.{1} TreeRStar (ofZR z) (ofZR z')), @Eq.{1} TreeZ z z'
+'ofZR_injective' depends on axioms: [propext, Quot.sound]
+omegaRay_homogeneous : ∀ (ξ η : RayOmega),
+  @Eq.{1} (Ray TreeN) (@RayAutomorphism.rayAct TreeN (@RayAutomorphism.swapPerm TreeN TreeN.instDecidableEq ξ η) ξ) η
+'omegaRay_homogeneous' depends on axioms: [Quot.sound]
+omega_levelwise_converse_false : Not
+  (∀ (T : RayAutomorphism.TreeAut TreeN),
+    @Exists.{1} (RayAutomorphism.LevelPerm TreeN) fun (P : RayAutomorphism.LevelPerm TreeN) =>
+      @Eq.{1} (Word TreeN → Word TreeN) (@RayAutomorphism.TreeAut.toFun TreeN (@RayAutomorphism.treeAut TreeN P))
+        (@RayAutomorphism.TreeAut.toFun TreeN T))
+'omega_levelwise_converse_false' does not depend on any axioms
+realArityIso : (α β : Type) →
+  [inst : TwoLetters α] →
+    [inst_1 : TwoLetters β] →
+      @RealIso (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+        (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+        (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+        (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1))
+'realArityIso' depends on axioms: [Quot.sound]
+realArityIso_ofQ : ∀ (α β : Type) [inst : TwoLetters α] [inst_1 : TwoLetters β] (q : TreeQ α),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) (@realArityIso α β inst inst_1)
+      (@TreeR.ofQ (TreeQ α) (@TreeQ.instTOField α inst) q))
+    (@TreeR.ofQ (TreeQ β) (@TreeQ.instTOField β inst_1) (@TreeQ.transfer α β inst_1 q))
+'realArityIso_ofQ' depends on axioms: [Quot.sound]
+TreeR.CauchySequenceLifting : (K : Type) → [TOField K] → Prop
+'TreeR.CauchySequenceLifting' depends on axioms: [Quot.sound]
+TreeR.ChoiceNN : Prop
+'TreeR.ChoiceNN' does not depend on any axioms
+TreeR.CauchyApprox : (K : Type) → [TOField K] → Prop
+'TreeR.CauchyApprox' depends on axioms: [Quot.sound]
+TreeR.SequenceLifting : (K : Type) → [TOField K] → Prop
+'TreeR.SequenceLifting' does not depend on any axioms
+TreeR.TrackedCauchyTower : (K : Type) → [TOField K] → Type
+'TreeR.TrackedCauchyTower' depends on axioms: [Quot.sound]

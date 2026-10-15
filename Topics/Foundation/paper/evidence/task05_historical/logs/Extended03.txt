@@ -1,0 +1,111 @@
+TreeN.le_total : ∀ (m n : TreeN), Or (TreeN.PathLE m n) (TreeN.PathLE n m)
+'TreeN.le_total' does not depend on any axioms
+@TreeN.le_trans : ∀ {a b c : TreeN} (h1 : TreeN.PathLE a b) (h2 : TreeN.PathLE b c), TreeN.PathLE a c
+'TreeN.le_trans' does not depend on any axioms
+TreeN.left_distrib : ∀ (a b c : TreeN),
+  @Eq.{1} TreeN
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) b c))
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a b)
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a c))
+'TreeN.left_distrib' does not depend on any axioms
+TreeN.lt_iff_succ_le : ∀ (m n : TreeN),
+  And (TreeN.PathLT m n → TreeN.PathLE (TreeN.succ m) n) (TreeN.PathLE (TreeN.succ m) n → TreeN.PathLT m n)
+'TreeN.lt_iff_succ_le' does not depend on any axioms
+TreeN.lt_irrefl : ∀ (n : TreeN), Not (TreeN.PathLT n n)
+'TreeN.lt_irrefl' does not depend on any axioms
+@TreeN.lt_of_add_lt_add_left : ∀ {k m n : TreeN}
+  (h :
+    TreeN.PathLT (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k m)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k n)),
+  TreeN.PathLT m n
+'TreeN.lt_of_add_lt_add_left' does not depend on any axioms
+@TreeN.lt_trans : ∀ {a b c : TreeN} (h1 : TreeN.PathLT a b) (h2 : TreeN.PathLT b c), TreeN.PathLT a c
+'TreeN.lt_trans' does not depend on any axioms
+@TreeN.mul_eq_zero : ∀ {m n : TreeN}
+  (h : @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m n) TreeN.zero),
+  Or (@Eq.{1} TreeN m TreeN.zero) (@Eq.{1} TreeN n TreeN.zero)
+'TreeN.mul_eq_zero' does not depend on any axioms
+@TreeN.mul_le_mul' : ∀ {a b c d : TreeN} (h1 : TreeN.PathLE a b) (h2 : TreeN.PathLE c d),
+  TreeN.PathLE (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a c)
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b d)
+'TreeN.mul_le_mul'' does not depend on any axioms
+TreeN.mul_le_mul_left : ∀ (k : TreeN) {m n : TreeN} (h : TreeN.PathLE m n),
+  TreeN.PathLE (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k m)
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k n)
+'TreeN.mul_le_mul_left' does not depend on any axioms
+TreeN.mul_le_mul_right : ∀ (k : TreeN) {m n : TreeN} (h : TreeN.PathLE m n),
+  TreeN.PathLE (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m k)
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) n k)
+'TreeN.mul_le_mul_right' does not depend on any axioms
+@TreeN.mul_left_cancel : ∀ {k m n : TreeN} (hk : TreeN.PathLT TreeN.zero k)
+  (h :
+    @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k m)
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k n)),
+  @Eq.{1} TreeN m n
+'TreeN.mul_left_cancel' does not depend on any axioms
+@TreeN.mul_lt_mul_left : ∀ {k m n : TreeN} (hk : TreeN.PathLT TreeN.zero k) (h : TreeN.PathLT m n),
+  TreeN.PathLT (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k m)
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k n)
+'TreeN.mul_lt_mul_left' does not depend on any axioms
+TreeN.mul_one : ∀ (n : TreeN),
+  @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) n TreeN.one) n
+'TreeN.mul_one' does not depend on any axioms
+@TreeN.mul_pos : ∀ {m n : TreeN} (hm : TreeN.PathLT TreeN.zero m) (hn : TreeN.PathLT TreeN.zero n),
+  TreeN.PathLT TreeN.zero (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m n)
+'TreeN.mul_pos' does not depend on any axioms
+@TreeN.mul_right_cancel : ∀ {k m n : TreeN} (hk : TreeN.PathLT TreeN.zero k)
+  (h :
+    @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m k)
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) n k)),
+  @Eq.{1} TreeN m n
+'TreeN.mul_right_cancel' does not depend on any axioms
+TreeN.mul_zero : ∀ (m : TreeN),
+  @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m TreeN.zero) TreeN.zero
+'TreeN.mul_zero' does not depend on any axioms
+TreeN.normPair_normal : ∀ (m n : TreeN),
+  Or (@Eq.{1} TreeN (@Prod.fst.{0, 0} TreeN TreeN (TreeN.normPair m n)) TreeN.zero)
+    (@Eq.{1} TreeN (@Prod.snd.{0, 0} TreeN TreeN (TreeN.normPair m n)) TreeN.zero)
+'TreeN.normPair_normal' does not depend on any axioms
+TreeN.normPair_pairEq : ∀ (m n : TreeN),
+  TreeN.PairEq (@Prod.fst.{0, 0} TreeN TreeN (TreeN.normPair m n)) (@Prod.snd.{0, 0} TreeN TreeN (TreeN.normPair m n)) m
+    n
+'TreeN.normPair_pairEq' does not depend on any axioms
+TreeN.one_mul : ∀ (n : TreeN),
+  @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) TreeN.one n) n
+'TreeN.one_mul' does not depend on any axioms
+@TreeN.recN_succ : ∀ {β : Type} (b : β) (f : β → β) (n : TreeN),
+  @Eq.{1} β (@TreeN.recN β b f (TreeN.succ n)) (f (@TreeN.recN β b f n))
+'TreeN.recN_succ' does not depend on any axioms
+@TreeN.recN_zero : ∀ {β : Type} (b : β) (f : β → β), @Eq.{1} β (@TreeN.recN β b f TreeN.zero) b
+'TreeN.recN_zero' does not depend on any axioms
+@TreeN.succ_injective : ∀ {m n : TreeN} (h : @Eq.{1} TreeN (TreeN.succ m) (TreeN.succ n)), @Eq.{1} TreeN m n
+'TreeN.succ_injective' does not depend on any axioms
+TreeN.succ_ne_zero : ∀ (n : TreeN), @Ne.{1} TreeN (TreeN.succ n) TreeN.zero
+'TreeN.succ_ne_zero' does not depend on any axioms
+TreeN.zero_add : ∀ (n : TreeN),
+  @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) TreeN.zero n) n
+'TreeN.zero_add' does not depend on any axioms
+TreeN.zero_mul : ∀ (n : TreeN),
+  @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) TreeN.zero n) TreeN.zero
+'TreeN.zero_mul' does not depend on any axioms
+TreeN.zero_ne_one : @Ne.{1} TreeN TreeN.zero TreeN.one
+'TreeN.zero_ne_one' does not depend on any axioms
+@TreeQ.add_assoc' : ∀ {α : Type} [inst : TwoLetters α] (x y z : TreeQ α),
+  @Eq.{1} (TreeQ α)
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+      (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) x y) z)
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) x
+      (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) y z))
+'TreeQ.add_assoc'' depends on axioms: [Quot.sound]
+@TreeQ.add_comm' : ∀ {α : Type} [inst : TwoLetters α] (x y : TreeQ α),
+  @Eq.{1} (TreeQ α)
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) x y)
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) y x)
+'TreeQ.add_comm'' depends on axioms: [Quot.sound]
+@TreeQ.archQ_spec : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α),
+  @TreeQ.NonnegQ α
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+      (@TreeQ.natQ α inst (@TreeQ.archQ α inst x)) (@Neg.neg.{0} (TreeQ α) (@TreeQ.instNeg α inst) x))
+'TreeQ.archQ_spec' depends on axioms: [Quot.sound]

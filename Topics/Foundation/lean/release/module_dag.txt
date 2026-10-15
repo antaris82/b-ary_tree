@@ -1,0 +1,73 @@
+# Import DAG (module <- direct imports), generated from the sources
+TreeFoundations <- PrimitiveTree.UnitChild, PrimitiveTree.UnaryPaths, TreeNumbers.AlgebraInterface, TreeNumbers.PathNaturals, TreeNumbers.PathOrder, TreeNumbers.PathIntegers, PrimitiveTree.ListOps, PrimitiveTree.FiniteChild, PrimitiveTree.FiniteWords, PrimitiveTree.RootEdges, TreeNumbers.PathFractions, TreeNumbers.PathTriples, TreeNumbers.FieldInterface, TreeNumbers.PathRationalField, TreeNumbers.RationalArityIndependence, TreeNumbers.FoundationsLedger, TreeFoundation.ArityEmbeddings, TreeFoundation.OmegaTree, TreeFoundation.InfiniteRays, TreeFoundation.ExtendedLevels, DimensionFoundation.FiniteSums, DimensionFoundation.FiniteChildModule, DimensionFoundation.TransverseBasis, DimensionFoundation.OmegaFiniteSupport, DimensionFoundation.BoundaryLongitudinal, DimensionFoundation.Instances, TreeFoundation.RayAutomorphism, TreeNumbers.DepthQuotient, TreeFoundation.AutomorphismCounterexample, DimensionFoundation.BilinearForm, DimensionFoundation.ProjectionLaws
+TreeAnalysis <- TreeAnalysis.OrderedField, TreeAnalysis.PathMax, TreeAnalysis.RationalOrder, TreeAnalysis.DyadicPrecision, TreeAnalysis.CauchyData, TreeAnalysis.CauchyOps, TreeAnalysis.SeqOrder, TreeAnalysis.RealQuotient, TreeAnalysis.RealOrderApartness, TreeAnalysis.CompletenessScope, TreeAnalysis.ArityCompletionTransfer, TreeAnalysis.Instances, TreeAnalysis.CompletenessStrength, TreeAnalysis.LiftingPrinciples, TreeAnalysis.ApartnessStrength, TreeAnalysis.SupremumScope, TreeAnalysis.PrimitiveDataScope, TreeAnalysis.CompletionCharacterization, TreeAnalysis.Task03Summary, TreeAnalysis.FoundationsClosure, TreeAnalysis.ApproxClosure, TreeAnalysis.Canonicity, TreeAnalysis.Task04Summary, BoundaryTopology.Cylinders, BoundaryTopology.PrefixTopology, BoundaryTopology.TopologicalObstructions, BoundaryTopology.ManifoldConditions, BoundaryTopology.BinaryEncoding, BoundaryTopology.RealLineManifold, TreeAnalysis.FractionCharacterization, TreeAnalysis.TrackedExpressions
+PrimitiveTree.FiniteChild <- TreeNumbers.PathOrder, PrimitiveTree.ListOps
+PrimitiveTree.FiniteWords <- PrimitiveTree.FiniteChild
+PrimitiveTree.ListOps <- PrimitiveTree.UnitChild
+PrimitiveTree.RootEdges <- PrimitiveTree.FiniteWords
+PrimitiveTree.UnaryPaths <- PrimitiveTree.UnitChild
+PrimitiveTree.UnitChild <- (Init only)
+TreeNumbers.AlgebraInterface <- (Init only)
+TreeNumbers.DepthQuotient <- TreeNumbers.FoundationsLedger
+TreeNumbers.FieldInterface <- TreeNumbers.PathOrder
+TreeNumbers.FoundationsLedger <- TreeNumbers.RationalArityIndependence
+TreeNumbers.PathFractions <- TreeNumbers.PathIntegers
+TreeNumbers.PathIntegers <- TreeNumbers.PathOrder
+TreeNumbers.PathNaturals <- PrimitiveTree.UnaryPaths, TreeNumbers.AlgebraInterface
+TreeNumbers.PathOrder <- TreeNumbers.PathNaturals
+TreeNumbers.PathRationalField <- TreeNumbers.PathTriples, TreeNumbers.FieldInterface
+TreeNumbers.PathTriples <- TreeNumbers.PathFractions, PrimitiveTree.RootEdges
+TreeNumbers.RationalArityIndependence <- TreeNumbers.PathRationalField
+TreeFoundation.ArityEmbeddings <- PrimitiveTree.RootEdges
+TreeFoundation.AutomorphismCounterexample <- TreeFoundation.RayAutomorphism
+TreeFoundation.ExtendedLevels <- TreeFoundation.InfiniteRays
+TreeFoundation.InfiniteRays <- TreeFoundation.OmegaTree
+TreeFoundation.OmegaTree <- TreeFoundation.ArityEmbeddings, TreeNumbers.PathTriples
+TreeFoundation.RayAutomorphism <- TreeFoundation.InfiniteRays
+DimensionFoundation.BilinearForm <- DimensionFoundation.FiniteChildModule
+DimensionFoundation.BoundaryLongitudinal <- DimensionFoundation.OmegaFiniteSupport
+DimensionFoundation.FiniteChildModule <- DimensionFoundation.FiniteSums
+DimensionFoundation.FiniteSums <- TreeNumbers.FieldInterface, PrimitiveTree.FiniteChild
+DimensionFoundation.Instances <- DimensionFoundation.BoundaryLongitudinal, TreeNumbers.RationalArityIndependence
+DimensionFoundation.OmegaFiniteSupport <- DimensionFoundation.TransverseBasis
+DimensionFoundation.ProjectionLaws <- DimensionFoundation.TransverseBasis, DimensionFoundation.BilinearForm
+DimensionFoundation.TransverseBasis <- DimensionFoundation.FiniteChildModule
+TreeAnalysis.ApartnessStrength <- TreeAnalysis.CompletenessStrength
+TreeAnalysis.ApproxClosure <- TreeAnalysis.FoundationsClosure
+TreeAnalysis.ArityCompletionTransfer <- TreeAnalysis.CompletenessScope, TreeAnalysis.RationalOrder
+TreeAnalysis.Canonicity <- TreeAnalysis.FoundationsClosure
+TreeAnalysis.CauchyData <- TreeAnalysis.DyadicPrecision
+TreeAnalysis.CauchyOps <- TreeAnalysis.CauchyData
+TreeAnalysis.CompletenessScope <- TreeAnalysis.RealOrderApartness
+TreeAnalysis.CompletenessStrength <- TreeAnalysis.Instances
+TreeAnalysis.CompletionCharacterization <- TreeAnalysis.CompletenessStrength
+TreeAnalysis.DyadicPrecision <- TreeAnalysis.OrderedField, TreeAnalysis.PathMax
+TreeAnalysis.FoundationsClosure <- TreeAnalysis.Task03Summary, TreeNumbers.FoundationsLedger
+TreeAnalysis.FractionCharacterization <- TreeAnalysis.Canonicity
+TreeAnalysis.Instances <- TreeAnalysis.ArityCompletionTransfer
+TreeAnalysis.LiftingPrinciples <- TreeAnalysis.CompletenessStrength
+TreeAnalysis.OrderedField <- TreeNumbers.FieldInterface
+TreeAnalysis.PathMax <- TreeNumbers.PathOrder
+TreeAnalysis.PrimitiveDataScope <- TreeAnalysis.CompletenessStrength, BoundaryTopology.BinaryEncoding
+TreeAnalysis.RationalOrder <- TreeNumbers.RationalArityIndependence, TreeAnalysis.OrderedField
+TreeAnalysis.RealOrderApartness <- TreeAnalysis.RealQuotient, TreeAnalysis.SeqOrder
+TreeAnalysis.RealQuotient <- TreeAnalysis.CauchyOps
+TreeAnalysis.SeqOrder <- TreeAnalysis.CauchyOps
+TreeAnalysis.SupremumScope <- TreeAnalysis.LiftingPrinciples, TreeAnalysis.ApartnessStrength
+TreeAnalysis.Task03Summary <- TreeAnalysis.LiftingPrinciples, TreeAnalysis.ApartnessStrength, TreeAnalysis.SupremumScope, TreeAnalysis.PrimitiveDataScope, TreeAnalysis.CompletionCharacterization
+TreeAnalysis.Task04Summary <- TreeAnalysis.ApproxClosure, TreeAnalysis.Canonicity
+TreeAnalysis.TrackedExpressions <- TreeAnalysis.ApproxClosure
+BoundaryTopology.BinaryEncoding <- BoundaryTopology.ManifoldConditions
+BoundaryTopology.Cylinders <- TreeFoundation.InfiniteRays, TreeNumbers.PathTriples
+BoundaryTopology.ManifoldConditions <- BoundaryTopology.TopologicalObstructions, TreeAnalysis.Instances
+BoundaryTopology.PrefixTopology <- BoundaryTopology.Cylinders, TreeAnalysis.PathMax
+BoundaryTopology.RealLineManifold <- BoundaryTopology.ManifoldConditions
+BoundaryTopology.TopologicalObstructions <- BoundaryTopology.PrefixTopology
+ReleaseAudit.Command <- Lean
+ReleaseAudit.Report <- TreeFoundations, TreeAnalysis, ReleaseAudit.Command
+ReleaseAudit.Run <- TreeFoundations, TreeAnalysis, ReleaseAudit.Command
+Audit.AxiomAudit <- TreeFoundations
+Audit.AxiomAuditTask02 <- TreeAnalysis
+Audit.AxiomAuditTask03 <- TreeAnalysis
+Audit.AxiomAuditTask04 <- Lean, TreeFoundations, TreeAnalysis
+Audit.ClosureAuditTask03 <- Lean, TreeAnalysis

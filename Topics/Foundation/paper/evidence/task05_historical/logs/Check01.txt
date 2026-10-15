@@ -1,0 +1,89 @@
+@Word.pathSum : {α : Type} → (w : Word α) → TreeN
+'Word.pathSum' does not depend on any axioms
+@Word.unitSum_rootEdges : ∀ {α : Type} (w : Word α),
+  @Eq.{1} TreeN (@Word.unitSum α (@Word.rootEdges α w)) (@Word.depth α w)
+'Word.unitSum_rootEdges' does not depend on any axioms
+@Word.pathSum_eq_depth : ∀ {α : Type} (w : Word α), @Eq.{1} TreeN (@Word.pathSum α w) (@Word.depth α w)
+'Word.pathSum_eq_depth' does not depend on any axioms
+@Word.pathSum_cons : ∀ {α : Type} (c : α) (w : Word α),
+  @Eq.{1} TreeN (@Word.pathSum α (@List.cons.{0} α c w)) (TreeN.succ (@Word.pathSum α w))
+'Word.pathSum_cons' does not depend on any axioms
+@Ray.pathSum_prefixAt : ∀ {α : Type} (r : Ray α) (n : TreeN), @Eq.{1} TreeN (@Word.pathSum α (@Ray.prefixAt α r n)) n
+'Ray.pathSum_prefixAt' does not depend on any axioms
+@PrimitiveScope.prefixCount_eq : ∀ {α K : Type} [inst : TOField K] (r : Ray α) (n : TreeN),
+  @Eq.{1} K (@PrimitiveScope.prefixCount α K inst r n) (@TField.natCast K (@TOField.toTField K inst) n)
+'PrimitiveScope.prefixCount_eq' does not depend on any axioms
+@PrimitiveScope.prefixCount_not_isCauchy : ∀ {α K : Type} [inst : TOField K] (r : Ray α),
+  Not (@TOField.IsCauchy K inst (@PrimitiveScope.prefixCount α K inst r))
+'PrimitiveScope.prefixCount_not_isCauchy' does not depend on any axioms
+@PrimitiveScope.prefixCount_indep : ∀ {α K : Type} [inst : TOField K] (r r' : Ray α),
+  @Eq.{1} ((n : TreeN) → K) (@PrimitiveScope.prefixCount α K inst r) (@PrimitiveScope.prefixCount α K inst r')
+'PrimitiveScope.prefixCount_indep' depends on axioms: [Quot.sound]
+UnaryPath : Type
+'UnaryPath' does not depend on any axioms
+UnaryPath.extend : (p : UnaryPath) → UnaryPath
+'UnaryPath.extend' does not depend on any axioms
+UnaryPath.concat : UnaryPath → UnaryPath → UnaryPath
+'UnaryPath.concat' does not depend on any axioms
+@UnaryPath.iterate : {α : Type} → (f : α → α) → UnaryPath → α → α
+'UnaryPath.iterate' does not depend on any axioms
+TreeN : Type
+'TreeN' does not depend on any axioms
+TreeN.add : (m n : TreeN) → TreeN
+'TreeN.add' does not depend on any axioms
+TreeN.mul : TreeN → TreeN → TreeN
+'TreeN.mul' does not depend on any axioms
+TreeN.add_comm : ∀ (m n : TreeN),
+  @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m n)
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) n m)
+'TreeN.add_comm' does not depend on any axioms
+TreeN.mul_comm : ∀ (m n : TreeN),
+  @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m n)
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) n m)
+'TreeN.mul_comm' does not depend on any axioms
+TreeN.right_distrib : ∀ (a b c : TreeN),
+  @Eq.{1} TreeN
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a b) c)
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a c)
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b c))
+'TreeN.right_distrib' does not depend on any axioms
+TreeN.mul_assoc : ∀ (a b c : TreeN),
+  @Eq.{1} TreeN
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul)
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a b) c)
+    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a
+      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b c))
+'TreeN.mul_assoc' does not depend on any axioms
+TreeN.instCSR : CSR TreeN
+'TreeN.instCSR' does not depend on any axioms
+@TreeN.induction : ∀ {P : TreeN → Prop} (h0 : P TreeN.zero) (hs : ∀ (n : TreeN), P n → P (TreeN.succ n)) (n : TreeN),
+  P n
+'TreeN.induction' does not depend on any axioms
+@TreeN.recN : {β : Type} → (b : β) → (f : β → β) → (n : TreeN) → β
+'TreeN.recN' does not depend on any axioms
+@TreeN.recN_unique : ∀ {β : Type} (b : β) (f : β → β) (h : TreeN → β) (h0 : @Eq.{1} β (h TreeN.zero) b)
+  (hs : ∀ (n : TreeN), @Eq.{1} β (h (TreeN.succ n)) (f (h n))) (n : TreeN), @Eq.{1} β (h n) (@TreeN.recN β b f n)
+'TreeN.recN_unique' does not depend on any axioms
+@TreeN.le_antisymm : ∀ {m n : TreeN} (h1 : TreeN.PathLE m n) (h2 : TreeN.PathLE n m), @Eq.{1} TreeN m n
+'TreeN.le_antisymm' does not depend on any axioms
+TreeN.lt_or_eq_or_gt : ∀ (m n : TreeN), Or (TreeN.PathLT m n) (Or (@Eq.{1} TreeN m n) (TreeN.PathLT n m))
+'TreeN.lt_or_eq_or_gt' does not depend on any axioms
+TreeN.le_iff_exists_add : ∀ (m n : TreeN),
+  And
+    (TreeN.PathLE m n →
+      @Exists.{1} TreeN fun (k : TreeN) =>
+        @Eq.{1} TreeN n (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m k))
+    ((@Exists.{1} TreeN fun (k : TreeN) =>
+        @Eq.{1} TreeN n (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m k)) →
+      TreeN.PathLE m n)
+'TreeN.le_iff_exists_add' does not depend on any axioms
+@DepthQuotient.DepthRel : {α : Type} → (w v : Word α) → Prop
+'DepthQuotient.DepthRel' does not depend on any axioms
+DepthQuotient.DepthClass : (α : Type) → Type
+'DepthQuotient.DepthClass' does not depend on any axioms
+@DepthQuotient.repeatW : {α : Type} → Word α → Word α → Word α
+'DepthQuotient.repeatW' does not depend on any axioms
+DepthQuotient.OrderedSemiringIso : (α : Type) → (a : α) → Type
+'DepthQuotient.OrderedSemiringIso' depends on axioms: [Quot.sound]

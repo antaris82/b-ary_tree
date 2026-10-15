@@ -1,0 +1,87 @@
+@DepthQuotient.depthIso : {α : Type} → (a : α) → DepthQuotient.OrderedSemiringIso α a
+'DepthQuotient.depthIso' depends on axioms: [Quot.sound]
+@DepthQuotient.depthIso_letter_indep : ∀ {α : Type} (a b : α) (n : TreeN),
+  @Eq.{1} (DepthQuotient.DepthClass α) (@DepthQuotient.OrderedSemiringIso.toFun α a (@DepthQuotient.depthIso α a) n)
+    (@DepthQuotient.OrderedSemiringIso.toFun α b (@DepthQuotient.depthIso α b) n)
+'DepthQuotient.depthIso_letter_indep' depends on axioms: [Quot.sound]
+@DepthQuotient.no_positive_count_of_noLetter : ∀ {α : Type} (hα : ∀ (a : α), False) (n : TreeN),
+  Not
+    (@Exists.{1} (DepthQuotient.DepthClass α) fun (x : DepthQuotient.DepthClass α) =>
+      @Eq.{1} TreeN (@DepthQuotient.count α x) (TreeN.succ n))
+'DepthQuotient.no_positive_count_of_noLetter' does not depend on any axioms
+TreeN.PairEq : (m n p q : TreeN) → Prop
+'TreeN.PairEq' does not depend on any axioms
+TreeN.pairEq_refl : ∀ (m n : TreeN), TreeN.PairEq m n m n
+'TreeN.pairEq_refl' does not depend on any axioms
+@TreeN.pairEq_symm : ∀ {m n p q : TreeN} (h : TreeN.PairEq m n p q), TreeN.PairEq p q m n
+'TreeN.pairEq_symm' does not depend on any axioms
+@TreeN.pairEq_trans : ∀ {a b c d e f : TreeN} (h1 : TreeN.PairEq a b c d) (h2 : TreeN.PairEq c d e f),
+  TreeN.PairEq a b e f
+'TreeN.pairEq_trans' does not depend on any axioms
+TreeN.normPair : TreeN → TreeN → Prod.{0, 0} TreeN TreeN
+'TreeN.normPair' does not depend on any axioms
+@TreeN.normal_unique : ∀ {a b c d : TreeN} (h1 : Or (@Eq.{1} TreeN a TreeN.zero) (@Eq.{1} TreeN b TreeN.zero))
+  (h2 : Or (@Eq.{1} TreeN c TreeN.zero) (@Eq.{1} TreeN d TreeN.zero))
+  (h :
+    @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a d)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) c b)),
+  And (@Eq.{1} TreeN a c) (@Eq.{1} TreeN b d)
+'TreeN.normal_unique' does not depend on any axioms
+TreeZ : Type
+'TreeZ' does not depend on any axioms
+@TreeZ.mkZ_sound : ∀ {m n p q : TreeN} (h : TreeN.PairEq m n p q), @Eq.{1} TreeZ (TreeZ.mkZ m n) (TreeZ.mkZ p q)
+'TreeZ.mkZ_sound' does not depend on any axioms
+@TreeZ.mkZ_exact : ∀ {m n p q : TreeN} (h : @Eq.{1} TreeZ (TreeZ.mkZ m n) (TreeZ.mkZ p q)), TreeN.PairEq m n p q
+'TreeZ.mkZ_exact' does not depend on any axioms
+TreeZ.instCRing : CRing TreeZ
+'TreeZ.instCRing' does not depend on any axioms
+@TreeZ.mul_eq_zero : ∀ {x y : TreeZ}
+  (h :
+    @Eq.{1} TreeZ (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x y)
+      (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))),
+  Or (@Eq.{1} TreeZ x (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+    (@Eq.{1} TreeZ y (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+'TreeZ.mul_eq_zero' does not depend on any axioms
+@TreeZ.mul_left_cancel : ∀ {x y z : TreeZ} (hx : @Ne.{1} TreeZ x (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+  (h :
+    @Eq.{1} TreeZ (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x y)
+      (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x z)),
+  @Eq.{1} TreeZ y z
+'TreeZ.mul_left_cancel' does not depend on any axioms
+@TreeZ.mul_ne_zero : ∀ {x y : TreeZ} (hx : @Ne.{1} TreeZ x (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+  (hy : @Ne.{1} TreeZ y (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))),
+  @Ne.{1} TreeZ (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x y)
+    (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+'TreeZ.mul_ne_zero' does not depend on any axioms
+@TreeZ.ofN_lt_ofN : ∀ {m n : TreeN} (h : TreeN.PathLT m n), TreeZ.LT (TreeZ.ofN m) (TreeZ.ofN n)
+'TreeZ.ofN_lt_ofN' does not depend on any axioms
+TreeZ.lt_trichotomy : ∀ (x y : TreeZ), Or (TreeZ.LT x y) (Or (@Eq.{1} TreeZ x y) (TreeZ.LT y x))
+'TreeZ.lt_trichotomy' does not depend on any axioms
+TreeZ.ofN : (n : TreeN) → TreeZ
+'TreeZ.ofN' does not depend on any axioms
+@TreeZ.ofN_injective : ∀ {m n : TreeN} (h : @Eq.{1} TreeZ (TreeZ.ofN m) (TreeZ.ofN n)), @Eq.{1} TreeN m n
+'TreeZ.ofN_injective' does not depend on any axioms
+TriplePath : (α : Type) → Type
+'TriplePath' does not depend on any axioms
+@TriplePath.numer : {α : Type} → (t : TriplePath α) → TreeZ
+'TriplePath.numer' does not depend on any axioms
+@TriplePath.denom : {α : Type} → (t : TriplePath α) → TreeN
+'TriplePath.denom' does not depend on any axioms
+@TriplePath.denom_pos : ∀ {α : Type} (t : TriplePath α), TreeN.PathLT TreeN.zero (@TriplePath.denom α t)
+'TriplePath.denom_pos' does not depend on any axioms
+@TriplePath.Rel : {α : Type} → (t t' : TriplePath α) → Prop
+'TriplePath.Rel' does not depend on any axioms
+Frac.Eqv : (f g : Frac) → Prop
+'Frac.Eqv' does not depend on any axioms
+@Frac.eqv_trans : ∀ {f g h : Frac} (h1 : Frac.Eqv f g) (h2 : Frac.Eqv g h), Frac.Eqv f h
+'Frac.eqv_trans' does not depend on any axioms
+@Frac.add_resp : ∀ {f f' g g' : Frac} (h1 : Frac.Eqv f f') (h2 : Frac.Eqv g g'),
+  Frac.Eqv (Frac.add f g) (Frac.add f' g')
+'Frac.add_resp' does not depend on any axioms
+@Frac.mul_resp : ∀ {f f' g g' : Frac} (h1 : Frac.Eqv f f') (h2 : Frac.Eqv g g'),
+  Frac.Eqv (Frac.mul f g) (Frac.mul f' g')
+'Frac.mul_resp' does not depend on any axioms
+@TriplePath.universal_witness : ∀ {α : Type} [TwoLetters α] (A : TreeZ) (D : TreeN) (hD : TreeN.PathLT TreeN.zero D),
+  @Exists.{1} (TriplePath α) fun (t : TriplePath α) =>
+    And (@Eq.{1} TreeZ (@TriplePath.numer α t) A) (@Eq.{1} TreeN (@TriplePath.denom α t) D)
+'TriplePath.universal_witness' does not depend on any axioms

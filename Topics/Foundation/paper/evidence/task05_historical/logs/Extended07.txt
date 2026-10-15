@@ -1,0 +1,158 @@
+@TreeR.apart_of_mul_eq_one : ∀ {K : Type} [inst : TOField K] {x y : @TreeR K inst}
+  (h :
+    @Eq.{1} (@TreeR K inst)
+      (@HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+        (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) x y)
+      (@CSR.one (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))),
+  @TreeR.RApart K inst x (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))
+'TreeR.apart_of_mul_eq_one' depends on axioms: [propext, Quot.sound]
+@TreeR.approxSeq_converges : ∀ {K : Type} [inst : TOField K] {f : TreeN → @TreeR K inst} {ν : TreeN → TreeN}
+  (hc : @TreeR.RCauchyMod K inst f ν) {q : TreeN → K} {M : TreeN → TreeN} (hq : @TreeR.ApproxData K inst f q M)
+  (k i : TreeN) (hi : TreeN.PathLE (TreeN.maxN (TreeR.approxMod ν M (TreeN.succ k)) (M (TreeN.succ k))) i),
+  @TreeR.RClose K inst (f i) (@TreeR.mkR K inst (@TreeR.approxSeq K inst f ν hc q M hq)) (@TOField.eps K inst k)
+'TreeR.approxSeq_converges' depends on axioms: [propext, Quot.sound]
+@TreeR.archimedean : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst),
+  @Exists.{1} TreeN fun (n : TreeN) => @LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) x (@TreeR.natR K inst n)
+'TreeR.archimedean' depends on axioms: [Quot.sound]
+@TreeR.archimedean_abs : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst),
+  @Exists.{1} TreeN fun (n : TreeN) =>
+    And (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) x (@TreeR.natR K inst n))
+      (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst)
+        (@Neg.neg.{0} (@TreeR K inst) (@TreeR.instNeg K inst) (@TreeR.natR K inst n)) x)
+'TreeR.archimedean_abs' depends on axioms: [propext, Quot.sound]
+@TreeR.close_of_cauchy_of_converges : ∀ {K : Type} [inst : TOField K] {f : TreeN → @TreeR K inst} {ν : TreeN → TreeN}
+  (hc : @TreeR.RCauchyMod K inst f ν) {L : @TreeR K inst} (hL : @TreeR.ConvergesTo K inst f L) {k i : TreeN}
+  (hi : TreeN.PathLE (ν k) i), @TreeR.RClose K inst (f i) L (@TOField.eps K inst k)
+'TreeR.close_of_cauchy_of_converges' depends on axioms: [propext, Quot.sound]
+@TreeR.complete_of_cauchyLifting : ∀ {K : Type} [inst : TOField K] (h : @TreeR.CauchySequenceLifting K inst),
+  @TreeR.UnrestrictedCompleteness K inst
+'TreeR.complete_of_cauchyLifting' depends on axioms: [propext, Quot.sound]
+@TreeR.complete_of_lifting : ∀ {K : Type} [inst : TOField K] (hl : @TreeR.SequenceLifting K inst),
+  @TreeR.UnrestrictedCompleteness K inst
+'TreeR.complete_of_lifting' depends on axioms: [propext, Quot.sound]
+@TreeR.complete_of_modulusFree : ∀ {K : Type} [inst : TOField K] (h : @TreeR.ModulusFreeCompleteness K inst),
+  @TreeR.UnrestrictedCompleteness K inst
+'TreeR.complete_of_modulusFree' depends on axioms: [Quot.sound]
+@TreeR.converges_add : ∀ {K : Type} [inst : TOField K] {f g : TreeN → @TreeR K inst} {L L' : @TreeR K inst}
+  (hf : @TreeR.ConvergesTo K inst f L) (hg : @TreeR.ConvergesTo K inst g L'),
+  @TreeR.ConvergesTo K inst
+    (fun (i : TreeN) =>
+      @HAdd.hAdd.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+        (@instHAdd.{0} (@TreeR K inst) (@TreeR.instAdd K inst)) (f i) (g i))
+    (@HAdd.hAdd.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+      (@instHAdd.{0} (@TreeR K inst) (@TreeR.instAdd K inst)) L L')
+'TreeR.converges_add' depends on axioms: [propext, Quot.sound]
+@TreeR.converges_mul : ∀ {K : Type} [inst : TOField K] {f g : TreeN → @TreeR K inst} {L L' : @TreeR K inst}
+  (hf : @TreeR.ConvergesTo K inst f L) (hg : @TreeR.ConvergesTo K inst g L'),
+  @TreeR.ConvergesTo K inst
+    (fun (i : TreeN) =>
+      @HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+        (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) (f i) (g i))
+    (@HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+      (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) L L')
+'TreeR.converges_mul' depends on axioms: [propext, Quot.sound]
+@TreeR.converges_neg : ∀ {K : Type} [inst : TOField K] {f : TreeN → @TreeR K inst} {L : @TreeR K inst}
+  (hf : @TreeR.ConvergesTo K inst f L),
+  @TreeR.ConvergesTo K inst (fun (i : TreeN) => @Neg.neg.{0} (@TreeR K inst) (@TreeR.instNeg K inst) (f i))
+    (@Neg.neg.{0} (@TreeR K inst) (@TreeR.instNeg K inst) L)
+'TreeR.converges_neg' depends on axioms: [Quot.sound]
+@TreeR.decidableZero_of_lpo : ∀ {K : Type} [inst : TOField K] (h : TreeR.LPO), @TreeR.DecidableZero K inst
+'TreeR.decidableZero_of_lpo' depends on axioms: [propext, Quot.sound]
+@TreeR.decidableZero_of_wlpo : ∀ {K : Type} [inst : TOField K] (h : TreeR.WLPO), @TreeR.DecidableZero K inst
+'TreeR.decidableZero_of_wlpo' depends on axioms: [propext, Quot.sound]
+@TreeR.eq_of_not_not_eq : ∀ {K : Type} [inst : TOField K] {x y : @TreeR K inst}
+  (h : Not (Not (@Eq.{1} (@TreeR K inst) x y))), @Eq.{1} (@TreeR K inst) x y
+'TreeR.eq_of_not_not_eq' depends on axioms: [propext, Quot.sound]
+@TreeR.eq_zero_of_mul_eq_zero_of_apart : ∀ {K : Type} [inst : TOField K] {x y : @TreeR K inst}
+  (hx : @TreeR.RApart K inst x (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst))))
+  (h :
+    @Eq.{1} (@TreeR K inst)
+      (@HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+        (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) x y)
+      (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))),
+  @Eq.{1} (@TreeR K inst) y (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))
+'TreeR.eq_zero_of_mul_eq_zero_of_apart' depends on axioms: [Quot.sound]
+@TreeR.eq_zero_of_mul_eq_zero_of_ne : ∀ {K : Type} [inst : TOField K] {x y : @TreeR K inst}
+  (hx : @Ne.{1} (@TreeR K inst) x (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst))))
+  (h :
+    @Eq.{1} (@TreeR K inst)
+      (@HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+        (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) x y)
+      (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))),
+  @Eq.{1} (@TreeR K inst) y (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))
+'TreeR.eq_zero_of_mul_eq_zero_of_ne' depends on axioms: [propext, Quot.sound]
+@TreeR.exists_rat_between : ∀ {K : Type} [inst : TOField K] {x y : @TreeR K inst}
+  (h : @LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) x y),
+  @Exists.{1} K fun (q : K) =>
+    And (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) x (@TreeR.ofQ K inst q))
+      (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) (@TreeR.ofQ K inst q) y)
+'TreeR.exists_rat_between' depends on axioms: [propext, Quot.sound]
+@TreeR.exists_rat_close : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst) (i : TreeN),
+  @Exists.{1} K fun (q : K) => @TreeR.RClose K inst x (@TreeR.ofQ K inst q) (@TOField.eps K inst i)
+'TreeR.exists_rat_close' depends on axioms: [Quot.sound]
+@TreeR.exists_regular_rep : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst),
+  @Exists.{1} (TreeN → K) fun (s : TreeN → K) =>
+    @Exists.{0} (@TOField.IsRegular K inst s) fun (hs : @TOField.IsRegular K inst s) =>
+      @Eq.{1} (@TreeR K inst) (@TreeR.mkR K inst (@TOField.CSeq.ofRegular K inst s hs)) x
+'TreeR.exists_regular_rep' depends on axioms: [Quot.sound]
+@TreeR.exists_rep : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst),
+  @Exists.{1} (@TOField.CSeq K inst) fun (c : @TOField.CSeq K inst) => @Eq.{1} (@TreeR K inst) (@TreeR.mkR K inst c) x
+'TreeR.exists_rep' does not depend on any axioms
+@TreeR.inv_iff_neImpliesApart : ∀ {K : Type} [inst : TOField K],
+  Iff
+    (∀ (x : @TreeR K inst),
+      @Ne.{1} (@TreeR K inst) x (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst))) →
+        @Exists.{1} (@TreeR K inst) fun (y : @TreeR K inst) =>
+          @Eq.{1} (@TreeR K inst)
+            (@HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+              (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) x y)
+            (@CSR.one (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst))))
+    (@NeImpliesApart K inst)
+'TreeR.inv_iff_neImpliesApart' depends on axioms: [propext, Quot.sound]
+@TreeR.inv_unique : ∀ {K : Type} [inst : TOField K] {x y y' : @TreeR K inst}
+  (h :
+    @Eq.{1} (@TreeR K inst)
+      (@HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+        (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) x y)
+      (@CSR.one (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst))))
+  (h' :
+    @Eq.{1} (@TreeR K inst)
+      (@HMul.hMul.{0, 0, 0} (@TreeR K inst) (@TreeR K inst) (@TreeR K inst)
+        (@instHMul.{0} (@TreeR K inst) (@TreeR.instMul K inst)) x y')
+      (@CSR.one (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))),
+  @Eq.{1} (@TreeR K inst) y y'
+'TreeR.inv_unique' depends on axioms: [Quot.sound]
+@TreeR.isModulus_of_rcauchyMod_ofQ : ∀ {K : Type} [inst : TOField K] {s : TreeN → K} {μ : TreeN → TreeN}
+  (h : @TreeR.RCauchyMod K inst (fun (n : TreeN) => @TreeR.ofQ K inst (s n)) μ), @TOField.IsModulus K inst s μ
+'TreeR.isModulus_of_rcauchyMod_ofQ' depends on axioms: [propext, Quot.sound]
+@TreeR.le_iff_not_lt : ∀ {K : Type} [inst : TOField K] (x y : @TreeR K inst),
+  And
+    (@LE.le.{0} (@TreeR K inst) (@TreeR.instLE K inst) x y →
+      Not (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) y x))
+    (Not (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) y x) →
+      @LE.le.{0} (@TreeR K inst) (@TreeR.instLE K inst) x y)
+'TreeR.le_iff_not_lt' depends on axioms: [propext, Quot.sound]
+@TreeR.le_of_ofQ_le : ∀ {K : Type} [inst : TOField K] {p q : K}
+  (h : @LE.le.{0} (@TreeR K inst) (@TreeR.instLE K inst) (@TreeR.ofQ K inst p) (@TreeR.ofQ K inst q)),
+  @LE.le.{0} K (@TOField.instLE K inst) p q
+'TreeR.le_of_ofQ_le' depends on axioms: [propext, Quot.sound]
+@TreeR.le_of_ofZRα_le : ∀ {α : Type} [inst : TwoLetters α] {z z' : TreeZ}
+  (h :
+    @LE.le.{0} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR.instLE (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.ofZRα α inst z) (@TreeR.ofZRα α inst z')),
+  TreeZ.LE z z'
+'TreeR.le_of_ofZRα_le' depends on axioms: [propext, Quot.sound]
+@TreeR.le_refl : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst),
+  @LE.le.{0} (@TreeR K inst) (@TreeR.instLE K inst) x x
+'TreeR.le_refl' depends on axioms: [Quot.sound]
+@TreeR.le_trans : ∀ {K : Type} [inst : TOField K] {x y z : @TreeR K inst}
+  (h1 : @LE.le.{0} (@TreeR K inst) (@TreeR.instLE K inst) x y)
+  (h2 : @LE.le.{0} (@TreeR K inst) (@TreeR.instLE K inst) y z), @LE.le.{0} (@TreeR K inst) (@TreeR.instLE K inst) x z
+'TreeR.le_trans' depends on axioms: [propext, Quot.sound]
+@TreeR.lt_cotrans : ∀ {K : Type} [inst : TOField K] {x y : @TreeR K inst} (z : @TreeR K inst)
+  (h : @LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) x y),
+  Or (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) x z) (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) z y)
+'TreeR.lt_cotrans' depends on axioms: [propext, Quot.sound]
+@TreeR.lt_irrefl : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst),
+  Not (@LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst) x x)
+'TreeR.lt_irrefl' depends on axioms: [propext, Quot.sound]

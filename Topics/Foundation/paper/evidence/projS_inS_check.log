@@ -1,0 +1,3 @@
+@ChildModule.projS_inS : ∀ {K : Type} [inst : TField K] {b : TreeN} (hb : TreeN.PathLT TreeN.zero b)
+  (x : ChildModule.F K b), @ChildModule.InS K inst b (@ChildModule.projS K inst b x)
+'ChildModule.projS_inS' does not depend on any axioms

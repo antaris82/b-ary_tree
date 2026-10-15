@@ -1,0 +1,195 @@
+@ChildModule.tv_indep : ∀ {K : Type} [inst : TField K] {c : UnitChild} {bp : TreeN} (coef : Child bp → K)
+  (h :
+    @Eq.{1} (ChildModule.F K (@List.cons.{0} UnitChild c bp))
+      (@ChildModule.lincomb K inst bp (@List.cons.{0} UnitChild c bp) coef (@ChildModule.tv K inst c bp))
+      (@ChildModule.zeroV K inst (@List.cons.{0} UnitChild c bp)))
+  (j : Child bp), @Eq.{1} K (coef j) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst)))
+'ChildModule.tv_indep' does not depend on any axioms
+@ChildModule.tv_span : ∀ {K : Type} [inst : TField K] {c : UnitChild} {bp : TreeN}
+  (x : ChildModule.F K (@List.cons.{0} UnitChild c bp))
+  (hx : @ChildModule.InS K inst (@List.cons.{0} UnitChild c bp) x),
+  @Eq.{1} (ChildModule.F K (@List.cons.{0} UnitChild c bp)) x
+    (@ChildModule.lincomb K inst bp (@List.cons.{0} UnitChild c bp) (fun (j : Child bp) => x (@Child.shift bp c j))
+      (@ChildModule.tv K inst c bp))
+'ChildModule.tv_span' depends on axioms: [Quot.sound]
+@ChildModule.transverse_basis : ∀ {K : Type} [inst : TField K] (c : UnitChild) (bp : TreeN),
+  @ChildModule.IsBasisOf K inst bp (@List.cons.{0} UnitChild c bp)
+    (@ChildModule.InS K inst (@List.cons.{0} UnitChild c bp)) (@ChildModule.tv K inst c bp)
+'ChildModule.transverse_basis' depends on axioms: [Quot.sound]
+ChildModule.transverse_index_bijection : ∀ (c : UnitChild) (bp : TreeN),
+  And
+    (∀ (j j' : Child bp),
+      @Eq.{1} (Child (@List.cons.{0} UnitChild c bp)) (@Child.shift bp c j) (@Child.shift bp c j') →
+        @Eq.{1} (Child bp) j j')
+    (And (∀ (j : Child bp), @Ne.{1} (Child (@List.cons.{0} UnitChild c bp)) (@Child.shift bp c j) (Child.zeroC c bp))
+      (∀ (i : Child (@List.cons.{0} UnitChild c bp)),
+        @Ne.{1} (Child (@List.cons.{0} UnitChild c bp)) i (Child.zeroC c bp) →
+          @Exists.{1} (Child bp) fun (j : Child bp) =>
+            @Eq.{1} (Child (@List.cons.{0} UnitChild c bp)) i (@Child.shift bp c j)))
+'ChildModule.transverse_index_bijection' does not depend on any axioms
+@ChildModule.projL : {K : Type} → [TField K] → {b : TreeN} → (x : ChildModule.F K b) → ChildModule.F K b
+'ChildModule.projL' does not depend on any axioms
+@ChildModule.projS : {K : Type} → [TField K] → {b : TreeN} → (x : ChildModule.F K b) → ChildModule.F K b
+'ChildModule.projS' does not depend on any axioms
+@ChildModule.decomposition : ∀ {K : Type} [inst : TField K] {b : TreeN} (x : ChildModule.F K b),
+  @Eq.{1} (ChildModule.F K b) x
+    (@ChildModule.addV K inst b (@ChildModule.projL K inst b x) (@ChildModule.projS K inst b x))
+'ChildModule.decomposition' depends on axioms: [Quot.sound]
+@ChildModule.decomposition_unique : ∀ {K : Type} [inst : TField K] {b : TreeN} (hb : TreeN.PathLT TreeN.zero b)
+  {l s l' s' : ChildModule.F K b} (hl : @ChildModule.InL K inst b l) (hs : @ChildModule.InS K inst b s)
+  (hl' : @ChildModule.InL K inst b l') (hs' : @ChildModule.InS K inst b s')
+  (h : @Eq.{1} (ChildModule.F K b) (@ChildModule.addV K inst b l s) (@ChildModule.addV K inst b l' s')),
+  And (@Eq.{1} (ChildModule.F K b) l l') (@Eq.{1} (ChildModule.F K b) s s')
+'ChildModule.decomposition_unique' depends on axioms: [Quot.sound]
+@ChildModule.inL_inS_zero : ∀ {K : Type} [inst : TField K] {b : TreeN} (hb : TreeN.PathLT TreeN.zero b)
+  {x : ChildModule.F K b} (hl : @ChildModule.InL K inst b x) (hs : @ChildModule.InS K inst b x),
+  @Eq.{1} (ChildModule.F K b) x (@ChildModule.zeroV K inst b)
+'ChildModule.inL_inS_zero' depends on axioms: [Quot.sound]
+direct_sum_treeQ : ∀ (c : UnitChild) (bp : TreeN) [inst : AtLeastTwo (@List.cons.{0} UnitChild c bp)]
+  (x : ChildModule.F (TreeQb (@List.cons.{0} UnitChild c bp)) (@List.cons.{0} UnitChild c bp)),
+  And
+    (And
+      (@Eq.{1} (ChildModule.F (TreeQb (@List.cons.{0} UnitChild c bp)) (@List.cons.{0} UnitChild c bp)) x
+        (@ChildModule.addV (TreeQb (@List.cons.{0} UnitChild c bp))
+          (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+            (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+          (@List.cons.{0} UnitChild c bp)
+          (@ChildModule.projL (TreeQb (@List.cons.{0} UnitChild c bp))
+            (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+              (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+            (@List.cons.{0} UnitChild c bp) x)
+          (@ChildModule.projS (TreeQb (@List.cons.{0} UnitChild c bp))
+            (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+              (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+            (@List.cons.{0} UnitChild c bp) x)))
+      (And
+        (@ChildModule.InL (TreeQb (@List.cons.{0} UnitChild c bp))
+          (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+            (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+          (@List.cons.{0} UnitChild c bp)
+          (@ChildModule.projL (TreeQb (@List.cons.{0} UnitChild c bp))
+            (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+              (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+            (@List.cons.{0} UnitChild c bp) x))
+        (@ChildModule.InS (TreeQb (@List.cons.{0} UnitChild c bp))
+          (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+            (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+          (@List.cons.{0} UnitChild c bp)
+          (@ChildModule.projS (TreeQb (@List.cons.{0} UnitChild c bp))
+            (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+              (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+            (@List.cons.{0} UnitChild c bp) x))))
+    (∀ (l s l' s' : ChildModule.F (TreeQb (@List.cons.{0} UnitChild c bp)) (@List.cons.{0} UnitChild c bp)),
+      @ChildModule.InL (TreeQb (@List.cons.{0} UnitChild c bp))
+          (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+            (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+          (@List.cons.{0} UnitChild c bp) l →
+        @ChildModule.InS (TreeQb (@List.cons.{0} UnitChild c bp))
+            (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+              (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+            (@List.cons.{0} UnitChild c bp) s →
+          @ChildModule.InL (TreeQb (@List.cons.{0} UnitChild c bp))
+              (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+                (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+              (@List.cons.{0} UnitChild c bp) l' →
+            @ChildModule.InS (TreeQb (@List.cons.{0} UnitChild c bp))
+                (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+                  (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+                (@List.cons.{0} UnitChild c bp) s' →
+              @Eq.{1} (ChildModule.F (TreeQb (@List.cons.{0} UnitChild c bp)) (@List.cons.{0} UnitChild c bp))
+                  (@ChildModule.addV (TreeQb (@List.cons.{0} UnitChild c bp))
+                    (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+                      (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+                    (@List.cons.{0} UnitChild c bp) l s)
+                  (@ChildModule.addV (TreeQb (@List.cons.{0} UnitChild c bp))
+                    (@TreeQ.instTField (Child (@List.cons.{0} UnitChild c bp))
+                      (@instTwoLettersChildOfAtLeastTwo (@List.cons.{0} UnitChild c bp) inst))
+                    (@List.cons.{0} UnitChild c bp) l' s') →
+                And
+                  (@Eq.{1} (ChildModule.F (TreeQb (@List.cons.{0} UnitChild c bp)) (@List.cons.{0} UnitChild c bp)) l
+                    l')
+                  (@Eq.{1} (ChildModule.F (TreeQb (@List.cons.{0} UnitChild c bp)) (@List.cons.{0} UnitChild c bp)) s
+                    s'))
+'direct_sum_treeQ' depends on axioms: [Quot.sound]
+@ChildModule.transverse_one_zero : ∀ {K : Type} [inst : TField K] (x : ChildModule.F K TreeN.one)
+  (hx : @ChildModule.InS K inst TreeN.one x),
+  @Eq.{1} (ChildModule.F K TreeN.one) x (@ChildModule.zeroV K inst TreeN.one)
+'ChildModule.transverse_one_zero' depends on axioms: [Quot.sound]
+@ChildModule.dot_perm : ∀ {K : Type} [inst : TField K] {b : TreeN} (σ τ : Child b → Child b)
+  (h1 : ∀ (i : Child b), @Eq.{1} (Child b) (σ (τ i)) i) (h2 : ∀ (i : Child b), @Eq.{1} (Child b) (τ (σ i)) i)
+  (x y : ChildModule.F K b),
+  @Eq.{1} K (@ChildModule.dot K inst b (fun (i : Child b) => x (σ i)) fun (i : Child b) => y (σ i))
+    (@ChildModule.dot K inst b x y)
+'ChildModule.dot_perm' does not depend on any axioms
+@ChildModule.inS_perm : ∀ {K : Type} [inst : TField K] {b : TreeN} (σ τ : Child b → Child b)
+  (h1 : ∀ (i : Child b), @Eq.{1} (Child b) (σ (τ i)) i) (h2 : ∀ (i : Child b), @Eq.{1} (Child b) (τ (σ i)) i)
+  {x : ChildModule.F K b} (hx : @ChildModule.InS K inst b x), @ChildModule.InS K inst b fun (i : Child b) => x (σ i)
+'ChildModule.inS_perm' does not depend on any axioms
+@ChildModule.inL_perm : ∀ {K : Type} [inst : TField K] {b : TreeN} (σ : Child b → Child b) {x : ChildModule.F K b}
+  (hx : @ChildModule.InL K inst b x), @ChildModule.InL K inst b fun (i : Child b) => x (σ i)
+'ChildModule.inL_perm' does not depend on any axioms
+OmegaModule.FO : (K : Type) → Type
+'OmegaModule.FO' does not depend on any axioms
+@OmegaModule.FinSupp : {K : Type} → [TField K] → (f : OmegaModule.FO K) → Prop
+'OmegaModule.FinSupp' does not depend on any axioms
+@OmegaModule.InSO : {K : Type} → [TField K] → (f : OmegaModule.FO K) → Prop
+'OmegaModule.InSO' does not depend on any axioms
+@OmegaModule.tvO : {K : Type} → [TField K] → (j : TreeN) → OmegaModule.FO K
+'OmegaModule.tvO' does not depend on any axioms
+@OmegaModule.tvO_indep : ∀ {K : Type} [inst : TField K] (coef : OmegaModule.FO K) (B : TreeN)
+  (hc : @OmegaModule.BoundedSupp K inst coef B)
+  (h :
+    @Eq.{1} (OmegaModule.FO K) (@OmegaModule.lincombO K inst coef B) fun (x : TreeN) =>
+      @CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst)))
+  (j : TreeN), @Eq.{1} K (coef j) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst)))
+'OmegaModule.tvO_indep' does not depend on any axioms
+@OmegaModule.tvO_span : ∀ {K : Type} [inst : TField K] (f : OmegaModule.FO K) (hf : @OmegaModule.InSO K inst f),
+  @Exists.{1} (OmegaModule.FO K) fun (coef : OmegaModule.FO K) =>
+    @Exists.{1} TreeN fun (B : TreeN) =>
+      And (@OmegaModule.BoundedSupp K inst coef B) (@Eq.{1} (OmegaModule.FO K) f (@OmegaModule.lincombO K inst coef B))
+'OmegaModule.tvO_span' depends on axioms: [Quot.sound]
+omega_indep : ∀ (coef : OmegaModule.FO TreeQOmega) (B : TreeN)
+  (hc : @OmegaModule.BoundedSupp TreeQOmega (@TreeQ.instTField ChildOmega instTwoLettersChildOmega) coef B)
+  (h :
+    @Eq.{1} (OmegaModule.FO TreeQOmega)
+      (@OmegaModule.lincombO TreeQOmega (@TreeQ.instTField ChildOmega instTwoLettersChildOmega) coef B)
+      fun (x : TreeN) =>
+      @CSR.zero TreeQOmega (@CRing.toCSR TreeQOmega (@TreeQ.instCRing ChildOmega instTwoLettersChildOmega)))
+  (j : TreeN),
+  @Eq.{1} TreeQOmega (coef j)
+    (@CSR.zero TreeQOmega (@CRing.toCSR TreeQOmega (@TreeQ.instCRing ChildOmega instTwoLettersChildOmega)))
+'omega_indep' depends on axioms: [Quot.sound]
+omega_span : ∀ (f : OmegaModule.FO TreeQOmega)
+  (hf : @OmegaModule.InSO TreeQOmega (@TreeQ.instTField ChildOmega instTwoLettersChildOmega) f),
+  @Exists.{1} (OmegaModule.FO TreeQOmega) fun (coef : OmegaModule.FO TreeQOmega) =>
+    @Exists.{1} TreeN fun (B : TreeN) =>
+      And (@OmegaModule.BoundedSupp TreeQOmega (@TreeQ.instTField ChildOmega instTwoLettersChildOmega) coef B)
+        (@Eq.{1} (OmegaModule.FO TreeQOmega) f
+          (@OmegaModule.lincombO TreeQOmega (@TreeQ.instTField ChildOmega instTwoLettersChildOmega) coef B))
+'omega_span' depends on axioms: [Quot.sound]
+@OmegaModule.pad : {K : Type} → [TField K] → {b : TreeN} → (x : ChildModule.F K b) → OmegaModule.FO K
+'OmegaModule.pad' does not depend on any axioms
+@OmegaModule.pad_injective : ∀ {K : Type} [inst : TField K] {b : TreeN} {x y : ChildModule.F K b}
+  (h : @Eq.{1} (OmegaModule.FO K) (@OmegaModule.pad K inst b x) (@OmegaModule.pad K inst b y)),
+  @Eq.{1} (ChildModule.F K b) x y
+'OmegaModule.pad_injective' depends on axioms: [Quot.sound]
+@OmegaModule.pad_inSO : ∀ {K : Type} [inst : TField K] {b : TreeN} {x : ChildModule.F K b}
+  (hx : @ChildModule.InS K inst b x), @OmegaModule.InSO K inst (@OmegaModule.pad K inst b x)
+'OmegaModule.pad_inSO' does not depend on any axioms
+@OmegaModule.pad_tv : ∀ {K : Type} [inst : TField K] (c : UnitChild) (bp : TreeN) (j : Child bp),
+  @Eq.{1} (OmegaModule.FO K) (@OmegaModule.pad K inst (@List.cons.{0} UnitChild c bp) (@ChildModule.tv K inst c bp j))
+    (@OmegaModule.tvO K inst (@Child.idx bp j))
+'OmegaModule.pad_tv' depends on axioms: [Quot.sound]
+@OmegaModule.padSucc : {K : Type} → [TField K] → {b : TreeN} → (x : ChildModule.F K b) → ChildModule.F K (TreeN.succ b)
+'OmegaModule.padSucc' does not depend on any axioms
+@OmegaModule.padSucc_inS : ∀ {K : Type} [inst : TField K] {b : TreeN} {x : ChildModule.F K b}
+  (hx : @ChildModule.InS K inst b x), @ChildModule.InS K inst (TreeN.succ b) (@OmegaModule.padSucc K inst b x)
+'OmegaModule.padSucc_inS' does not depend on any axioms
+@OmegaModule.padSucc_tv : ∀ {K : Type} [inst : TField K] (c : UnitChild) (bp : TreeN) (j : Child bp),
+  @Eq.{1} (ChildModule.F K (TreeN.succ (@List.cons.{0} UnitChild c bp)))
+    (@OmegaModule.padSucc K inst (@List.cons.{0} UnitChild c bp) (@ChildModule.tv K inst c bp j))
+    (@ChildModule.tv K inst UnitChild.only (@List.cons.{0} UnitChild c bp) (@Child.incl bp c j))
+'OmegaModule.padSucc_tv' depends on axioms: [Quot.sound]
+@Longitudinal.allOnes_not_finSupp : ∀ {K : Type} [inst : TField K],
+  Not (@OmegaModule.FinSupp K inst (@Longitudinal.allOnes K inst))
+'Longitudinal.allOnes_not_finSupp' does not depend on any axioms

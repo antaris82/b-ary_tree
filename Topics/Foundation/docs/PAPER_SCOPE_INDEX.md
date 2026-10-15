@@ -1,6 +1,6 @@
-# Mathematical paper — scope index (preparation only)
+# Mathematical paper — scope index (historical plan and current Task-06 paper)
 
-**This is a contents index, not the full outline or a paper draft.** The detailed 18-section, 89-subsection outline with checked source paths and literature references is supplied in the associated `TREE_FOUNDATION_PROJECT_CHAT_HANDOFF.zip` preparation package. Import that package into this directory before drafting a manuscript.
+**Current paper:** [Task-06 mathematical theme paper](../paper/README.md), [PDF](../paper/main.pdf), [LaTeX](../paper/main.tex). This file preserves the original thematic scope as a historical planning index. The [full source map](PAPER_OUTLINE_AND_SOURCE_MAP.md) and [handoff instructions](PROJECT_CHAT_HANDOFF.md) are now committed as text files, not nested ZIP archives. For the current proof correspondence use [the Task-06 mapping](../paper/docs/proof_correspondence.md).
 
 ## Intended paper sections
 
@@ -35,8 +35,8 @@
 - Lubarsky, *On the Cauchy completeness of the constructive Cauchy reals*: https://doi.org/10.1002/malq.200710007
 - Gilbert, *Formalising Real Numbers in Homotopy Type Theory*: https://arxiv.org/abs/1610.05072
 
-## Lean module families (after importing the frozen snapshot)
+## Lean module families (unpacked Task-06 source)
 
 `PrimitiveTree/`, `TreeFoundation/`, `TreeNumbers/`, `DimensionFoundation/`, `BoundaryTopology/`, `TreeAnalysis/`.
 
-**Important:** Do not produce a code-review narrative. Write a standard mathematical paper with independently intelligible definitions and proofs. State extra hypotheses directly in theorem statements. Lean name/signature correspondence belongs in supplementary verification materials. The final Task-5 source in the package uses Lean 4.28.0; the Aristotle project page is https://aristotle.harmonic.fun/projects/db97653b-b468-41a1-97fd-7eb835c2087d .
+**Important:** Do not produce a code-review narrative. Write a standard mathematical paper with independently intelligible definitions and proofs. State extra hypotheses directly in theorem statements. Lean name/signature correspondence belongs in supplementary verification materials. The frozen Task-06 source is checked in under `../lean/`, uses Lean 4.28.0 and has source fingerprint `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`; the Aristotle project page is https://aristotle.harmonic.fun/projects/db97653b-b468-41a1-97fd-7eb835c2087d .

@@ -1,0 +1,129 @@
+@TreeQ.ofF_exact : ∀ {α : Type} [inst : TwoLetters α] {f g : Frac}
+  (h : @Eq.{1} (TreeQ α) (@TreeQ.ofF α inst f) (@TreeQ.ofF α inst g)), Frac.Eqv f g
+'TreeQ.ofF_exact' does not depend on any axioms
+@TreeQ.ofF_letter_indep : ∀ {α : Type} (I J : TwoLetters α) (f : Frac),
+  @Eq.{1} (TreeQ α) (@TreeQ.ofF α I f) (@TreeQ.ofF α J f)
+'TreeQ.ofF_letter_indep' depends on axioms: [Quot.sound]
+@TreeQ.ofF_sound : ∀ {α : Type} [inst : TwoLetters α] {f g : Frac} (h : Frac.Eqv f g),
+  @Eq.{1} (TreeQ α) (@TreeQ.ofF α inst f) (@TreeQ.ofF α inst g)
+'TreeQ.ofF_sound' depends on axioms: [Quot.sound]
+@TreeQ.ofFracQ : {α : Type} → [TwoLetters α] → FracQ → TreeQ α
+'TreeQ.ofFracQ' depends on axioms: [Quot.sound]
+@TreeQ.ofFracQ_letter_indep : ∀ {α : Type} (I J : TwoLetters α) (y : FracQ),
+  @Eq.{1} (TreeQ α) (@TreeQ.ofFracQ α I y) (@TreeQ.ofFracQ α J y)
+'TreeQ.ofFracQ_letter_indep' depends on axioms: [Quot.sound]
+@TreeQ.ofFrac_letter_dependent : ∀ {α : Type} (I : TwoLetters α) (f : Frac),
+  @Ne.{1} (Word α) (@TriplePath.p1 α (@TriplePath.ofFrac α I f))
+    (@TriplePath.p1 α (@TriplePath.ofFrac α (@TreeQ.swapLetters α I) f))
+'TreeQ.ofFrac_letter_dependent' does not depend on any axioms
+@TreeQ.ofZ_add : ∀ {α : Type} [inst : TwoLetters α] (z z' : TreeZ),
+  @Eq.{1} (TreeQ α)
+    (@TreeQ.ofZ α inst (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) z z'))
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+      (@TreeQ.ofZ α inst z) (@TreeQ.ofZ α inst z'))
+'TreeQ.ofZ_add' depends on axioms: [Quot.sound]
+@TreeQ.ofZ_injective : ∀ {α : Type} [inst : TwoLetters α] {z z' : TreeZ}
+  (h : @Eq.{1} (TreeQ α) (@TreeQ.ofZ α inst z) (@TreeQ.ofZ α inst z')), @Eq.{1} TreeZ z z'
+'TreeQ.ofZ_injective' does not depend on any axioms
+@TreeQ.ofZ_le : ∀ {α : Type} [inst : TwoLetters α] {z z' : TreeZ} (h : TreeZ.LE z z'),
+  @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeQ.ofZ α inst z)
+    (@TreeQ.ofZ α inst z')
+'TreeQ.ofZ_le' depends on axioms: [Quot.sound]
+@TreeQ.ofZ_lt : ∀ {α : Type} [inst : TwoLetters α] {z z' : TreeZ} (h : TreeZ.LT z z'),
+  @LT.lt.{0} (TreeQ α) (@TOField.instLT (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeQ.ofZ α inst z)
+    (@TreeQ.ofZ α inst z')
+'TreeQ.ofZ_lt' depends on axioms: [Quot.sound]
+@TreeQ.ofZ_mul : ∀ {α : Type} [inst : TwoLetters α] (z z' : TreeZ),
+  @Eq.{1} (TreeQ α)
+    (@TreeQ.ofZ α inst (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) z z'))
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+      (@TreeQ.ofZ α inst z) (@TreeQ.ofZ α inst z'))
+'TreeQ.ofZ_mul' depends on axioms: [Quot.sound]
+@TreeQ.ofZ_neg : ∀ {α : Type} [inst : TwoLetters α] (z : TreeZ),
+  @Eq.{1} (TreeQ α) (@TreeQ.ofZ α inst (@Neg.neg.{0} TreeZ TreeZ.instNeg z))
+    (@Neg.neg.{0} (TreeQ α) (@TreeQ.instNeg α inst) (@TreeQ.ofZ α inst z))
+'TreeQ.ofZ_neg' depends on axioms: [Quot.sound]
+@TreeQ.ofZ_one : ∀ {α : Type} [inst : TwoLetters α],
+  @Eq.{1} (TreeQ α) (@TreeQ.ofZ α inst (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+    (@CSR.one (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))
+'TreeQ.ofZ_one' depends on axioms: [Quot.sound]
+@TreeQ.ofZ_zero : ∀ {α : Type} [inst : TwoLetters α],
+  @Eq.{1} (TreeQ α) (@TreeQ.ofZ α inst (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+    (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))
+'TreeQ.ofZ_zero' depends on axioms: [Quot.sound]
+@TreeQ.one_mul' : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α),
+  @Eq.{1} (TreeQ α)
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+      (@TreeQ.oneQ α inst) x)
+    x
+'TreeQ.one_mul'' depends on axioms: [Quot.sound]
+@TreeQ.pathLE_of_natCast_le : ∀ {α : Type} [inst : TwoLetters α] {m n : TreeN}
+  (h :
+    @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TField.natCast (TreeQ α) (@TreeQ.instTField α inst) m)
+      (@TField.natCast (TreeQ α) (@TreeQ.instTField α inst) n)),
+  TreeN.PathLE m n
+'TreeQ.pathLE_of_natCast_le' depends on axioms: [Quot.sound]
+@TreeQ.sound : ∀ {α : Type} {t t' : TriplePath α} (h : @TriplePath.Rel α t t'),
+  @Eq.{1} (TreeQ α) (@TreeQ.mk α t) (@TreeQ.mk α t')
+'TreeQ.sound' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ : {α : Type} → TreeQ α → FracQ
+'TreeQ.toFracQ' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_add : ∀ {α : Type} [inst : TwoLetters α] (x y : TreeQ α),
+  @Eq.{1} FracQ
+    (@TreeQ.toFracQ α
+      (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) x y))
+    (@HAdd.hAdd.{0, 0, 0} FracQ FracQ FracQ (@instHAdd.{0} FracQ FracQ.instAdd) (@TreeQ.toFracQ α x)
+      (@TreeQ.toFracQ α y))
+'TreeQ.toFracQ_add' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_fieldIso : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ : @FieldIso (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1)) (x : TreeQ α),
+  @Eq.{1} FracQ
+    (@TreeQ.toFracQ β (@FieldIso.toFun (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1) φ x))
+    (@TreeQ.toFracQ α x)
+'TreeQ.toFracQ_fieldIso' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_injective : ∀ {α : Type} {x y : TreeQ α} (h : @Eq.{1} FracQ (@TreeQ.toFracQ α x) (@TreeQ.toFracQ α y)),
+  @Eq.{1} (TreeQ α) x y
+'TreeQ.toFracQ_injective' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_inv : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α),
+  @Eq.{1} FracQ (@TreeQ.toFracQ α (@TField.inv (TreeQ α) (@TreeQ.instTField α inst) x))
+    (@TField.inv FracQ FracQ.instTField (@TreeQ.toFracQ α x))
+'TreeQ.toFracQ_inv' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_inv_zero : ∀ {α : Type} [inst : TwoLetters α],
+  @Eq.{1} FracQ
+    (@TreeQ.toFracQ α
+      (@TField.inv (TreeQ α) (@TreeQ.instTField α inst)
+        (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))))
+    (@CSR.zero FracQ (@CRing.toCSR FracQ FracQ.instCRing))
+'TreeQ.toFracQ_inv_zero' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_le : ∀ {α : Type} [inst : TwoLetters α] {x y : TreeQ α}
+  (h : @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) x y),
+  FracQ.LEF (@TreeQ.toFracQ α x) (@TreeQ.toFracQ α y)
+'TreeQ.toFracQ_le' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_mul : ∀ {α : Type} [inst : TwoLetters α] (x y : TreeQ α),
+  @Eq.{1} FracQ
+    (@TreeQ.toFracQ α
+      (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x y))
+    (@HMul.hMul.{0, 0, 0} FracQ FracQ FracQ (@instHMul.{0} FracQ FracQ.instMul) (@TreeQ.toFracQ α x)
+      (@TreeQ.toFracQ α y))
+'TreeQ.toFracQ_mul' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_neg : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α),
+  @Eq.{1} FracQ (@TreeQ.toFracQ α (@Neg.neg.{0} (TreeQ α) (@TreeQ.instNeg α inst) x))
+    (@Neg.neg.{0} FracQ FracQ.instNeg (@TreeQ.toFracQ α x))
+'TreeQ.toFracQ_neg' depends on axioms: [Quot.sound]
+@TreeQ.toFracQ_transfer : ∀ {α β : Type} [inst : TwoLetters β] (x : TreeQ α),
+  @Eq.{1} FracQ (@TreeQ.toFracQ β (@TreeQ.transfer α β inst x)) (@TreeQ.toFracQ α x)
+'TreeQ.toFracQ_transfer' depends on axioms: [Quot.sound]
+TreeQ.transferHom : (α β : Type) →
+  [inst : TwoLetters α] →
+    [inst_1 : TwoLetters β] →
+      @TOField.OFieldHom (TreeQ α) (TreeQ β) (@TreeQ.instTOField α inst) (@TreeQ.instTOField β inst_1)
+'TreeQ.transferHom' depends on axioms: [Quot.sound]
+@TreeQ.transfer_eq_ofFracQ_toFracQ : ∀ {α β : Type} [inst : TwoLetters β] (x : TreeQ α),
+  @Eq.{1} (TreeQ β) (@TreeQ.transfer α β inst x) (@TreeQ.ofFracQ β inst (@TreeQ.toFracQ α x))
+'TreeQ.transfer_eq_ofFracQ_toFracQ' depends on axioms: [Quot.sound]
+@TreeQ.transfer_le : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β] {x y : TreeQ α}
+  (h : @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) x y),
+  @LE.le.{0} (TreeQ β) (@TOField.instLE (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeQ.transfer α β inst_1 x)
+    (@TreeQ.transfer α β inst_1 y)
+'TreeQ.transfer_le' depends on axioms: [Quot.sound]

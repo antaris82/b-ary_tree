@@ -1,0 +1,105 @@
+@Ray.encode : {α K : Type} → [DecidableEq.{1} α] → [TwoLetters α] → [inst : TOField K] → (r : Ray α) → @TreeR K inst
+'Ray.encode' does not depend on any axioms
+@Ray.encode_not_injective : ∀ {α K : Type} [inst : DecidableEq.{1} α] [inst_1 : TwoLetters α] [inst_2 : TOField K],
+  And (@Ne.{1} α (@Ray.rayA α inst_1 TreeN.zero) (@Ray.rayB α inst_1 TreeN.zero))
+    (@Eq.{1} (@TreeR K inst_2) (@Ray.encode α K inst inst_1 inst_2 (@Ray.rayA α inst_1))
+      (@Ray.encode α K inst inst_1 inst_2 (@Ray.rayB α inst_1)))
+'Ray.encode_not_injective' depends on axioms: [Quot.sound]
+@Ray.encode_letter_choice_dependence : ∀ {α K : Type} [inst : DecidableEq.{1} α] [inst_1 : TOField K]
+  (T : TwoLetters α),
+  And
+    (@Eq.{1} (@TreeR K inst_1) (@Ray.encode α K inst T inst_1 fun (x : TreeN) => @TwoLetters.l0 α T)
+      (@CSR.zero (@TreeR K inst_1) (@CRing.toCSR (@TreeR K inst_1) (@TreeR.instCRing K inst_1))))
+    (And
+      (@Eq.{1} (@TreeR K inst_1)
+        (@Ray.encode α K inst (@Ray.swappedLetters α T) inst_1 fun (x : TreeN) => @TwoLetters.l0 α T)
+        (@CSR.one (@TreeR K inst_1) (@CRing.toCSR (@TreeR K inst_1) (@TreeR.instCRing K inst_1))))
+      (@Ne.{1} (@TreeR K inst_1) (@Ray.encode α K inst T inst_1 fun (x : TreeN) => @TwoLetters.l0 α T)
+        (@Ray.encode α K inst (@Ray.swappedLetters α T) inst_1 fun (x : TreeN) => @TwoLetters.l0 α T)))
+'Ray.encode_letter_choice_dependence' depends on axioms: [propext, Quot.sound]
+RayAutomorphism.LevelPerm : (α : Type) → Type
+'RayAutomorphism.LevelPerm' does not depend on any axioms
+RayAutomorphism.TreeAut : (α : Type) → Type
+'RayAutomorphism.TreeAut' does not depend on any axioms
+@RayAutomorphism.treeAut : {α : Type} → (P : RayAutomorphism.LevelPerm α) → RayAutomorphism.TreeAut α
+'RayAutomorphism.treeAut' does not depend on any axioms
+@RayAutomorphism.rayAct : {α : Type} → (P : RayAutomorphism.LevelPerm α) → (r : Ray α) → Ray α
+'RayAutomorphism.rayAct' does not depend on any axioms
+@RayAutomorphism.swapPerm : {α : Type} → [DecidableEq.{1} α] → (ξ η : Ray α) → RayAutomorphism.LevelPerm α
+'RayAutomorphism.swapPerm' does not depend on any axioms
+@RayAutomorphism.rayAct_swapPerm : ∀ {α : Type} [inst : DecidableEq.{1} α] (ξ η : Ray α),
+  @Eq.{1} (Ray α) (@RayAutomorphism.rayAct α (@RayAutomorphism.swapPerm α inst ξ η) ξ) η
+'RayAutomorphism.rayAct_swapPerm' depends on axioms: [Quot.sound]
+@RayAutomorphism.invariant_const : ∀ {α : Type} [DecidableEq.{1} α] {β : Type} (F : Ray α → β)
+  (hF : ∀ (P : RayAutomorphism.LevelPerm α) (r : Ray α), @Eq.{1} β (F (@RayAutomorphism.rayAct α P r)) (F r))
+  (ξ η : Ray α), @Eq.{1} β (F ξ) (F η)
+'RayAutomorphism.invariant_const' depends on axioms: [Quot.sound]
+@RayAutomorphism.swapInvariant_const : ∀ {α : Type} [inst : DecidableEq.{1} α] {β : Type} (F : Ray α → β)
+  (hF : ∀ (ξ η r : Ray α), @Eq.{1} β (F (@RayAutomorphism.rayAct α (@RayAutomorphism.swapPerm α inst ξ η) r)) (F r))
+  (ξ η : Ray α), @Eq.{1} β (F ξ) (F η)
+'RayAutomorphism.swapInvariant_const' depends on axioms: [Quot.sound]
+@RayAutomorphism.subtreeSwapAut : {α : Type} → [DecidableEq.{1} α] → (a b : α) → RayAutomorphism.TreeAut α
+'RayAutomorphism.subtreeSwapAut' does not depend on any axioms
+@RayAutomorphism.subtreeSwapAut_not_levelwise : ∀ {α : Type} [inst : DecidableEq.{1} α] (a b : α) (hab : @Ne.{1} α a b)
+  (P : RayAutomorphism.LevelPerm α),
+  @Ne.{1} (Word α → Word α) (@RayAutomorphism.TreeAut.toFun α (@RayAutomorphism.treeAut α P))
+    (@RayAutomorphism.TreeAut.toFun α (@RayAutomorphism.subtreeSwapAut α inst a b))
+'RayAutomorphism.subtreeSwapAut_not_levelwise' does not depend on any axioms
+@RayAutomorphism.levelwise_converse_false : ∀ {α : Type} [DecidableEq.{1} α] (a b : α) (hab : @Ne.{1} α a b),
+  Not
+    (∀ (T : RayAutomorphism.TreeAut α),
+      @Exists.{1} (RayAutomorphism.LevelPerm α) fun (P : RayAutomorphism.LevelPerm α) =>
+        @Eq.{1} (Word α → Word α) (@RayAutomorphism.TreeAut.toFun α (@RayAutomorphism.treeAut α P))
+          (@RayAutomorphism.TreeAut.toFun α T))
+'RayAutomorphism.levelwise_converse_false' does not depend on any axioms
+@TOField.eps_succ_add : ∀ {K : Type} [inst : TOField K] (n : TreeN),
+  @Eq.{1} K
+    (@HAdd.hAdd.{0, 0, 0} K K K
+      (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst)))))
+      (@TOField.eps K inst (TreeN.succ n)) (@TOField.eps K inst (TreeN.succ n)))
+    (@TOField.eps K inst n)
+'TOField.eps_succ_add' does not depend on any axioms
+@TOField.three_eps_le : ∀ {K : Type} [inst : TOField K] (n : TreeN),
+  @LE.le.{0} K (@TOField.instLE K inst)
+    (@HAdd.hAdd.{0, 0, 0} K K K
+      (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst)))))
+      (@HAdd.hAdd.{0, 0, 0} K K K
+        (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst)))))
+        (@TOField.eps K inst (TreeN.succ (TreeN.succ n))) (@TOField.eps K inst (TreeN.succ (TreeN.succ n))))
+      (@TOField.eps K inst (TreeN.succ (TreeN.succ n))))
+    (@TOField.eps K inst n)
+'TOField.three_eps_le' does not depend on any axioms
+TOField.CSeq : (K : Type) → [TOField K] → Type
+'TOField.CSeq' does not depend on any axioms
+@TOField.IsModulus : {K : Type} → [TOField K] → (s : TreeN → K) → (μ : TreeN → TreeN) → Prop
+'TOField.IsModulus' does not depend on any axioms
+@TOField.SeqEquiv : {K : Type} → [TOField K] → (s t : TreeN → K) → Prop
+'TOField.SeqEquiv' does not depend on any axioms
+@TOField.isRegular_reg : ∀ {K : Type} [inst : TOField K] (c : @TOField.CSeq K inst),
+  @TOField.IsRegular K inst (@TOField.reg K inst c)
+'TOField.isRegular_reg' does not depend on any axioms
+@TOField.seqEquiv_trans : ∀ {K : Type} [inst : TOField K] {s t u : TreeN → K} (h1 : @TOField.SeqEquiv K inst s t)
+  (h2 : @TOField.SeqEquiv K inst t u), @TOField.SeqEquiv K inst s u
+'TOField.seqEquiv_trans' does not depend on any axioms
+@TOField.reg_equiv : ∀ {K : Type} [inst : TOField K] (c : @TOField.CSeq K inst),
+  @TOField.SeqEquiv K inst (@TOField.reg K inst c) (@TOField.CSeq.seq K inst c)
+'TOField.reg_equiv' does not depend on any axioms
+TreeR : (K : Type) → [TOField K] → Type
+'TreeR' does not depend on any axioms
+@TreeR.mkR : {K : Type} → [inst : TOField K] → (c : @TOField.CSeq K inst) → @TreeR K inst
+'TreeR.mkR' does not depend on any axioms
+@TreeR.instCRing : {K : Type} → [inst : TOField K] → CRing (@TreeR K inst)
+'TreeR.instCRing' depends on axioms: [Quot.sound]
+@TreeR.ofQ_injective : ∀ {K : Type} [inst : TOField K] {p q : K}
+  (h : @Eq.{1} (@TreeR K inst) (@TreeR.ofQ K inst p) (@TreeR.ofQ K inst q)), @Eq.{1} K p q
+'TreeR.ofQ_injective' depends on axioms: [propext]
+@TreeR.zero_ne_one : ∀ {K : Type} [inst : TOField K],
+  @Ne.{1} (@TreeR K inst) (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))
+    (@CSR.one (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))
+'TreeR.zero_ne_one' depends on axioms: [propext, Quot.sound]
+@TreeR.RLt : {K : Type} → [inst : TOField K] → (x y : @TreeR K inst) → Prop
+'TreeR.RLt' depends on axioms: [Quot.sound]
+@TreeR.RLe : {K : Type} → [inst : TOField K] → (x y : @TreeR K inst) → Prop
+'TreeR.RLe' depends on axioms: [Quot.sound]
+@TreeR.RApart : {K : Type} → [inst : TOField K] → (x y : @TreeR K inst) → Prop
+'TreeR.RApart' depends on axioms: [Quot.sound]

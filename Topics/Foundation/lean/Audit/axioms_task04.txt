@@ -1,0 +1,511 @@
+'TreeN.induction' does not depend on any axioms
+'TreeN.recN' does not depend on any axioms
+'TreeN.recN_zero' does not depend on any axioms
+'TreeN.recN_succ' does not depend on any axioms
+'TreeN.recN_unique' does not depend on any axioms
+'TreeN.zero_ne_one' does not depend on any axioms
+'TreeN.le_total' does not depend on any axioms
+'TreeN.mul_le_mul_right' does not depend on any axioms
+'TreeN.mul_le_mul'' does not depend on any axioms
+'TreeN.lt_iff_succ_le' does not depend on any axioms
+'TreeN.le_iff_exists_add' does not depend on any axioms
+'TreeZ.ofN_pos'' does not depend on any axioms
+'TreeZ.not_nonNeg_neg_ofN_succ' does not depend on any axioms
+'TreeZ.le_of_ofN_le' does not depend on any axioms
+'TreeZ.LT' does not depend on any axioms
+'TreeZ.ofN_lt_ofN' does not depend on any axioms
+'TreeZ.lt_of_ofN_lt' does not depend on any axioms
+'TreeZ.lt_irrefl' does not depend on any axioms
+'TreeZ.le_of_lt' does not depend on any axioms
+'TreeZ.lt_trichotomy' does not depend on any axioms
+'TreeZ.zero_le_one' does not depend on any axioms
+'TreeZ.zero_lt_one' does not depend on any axioms
+'TreeZ.le_of_add_le_add_left' does not depend on any axioms
+'TreeZ.add_le_add_right' does not depend on any axioms
+'TreeZ.neg_le_neg' does not depend on any axioms
+'TreeZ.nonNeg_mul_of_nonpos' does not depend on any axioms
+'TreeZ.nonpos_mul_of_nonNeg_of_nonpos' does not depend on any axioms
+'TreeZ.nonNeg_mul_self' does not depend on any axioms
+'TreeZ.le_of_mul_le_mul_pos' does not depend on any axioms
+'TriplePath.unary_numer_ne_zero' does not depend on any axioms
+'TriplePath.unary_no_universal_witness' does not depend on any axioms
+'TreeQ.ofF_letter_indep' depends on axioms: [Quot.sound]
+'TreeQ.swapLetters' does not depend on any axioms
+'TreeQ.ofFrac_letter_dependent' does not depend on any axioms
+'TreeQ.transfer_letter_indep' depends on axioms: [Quot.sound]
+'TreeQ.transfer_self' depends on axioms: [Quot.sound]
+'TreeQ.transfer_comp' depends on axioms: [Quot.sound]
+'TreeQ.transfer_natCast' depends on axioms: [Quot.sound]
+'TreeQ.arityIso_comp' depends on axioms: [Quot.sound]
+'TOField.mul_lt_mul_of_pos_left' does not depend on any axioms
+'TOField.mul_lt_mul_of_pos_right' does not depend on any axioms
+'TreeQ.ofZ_zero' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_one' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_neg' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_lt' depends on axioms: [Quot.sound]
+'TreeQ.lt_of_ofZ_lt' depends on axioms: [Quot.sound]
+'TreeQ.transfer_ofZ' depends on axioms: [Quot.sound]
+'TreeR.ofZRα' depends on axioms: [Quot.sound]
+'TreeR.ofZRα_injective' depends on axioms: [propext, Quot.sound]
+'TreeR.ofZRα_zero' depends on axioms: [Quot.sound]
+'TreeR.ofZRα_one' depends on axioms: [Quot.sound]
+'TreeR.ofZRα_add' depends on axioms: [Quot.sound]
+'TreeR.ofZRα_mul' depends on axioms: [Quot.sound]
+'TreeR.ofZRα_neg' depends on axioms: [Quot.sound]
+'TreeR.ofZRα_le' depends on axioms: [Quot.sound]
+'TreeR.le_of_ofZRα_le' depends on axioms: [propext, Quot.sound]
+'TreeR.ofZRα_lt' depends on axioms: [Quot.sound]
+'TreeR.natR_eq_ofZRα' depends on axioms: [Quot.sound]
+'TreeR.natR_le_iff' depends on axioms: [propext, Quot.sound]
+'TreeR.natR_zero' depends on axioms: [Quot.sound]
+'TreeR.mapR_congr' depends on axioms: [Quot.sound]
+'TreeR.realArityIso_self' depends on axioms: [Quot.sound]
+'TreeR.realArityIso_comp' depends on axioms: [Quot.sound]
+'TreeR.realArityIso_ofZRα' depends on axioms: [Quot.sound]
+'TreeR.realArityIso_natR' depends on axioms: [Quot.sound]
+'TreeR.DecidableZero' depends on axioms: [Quot.sound]
+'TreeR.Trichotomy' depends on axioms: [Quot.sound]
+'TreeR.wlpo_of_decidableZero' depends on axioms: [propext, Quot.sound]
+'TreeR.decidableZero_of_wlpo' depends on axioms: [propext, Quot.sound]
+'TreeR.decidableZero_iff_wlpo' depends on axioms: [propext, Quot.sound]
+'TreeR.zeroOrApart_of_trichotomy' depends on axioms: [Quot.sound]
+'TreeR.trichotomy_of_zeroOrApart' depends on axioms: [Quot.sound]
+'TreeR.trichotomy_iff_lpo' depends on axioms: [propext, Quot.sound]
+'TreeR.decidableZero_of_lpo' depends on axioms: [propext, Quot.sound]
+'TreeR.cring_four' does not depend on any axioms
+'TreeR.cring_trick' does not depend on any axioms
+'TreeR.cring_two_terms' does not depend on any axioms
+'TreeR.rnonneg_half' depends on axioms: [propext, Quot.sound]
+'TreeR.rclose_zero_iff' depends on axioms: [Quot.sound]
+'TreeR.rclose_mul_zero' depends on axioms: [propext, Quot.sound]
+'TreeR.rclose_sub_iff' depends on axioms: [Quot.sound]
+'TreeR.rclose_add' depends on axioms: [propext, Quot.sound]
+'TreeR.rclose_neg' depends on axioms: [Quot.sound]
+'TreeR.rclose_zero_of_abs' depends on axioms: [Quot.sound]
+'TreeR.rclose_mul' depends on axioms: [propext, Quot.sound]
+'TreeR.twoPow_mul_eps_shift' does not depend on any axioms
+'TreeR.double_shift' does not depend on any axioms
+'TreeR.natCast_le_twoPow_of_le' does not depend on any axioms
+'TreeR.rclose_zero_of_bounds' depends on axioms: [Quot.sound]
+'TreeR.converges_add' depends on axioms: [propext, Quot.sound]
+'TreeR.converges_neg' depends on axioms: [Quot.sound]
+'TreeR.converges_mul' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked' depends on axioms: [Quot.sound]
+'TreeR.Tracked.cseq' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.converges' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_eq_of_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_indep' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.approx_seqEquiv' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.rcauchyMod_of_approx' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.ofApproxMod' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.constQ' depends on axioms: [Quot.sound]
+'TreeR.Tracked.ofCSeq' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.ofRat' depends on axioms: [Quot.sound]
+'TreeR.Tracked.ofTower' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_constQ' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_ofCSeq' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_ofRat' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.add' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.neg' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.mulShift' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.mulM' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.mul_approx' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.mul' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.smulQ' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.smulRep' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_add' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_neg' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_mul' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_smulQ' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.lim_smulRep' depends on axioms: [propext, Quot.sound]
+'TreeR.Tracked.exists_tracked_smul' depends on axioms: [propext, Quot.sound]
+'TreeQ.ofZ_den_mul_ofF' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_ofN_ne_zero' depends on axioms: [Quot.sound]
+'TreeQ.fieldIso_natCast' depends on axioms: [Quot.sound]
+'TreeQ.fieldIso_ofZ' depends on axioms: [Quot.sound]
+'TreeQ.fieldIso_unique' depends on axioms: [Quot.sound]
+'TreeQ.fieldIso_ext' depends on axioms: [Quot.sound]
+'TreeR.natR_cons' depends on axioms: [Quot.sound]
+'TreeR.realIso_natR' depends on axioms: [Quot.sound]
+'TreeR.realIso_ofZRα' depends on axioms: [Quot.sound]
+'TreeR.realIso_ofQ' depends on axioms: [propext, Quot.sound]
+'TreeR.realIso_unique' depends on axioms: [propext, Quot.sound]
+'Task04.em_of_dec' does not depend on any axioms
+'Task04.treeN_certificate' does not depend on any axioms
+'Task04.treeZ_certificate' does not depend on any axioms
+'Task04.treeQ_certificate' depends on axioms: [Quot.sound]
+'Task04.treeR_unconditional_certificate' depends on axioms: [propext, Quot.sound]
+'Task04.treeR_conditional_certificate' depends on axioms: [propext, Quot.sound]
+'Task04.treeR_convergence_certificate' depends on axioms: [propext, Quot.sound]
+'UnaryPath.zero_or_extend' does not depend on any axioms
+'UnaryPath.extend_injective' does not depend on any axioms
+'UnaryTree.count_realized' does not depend on any axioms
+'UnaryTree.count_unique' does not depend on any axioms
+'UnaryTree.pathSum_self' does not depend on any axioms
+'Word.unitSum_rootEdges' does not depend on any axioms
+'Word.unitSum_nil' does not depend on any axioms
+'Word.unitSum_snoc' does not depend on any axioms
+'Word.pathSum_cons' does not depend on any axioms
+'TreeN.add_assoc' does not depend on any axioms
+'TreeN.add_comm' does not depend on any axioms
+'TreeN.zero_add' does not depend on any axioms
+'TreeN.add_zero' does not depend on any axioms
+'TreeN.mul_assoc' does not depend on any axioms
+'TreeN.mul_comm' does not depend on any axioms
+'TreeN.one_mul' does not depend on any axioms
+'TreeN.mul_one' does not depend on any axioms
+'TreeN.zero_mul' does not depend on any axioms
+'TreeN.mul_zero' does not depend on any axioms
+'TreeN.left_distrib' does not depend on any axioms
+'TreeN.right_distrib' does not depend on any axioms
+'TreeN.instCSR' does not depend on any axioms
+'TreeN.add_left_cancel' does not depend on any axioms
+'TreeN.add_right_cancel' does not depend on any axioms
+'TreeN.mul_left_cancel' does not depend on any axioms
+'TreeN.mul_right_cancel' does not depend on any axioms
+'TreeN.mul_eq_zero' does not depend on any axioms
+'TreeN.succ_ne_zero' does not depend on any axioms
+'TreeN.succ_injective' does not depend on any axioms
+'TreeN.le_refl' does not depend on any axioms
+'TreeN.le_trans' does not depend on any axioms
+'TreeN.le_antisymm' does not depend on any axioms
+'TreeN.lt_irrefl' does not depend on any axioms
+'TreeN.lt_trans' does not depend on any axioms
+'TreeN.compare' does not depend on any axioms
+'TreeN.lt_or_eq_or_gt' does not depend on any axioms
+'TreeN.decEq' does not depend on any axioms
+'TreeN.decLE' does not depend on any axioms
+'TreeN.decLT' does not depend on any axioms
+'TreeN.add_le_add_left' does not depend on any axioms
+'TreeN.add_lt_add_left' does not depend on any axioms
+'TreeN.lt_of_add_lt_add_left' does not depend on any axioms
+'TreeN.le_of_add_le_add_left' does not depend on any axioms
+'TreeN.mul_le_mul_left' does not depend on any axioms
+'TreeN.mul_lt_mul_left' does not depend on any axioms
+'TreeN.mul_pos' does not depend on any axioms
+'TreeN.add_diff' does not depend on any axioms
+'TreeN.diff_add' does not depend on any axioms
+'TreeN.pairEq_refl' does not depend on any axioms
+'TreeN.pairEq_symm' does not depend on any axioms
+'TreeN.pairEq_trans' does not depend on any axioms
+'TreeN.normPair_normal' does not depend on any axioms
+'TreeN.normPair_pairEq' does not depend on any axioms
+'TreeN.normal_unique' does not depend on any axioms
+'TreeZ.mkZ_sound' does not depend on any axioms
+'TreeZ.mkZ_exact' does not depend on any axioms
+'TreeZ.mkZ_self' does not depend on any axioms
+'TreeZ.ind_mk' does not depend on any axioms
+'TreeZ.add_mk' does not depend on any axioms
+'TreeZ.neg_mk' does not depend on any axioms
+'TreeZ.mul_mk' does not depend on any axioms
+'TreeZ.instCRing' does not depend on any axioms
+'TreeZ.zero_ne_one' does not depend on any axioms
+'TreeZ.decEq' does not depend on any axioms
+'TreeZ.mul_eq_zero' does not depend on any axioms
+'TreeZ.mul_ne_zero' does not depend on any axioms
+'TreeZ.mul_left_cancel' does not depend on any axioms
+'TreeZ.mul_right_cancel' does not depend on any axioms
+'TreeZ.ofN_injective' does not depend on any axioms
+'TreeZ.ofN_add' does not depend on any axioms
+'TreeZ.ofN_mul' does not depend on any axioms
+'TreeZ.ofN_le_ofN' does not depend on any axioms
+'TreeZ.sign' does not depend on any axioms
+'TreeZ.absN_pos' does not depend on any axioms
+'TreeZ.nonNeg_or_neg_nonNeg' does not depend on any axioms
+'TreeZ.nonNeg_mul' does not depend on any axioms
+'TreeZ.le_refl' does not depend on any axioms
+'TreeZ.le_trans' does not depend on any axioms
+'TreeZ.le_antisymm' does not depend on any axioms
+'TreeZ.le_total' does not depend on any axioms
+'TreeZ.add_le_add_left' does not depend on any axioms
+'TreeZ.mul_le_mul_of_nonneg' does not depend on any axioms
+'TriplePath.rel_refl' does not depend on any axioms
+'TriplePath.rel_symm' does not depend on any axioms
+'TriplePath.rel_trans' does not depend on any axioms
+'TriplePath.denom_spec' does not depend on any axioms
+'TriplePath.denom_pos' does not depend on any axioms
+'TriplePath.witness_numer' does not depend on any axioms
+'TriplePath.witness_denom' does not depend on any axioms
+'TriplePath.toFrac_ofFrac' does not depend on any axioms
+'TriplePath.universal_witness' does not depend on any axioms
+'Frac.add_resp' does not depend on any axioms
+'Frac.mul_resp' does not depend on any axioms
+'Frac.neg_resp' does not depend on any axioms
+'Frac.inv_resp' does not depend on any axioms
+'Frac.eqv_trans' does not depend on any axioms
+'TreeQ.sound' depends on axioms: [Quot.sound]
+'TreeQ.exact' does not depend on any axioms
+'TreeQ.mk_eq_ofF' depends on axioms: [Quot.sound]
+'TreeQ.exists_ofF' depends on axioms: [Quot.sound]
+'TreeQ.ofF_sound' depends on axioms: [Quot.sound]
+'TreeQ.ofF_exact' does not depend on any axioms
+'TreeQ.add_assoc'' depends on axioms: [Quot.sound]
+'TreeQ.add_comm'' depends on axioms: [Quot.sound]
+'TreeQ.zero_add'' depends on axioms: [Quot.sound]
+'TreeQ.neg_add_cancel'' depends on axioms: [Quot.sound]
+'TreeQ.mul_assoc'' depends on axioms: [Quot.sound]
+'TreeQ.mul_comm'' depends on axioms: [Quot.sound]
+'TreeQ.one_mul'' depends on axioms: [Quot.sound]
+'TreeQ.zero_mul'' depends on axioms: [Quot.sound]
+'TreeQ.left_distrib'' depends on axioms: [Quot.sound]
+'TreeQ.zero_ne_one'' does not depend on any axioms
+'TreeQ.mul_inv_cancel''' depends on axioms: [Quot.sound]
+'TreeQ.inv_zero'' depends on axioms: [Quot.sound]
+'TreeQ.charZero'' depends on axioms: [Quot.sound]
+'TreeQ.instCRing' depends on axioms: [Quot.sound]
+'TreeQ.instTField' depends on axioms: [Quot.sound]
+'TreeQ.instTOField' depends on axioms: [Quot.sound]
+'TreeQ.nonnegQ_add' depends on axioms: [Quot.sound]
+'TreeQ.nonnegQ_mul' depends on axioms: [Quot.sound]
+'TreeQ.nonnegQ_total' depends on axioms: [Quot.sound]
+'TreeQ.nonnegQ_antisymm' depends on axioms: [Quot.sound]
+'TreeQ.archQ_spec' depends on axioms: [Quot.sound]
+'TreeQ.le_ofF_of_lef' depends on axioms: [Quot.sound]
+'TreeQ.lef_of_le_ofF' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_injective' does not depend on any axioms
+'TreeQ.ofZ_add' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_mul' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_le' depends on axioms: [Quot.sound]
+'TreeQ.le_of_ofZ_le' depends on axioms: [Quot.sound]
+'TreeQ.natCast_eq_ofZ' depends on axioms: [Quot.sound]
+'TreeQ.pathLE_of_natCast_le' depends on axioms: [Quot.sound]
+'TreeQ.transfer_add' depends on axioms: [Quot.sound]
+'TreeQ.transfer_mul' depends on axioms: [Quot.sound]
+'TreeQ.transfer_transfer' depends on axioms: [Quot.sound]
+'TreeQ.arityIso' depends on axioms: [Quot.sound]
+'TreeQ.transfer_le' depends on axioms: [Quot.sound]
+'TreeQ.transferHom' depends on axioms: [Quot.sound]
+'finiteArityIso' depends on axioms: [Quot.sound]
+'finiteOmegaIso' depends on axioms: [Quot.sound]
+'TField.mul_left_cancel'' does not depend on any axioms
+'TField.mul_ne_zero'' does not depend on any axioms
+'TField.eq_zero_of_mul_eq_zero_left' does not depend on any axioms
+'TOField.natCast_injective' does not depend on any axioms
+'TOField.le_archBound' does not depend on any axioms
+'TOField.exists_eps_lt' does not depend on any axioms
+'TOField.abs_add' does not depend on any axioms
+'TOField.abs_mul' does not depend on any axioms
+'TOField.abs_neg' does not depend on any axioms
+'TOField.abs_nonneg' does not depend on any axioms
+'TOField.eq_zero_of_abs_eq_zero' does not depend on any axioms
+'TOField.mul_pos' does not depend on any axioms
+'TOField.add_lt_add_left' does not depend on any axioms
+'TOField.le_total' does not depend on any axioms
+'TOField.le_antisymm' does not depend on any axioms
+'TOField.inv_pos' does not depend on any axioms
+'TOField.seqEquiv_refl' does not depend on any axioms
+'TOField.seqEquiv_symm' does not depend on any axioms
+'TOField.seqEquiv_trans' does not depend on any axioms
+'TOField.reg_equiv' does not depend on any axioms
+'TOField.isRegular_reg' does not depend on any axioms
+'TOField.add_resp' does not depend on any axioms
+'TOField.neg_resp' does not depend on any axioms
+'TOField.mulSeq_resp' does not depend on any axioms
+'TOField.mulMod_isMod' does not depend on any axioms
+'TOField.invSeq_isMod' does not depend on any axioms
+'TreeR.mkR_sound' depends on axioms: [Quot.sound]
+'TreeR.mkR_exact' depends on axioms: [propext]
+'TreeR.mkR_eq_iff' depends on axioms: [propext, Quot.sound]
+'TreeR.exists_rep' does not depend on any axioms
+'TreeR.mkR_reg' depends on axioms: [Quot.sound]
+'TreeR.exists_regular_rep' depends on axioms: [Quot.sound]
+'TreeR.instCRing' depends on axioms: [Quot.sound]
+'TreeR.zero_ne_one' depends on axioms: [propext, Quot.sound]
+'TreeR.ofQ_injective' depends on axioms: [propext]
+'TreeR.ofQ_add' depends on axioms: [Quot.sound]
+'TreeR.ofQ_mul' depends on axioms: [Quot.sound]
+'TreeR.ofQ_neg' depends on axioms: [Quot.sound]
+'TreeR.ofQ_le_ofQ' depends on axioms: [Quot.sound]
+'TreeR.le_of_ofQ_le' depends on axioms: [propext, Quot.sound]
+'TreeR.ofQ_lt_ofQ' depends on axioms: [Quot.sound]
+'TreeR.lt_of_ofQ_lt' depends on axioms: [propext, Quot.sound]
+'TreeR.natR_injective' depends on axioms: [propext]
+'TreeR.lt_irrefl' depends on axioms: [propext, Quot.sound]
+'TreeR.lt_trans' depends on axioms: [propext, Quot.sound]
+'TreeR.le_refl' depends on axioms: [Quot.sound]
+'TreeR.le_trans' depends on axioms: [propext, Quot.sound]
+'TreeR.le_antisymm' depends on axioms: [propext, Quot.sound]
+'TreeR.le_iff_not_lt' depends on axioms: [propext, Quot.sound]
+'TreeR.lt_cotrans' depends on axioms: [propext, Quot.sound]
+'TreeR.eq_of_not_apart' depends on axioms: [propext, Quot.sound]
+'TreeR.apart_cotrans' depends on axioms: [propext, Quot.sound]
+'TreeR.ne_of_apart' depends on axioms: [propext, Quot.sound]
+'TreeR.not_not_apart_of_ne' depends on axioms: [propext, Quot.sound]
+'TreeR.add_lt_add_right' depends on axioms: [Quot.sound]
+'TreeR.add_le_add' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_pos' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_le_mul_of_nonneg_left' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_lt_mul_of_pos_left' depends on axioms: [propext, Quot.sound]
+'TreeR.zero_lt_one' depends on axioms: [Quot.sound]
+'TreeR.archimedean' depends on axioms: [Quot.sound]
+'TreeR.archimedean_abs' depends on axioms: [propext, Quot.sound]
+'TreeR.exists_rat_between' depends on axioms: [propext, Quot.sound]
+'TreeR.rat_dense' depends on axioms: [Quot.sound]
+'TreeR.ofQ_seq_converges' depends on axioms: [Quot.sound]
+'TreeR.limit_unique' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_rinv' depends on axioms: [Quot.sound]
+'TreeR.rinv_indep' depends on axioms: [Quot.sound]
+'TreeR.exists_inv_of_apart' depends on axioms: [Quot.sound]
+'TreeR.apart_of_mul_eq_one' depends on axioms: [propext, Quot.sound]
+'TreeR.inv_unique' depends on axioms: [Quot.sound]
+'TreeR.eq_zero_of_mul_eq_zero_of_apart' depends on axioms: [Quot.sound]
+'TreeR.eq_zero_of_mul_eq_zero_of_ne' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_left_cancel_of_ne' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_ne_zero'' depends on axioms: [propext, Quot.sound]
+'TreeR.not_not_exists_inv' depends on axioms: [propext, Quot.sound]
+'TreeR.eq_of_not_not_eq' depends on axioms: [propext, Quot.sound]
+'TreeR.inv_iff_neImpliesApart' depends on axioms: [propext, Quot.sound]
+'TreeR.neImpliesApart_iff_markov' depends on axioms: [propext, Quot.sound]
+'TreeR.inv_iff_markov' depends on axioms: [propext, Quot.sound]
+'TreeR.zeroOrApart_iff_lpo' depends on axioms: [propext, Quot.sound]
+'TreeR.zeroProduct_of_zeroOrApart' depends on axioms: [Quot.sound]
+'TreeR.markov_of_lpo' does not depend on any axioms
+'TreeR.wlpo_of_lpo' does not depend on any axioms
+'TreeR.TrackedCauchyTower.tower_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.tower_limit' depends on axioms: [propext, Quot.sound]
+'TreeR.limit_of_approx' depends on axioms: [propext, Quot.sound]
+'TreeR.approxSeq_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.close_of_cauchy_of_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.rcauchyMod_iff_close' depends on axioms: [Quot.sound]
+'TreeR.rcauchy_of_rcauchyMod' depends on axioms: [Quot.sound]
+'TreeR.isModulus_of_rcauchyMod_ofQ' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_iff_cauchyApprox' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_lifting' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_cauchyLifting' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.modulusFreeComplete_of_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.modulusSelection_of_choice' depends on axioms: [Quot.sound]
+'TreeR.ratModulusSelection_of_choice' does not depend on any axioms
+'TreeR.complete_of_modulusFree' depends on axioms: [Quot.sound]
+'TreeR.exists_rat_close' depends on axioms: [Quot.sound]
+'TreeR.SupData.isLUB' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.sup_least' depends on axioms: [propext, Quot.sound]
+'TreeR.lub_unique' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.ofList_isLUB' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.ofMonotone' depends on axioms: [propext, Quot.sound]
+'TreeR.lub_of_monotone_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.tower_monotone_lub' depends on axioms: [propext, Quot.sound]
+'TreeR.monotone_lub_of_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.wlpo_of_unrestrictedLUB' depends on axioms: [propext, Quot.sound]
+'TreeR.lpo_of_bmc' depends on axioms: [propext, Quot.sound]
+'TreeR.extendR_unique' depends on axioms: [propext, Quot.sound]
+'TreeR.mapR_lt' depends on axioms: [Quot.sound]
+'realArityIso' depends on axioms: [Quot.sound]
+'realArityIso_ofQ' depends on axioms: [Quot.sound]
+'natR_eq_ofZR' depends on axioms: [Quot.sound]
+'ofZR_injective' depends on axioms: [propext, Quot.sound]
+'PrimitiveScope.provenance_chain' depends on axioms: [Quot.sound]
+'PrimitiveScope.prefixCount_eq' does not depend on any axioms
+'PrimitiveScope.prefixCount_indep' depends on axioms: [Quot.sound]
+'PrimitiveScope.prefixCount_not_isCauchy' does not depend on any axioms
+'PrimitiveScope.prefixCount_not_rcauchy' depends on axioms: [propext, Quot.sound]
+'Ray.encode_letter_choice_dependence' depends on axioms: [propext, Quot.sound]
+TreeN.instCSR: closure size 75; Classical constants: []; axioms: []; built-in number constants: 0; direct users of them: []
+TreeZ.instCRing: closure size 187; Classical constants: []; axioms: []; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeQ.instTField: closure size 517; Classical constants: []; axioms: [Quot.sound]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeQ.instTOField: closure size 580; Classical constants: []; axioms: [Quot.sound]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.instCRing: closure size 356; Classical constants: []; axioms: [Quot.sound]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+Task04.treeN_certificate: closure size 208; Classical constants: []; axioms: []; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+Task04.treeZ_certificate: closure size 325; Classical constants: []; axioms: []; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+Task04.treeQ_certificate: closure size 630; Classical constants: []; axioms: [Quot.sound]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+Task04.treeR_unconditional_certificate: closure size 905; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+Task04.treeR_conditional_certificate: closure size 1066; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+Task04.treeR_convergence_certificate: closure size 939; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.inv_iff_markov: closure size 560; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.decidableZero_iff_wlpo: closure size 512; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.trichotomy_iff_lpo: closure size 510; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.complete_iff_cauchyApprox: closure size 480; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.Tracked.mul: closure size 510; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.Tracked.lim_mul: closure size 512; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.converges_mul: closure size 469; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeQ.ofF_letter_indep: closure size 250; Classical constants: []; axioms: [Quot.sound]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.realArityIso_comp: closure size 825; Classical constants: []; axioms: [Quot.sound]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeQ.fieldIso_unique: closure size 546; Classical constants: []; axioms: [Quot.sound]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]
+TreeR.realIso_unique: closure size 971; Classical constants: []; axioms: [Quot.sound,
+ propext]; built-in number constants: 10; direct users of them: [noConfusion_of_Nat,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux.match_1_1,
+ Bool.ctorIdx,
+ List.ctorIdx,
+ _private.Init.Prelude.0.noConfusion_of_Nat.aux]

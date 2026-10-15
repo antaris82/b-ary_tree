@@ -1,0 +1,961 @@
+@TOField.le_total : ∀ {K : Type} [inst : TOField K] (x y : K),
+  Or (@LE.le.{0} K (@TOField.instLE K inst) x y) (@LE.le.{0} K (@TOField.instLE K inst) y x)
+'TOField.le_total' does not depend on any axioms
+@TOField.mulMod_isMod : ∀ {K : Type} [inst : TOField K] (c d : @TOField.CSeq K inst),
+  @TOField.IsModulus K inst
+    (fun (n : TreeN) =>
+      @HMul.hMul.{0, 0, 0} K K K
+        (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst)))))
+        (@TOField.CSeq.seq K inst c n) (@TOField.CSeq.seq K inst d n))
+    (@TOField.mulMod K inst c d)
+'TOField.mulMod_isMod' does not depend on any axioms
+@TOField.mulSeq_resp : ∀ {K : Type} [inst : TOField K] {c c' d d' : @TOField.CSeq K inst}
+  (h1 : @TOField.SeqEquiv K inst (@TOField.CSeq.seq K inst c) (@TOField.CSeq.seq K inst c'))
+  (h2 : @TOField.SeqEquiv K inst (@TOField.CSeq.seq K inst d) (@TOField.CSeq.seq K inst d')),
+  @TOField.SeqEquiv K inst (@TOField.CSeq.seq K inst (@TOField.mulSeq K inst c d))
+    (@TOField.CSeq.seq K inst (@TOField.mulSeq K inst c' d'))
+'TOField.mulSeq_resp' does not depend on any axioms
+@TOField.mul_lt_mul_of_pos_left : ∀ {K : Type} [inst : TOField K] {x y z : K}
+  (hz :
+    @LT.lt.{0} K (@TOField.instLT K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+      z)
+  (h : @LT.lt.{0} K (@TOField.instLT K inst) x y),
+  @LT.lt.{0} K (@TOField.instLT K inst)
+    (@HMul.hMul.{0, 0, 0} K K K
+      (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) z x)
+    (@HMul.hMul.{0, 0, 0} K K K
+      (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) z y)
+'TOField.mul_lt_mul_of_pos_left' does not depend on any axioms
+@TOField.mul_lt_mul_of_pos_right : ∀ {K : Type} [inst : TOField K] {x y z : K}
+  (hz :
+    @LT.lt.{0} K (@TOField.instLT K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+      z)
+  (h : @LT.lt.{0} K (@TOField.instLT K inst) x y),
+  @LT.lt.{0} K (@TOField.instLT K inst)
+    (@HMul.hMul.{0, 0, 0} K K K
+      (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) x z)
+    (@HMul.hMul.{0, 0, 0} K K K
+      (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) y z)
+'TOField.mul_lt_mul_of_pos_right' does not depend on any axioms
+@TOField.mul_pos : ∀ {K : Type} [inst : TOField K] {a b : K}
+  (ha :
+    @LT.lt.{0} K (@TOField.instLT K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+      a)
+  (hb :
+    @LT.lt.{0} K (@TOField.instLT K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+      b),
+  @LT.lt.{0} K (@TOField.instLT K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+    (@HMul.hMul.{0, 0, 0} K K K
+      (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) a b)
+'TOField.mul_pos' does not depend on any axioms
+@TOField.natCast_injective : ∀ {K : Type} [inst : TOField K] {m n : TreeN}
+  (h : @Eq.{1} K (@TField.natCast K (@TOField.toTField K inst) m) (@TField.natCast K (@TOField.toTField K inst) n)),
+  @Eq.{1} TreeN m n
+'TOField.natCast_injective' does not depend on any axioms
+@TOField.neg_resp : ∀ {K : Type} [inst : TOField K] {s s' : TreeN → K} (h : @TOField.SeqEquiv K inst s s'),
+  @TOField.SeqEquiv K inst
+    (fun (n : TreeN) => @Neg.neg.{0} K (@CRing.toNeg K (@TField.toCRing K (@TOField.toTField K inst))) (s n))
+    fun (n : TreeN) => @Neg.neg.{0} K (@CRing.toNeg K (@TField.toCRing K (@TOField.toTField K inst))) (s' n)
+'TOField.neg_resp' does not depend on any axioms
+@TOField.seqEquiv_refl : ∀ {K : Type} [inst : TOField K] (s : TreeN → K), @TOField.SeqEquiv K inst s s
+'TOField.seqEquiv_refl' does not depend on any axioms
+@TOField.seqEquiv_symm : ∀ {K : Type} [inst : TOField K] {s t : TreeN → K} (h : @TOField.SeqEquiv K inst s t),
+  @TOField.SeqEquiv K inst t s
+'TOField.seqEquiv_symm' does not depend on any axioms
+Task04.treeN_certificate : And
+  (∀ (a b c : TreeN),
+    @Eq.{1} TreeN
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+        (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a b) c)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a
+        (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) b c)))
+  (And
+    (∀ (a b : TreeN),
+      @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a b)
+        (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) b a))
+    (And
+      (∀ (a : TreeN),
+        @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) TreeN.zero a) a)
+      (And
+        (∀ (a : TreeN),
+          @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a TreeN.zero) a)
+        (And
+          (∀ (a b c : TreeN),
+            @Eq.{1} TreeN
+              (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul)
+                (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a b) c)
+              (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a
+                (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b c)))
+          (And
+            (∀ (a b : TreeN),
+              @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a b)
+                (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b a))
+            (And
+              (∀ (a : TreeN),
+                @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) TreeN.one a)
+                  a)
+              (And
+                (∀ (a : TreeN),
+                  @Eq.{1} TreeN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a TreeN.one)
+                    a)
+                (And
+                  (∀ (a : TreeN),
+                    @Eq.{1} TreeN
+                      (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) TreeN.zero a)
+                      TreeN.zero)
+                  (And
+                    (∀ (a : TreeN),
+                      @Eq.{1} TreeN
+                        (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a TreeN.zero)
+                        TreeN.zero)
+                    (And
+                      (∀ (a b c : TreeN),
+                        @Eq.{1} TreeN
+                          (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a
+                            (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) b c))
+                          (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+                            (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a b)
+                            (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a c)))
+                      (And
+                        (∀ (a b c : TreeN),
+                          @Eq.{1} TreeN
+                            (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul)
+                              (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a b) c)
+                            (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+                              (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a c)
+                              (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b c)))
+                        (And
+                          (∀ (a b c : TreeN),
+                            @Eq.{1} TreeN
+                                (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a b)
+                                (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a c) →
+                              @Eq.{1} TreeN b c)
+                          (And
+                            (∀ (k m n : TreeN),
+                              TreeN.PathLT TreeN.zero k →
+                                @Eq.{1} TreeN
+                                    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k m)
+                                    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) k n) →
+                                  @Eq.{1} TreeN m n)
+                            (And (∀ (n : TreeN), @Ne.{1} TreeN (TreeN.succ n) TreeN.zero)
+                              (And (∀ (m n : TreeN), @Eq.{1} TreeN (TreeN.succ m) (TreeN.succ n) → @Eq.{1} TreeN m n)
+                                (And (@Ne.{1} TreeN TreeN.zero TreeN.one)
+                                  (And (∀ (n : TreeN), TreeN.PathLE n n)
+                                    (And (∀ (a b c : TreeN), TreeN.PathLE a b → TreeN.PathLE b c → TreeN.PathLE a c)
+                                      (And (∀ (a b : TreeN), TreeN.PathLE a b → TreeN.PathLE b a → @Eq.{1} TreeN a b)
+                                        (And (∀ (a b : TreeN), Or (TreeN.PathLE a b) (TreeN.PathLE b a))
+                                          (And (∀ (a b : TreeN), Or (@Eq.{1} TreeN a b) (Not (@Eq.{1} TreeN a b)))
+                                            (And (∀ (a b : TreeN), Or (TreeN.PathLE a b) (Not (TreeN.PathLE a b)))
+                                              (And (∀ (a b : TreeN), Or (TreeN.PathLT a b) (Not (TreeN.PathLT a b)))
+                                                (And
+                                                  (∀ (k a b : TreeN),
+                                                    TreeN.PathLE a b →
+                                                      TreeN.PathLE
+                                                        (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN
+                                                          (@instHAdd.{0} TreeN TreeN.instAdd) k a)
+                                                        (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN
+                                                          (@instHAdd.{0} TreeN TreeN.instAdd) k b))
+                                                  (∀ (k a b : TreeN),
+                                                    TreeN.PathLE a b →
+                                                      TreeN.PathLE
+                                                        (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN
+                                                          (@instHMul.{0} TreeN TreeN.instMul) k a)
+                                                        (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN
+                                                          (@instHMul.{0} TreeN TreeN.instMul) k
+                                                          b))))))))))))))))))))))))))
+'Task04.treeN_certificate' does not depend on any axioms
+Task04.treeQ_certificate : ∀ (α : Type) [inst : TwoLetters α],
+  And
+    (∀ (a b c : TreeQ α),
+      @Eq.{1} (TreeQ α)
+        (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+          (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) a b) c)
+        (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) a
+          (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) b c)))
+    (And
+      (∀ (a b : TreeQ α),
+        @Eq.{1} (TreeQ α)
+          (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) a b)
+          (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) b a))
+      (And
+        (∀ (a : TreeQ α),
+          @Eq.{1} (TreeQ α)
+            (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+              (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))) a)
+            a)
+        (And
+          (∀ (a : TreeQ α),
+            @Eq.{1} (TreeQ α)
+              (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+                (@Neg.neg.{0} (TreeQ α) (@TreeQ.instNeg α inst) a) a)
+              (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))))
+          (And
+            (∀ (a b c : TreeQ α),
+              @Eq.{1} (TreeQ α)
+                (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+                  (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+                    a b)
+                  c)
+                (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) a
+                  (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+                    b c)))
+            (And
+              (∀ (a b : TreeQ α),
+                @Eq.{1} (TreeQ α)
+                  (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+                    a b)
+                  (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+                    b a))
+              (And
+                (∀ (a : TreeQ α),
+                  @Eq.{1} (TreeQ α)
+                    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                      (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+                      (@CSR.one (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))) a)
+                    a)
+                (And
+                  (∀ (a b c : TreeQ α),
+                    @Eq.{1} (TreeQ α)
+                      (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                        (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) a
+                        (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                          (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) b c))
+                      (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                        (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+                        (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                          (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) a b)
+                        (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                          (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) a c)))
+                  (And
+                    (@Ne.{1} (TreeQ α) (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))
+                      (@CSR.one (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))))
+                    (And
+                      (∀ (a : TreeQ α),
+                        @Ne.{1} (TreeQ α) a (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))) →
+                          @Eq.{1} (TreeQ α)
+                            (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                              (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) a
+                              (@TField.inv (TreeQ α) (@TreeQ.instTField α inst) a))
+                            (@CSR.one (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))))
+                      (And
+                        (@Eq.{1} (TreeQ α)
+                          (@TField.inv (TreeQ α) (@TreeQ.instTField α inst)
+                            (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))))
+                          (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))))
+                        (And
+                          (∀ (n : TreeN),
+                            @Ne.{1} (TreeQ α) (@TField.natCast (TreeQ α) (@TreeQ.instTField α inst) (TreeN.succ n))
+                              (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst))))
+                          (And (∀ (a b : TreeQ α), Or (@Eq.{1} (TreeQ α) a b) (Not (@Eq.{1} (TreeQ α) a b)))
+                            (And
+                              (∀ (a : TreeQ α),
+                                @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a a)
+                              (And
+                                (∀ (a b c : TreeQ α),
+                                  @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a b →
+                                    @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) b c →
+                                      @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a c)
+                                (And
+                                  (∀ (a b : TreeQ α),
+                                    @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a b →
+                                      @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) b a →
+                                        @Eq.{1} (TreeQ α) a b)
+                                  (And
+                                    (∀ (a b : TreeQ α),
+                                      Or
+                                        (@LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a
+                                          b)
+                                        (@LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) b
+                                          a))
+                                    (And
+                                      (∀ (a b : TreeQ α),
+                                        Or
+                                          (@LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst))
+                                            a b)
+                                          (Not
+                                            (@LE.le.{0} (TreeQ α)
+                                              (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a b)))
+                                      (And
+                                        (∀ (a b c : TreeQ α),
+                                          @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a
+                                              b →
+                                            @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst))
+                                              (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                                                (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) c a)
+                                              (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                                                (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) c b))
+                                        (And
+                                          (∀ (a b : TreeQ α),
+                                            @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst))
+                                                (@CSR.zero (TreeQ α) (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))
+                                                a →
+                                              @LE.le.{0} (TreeQ α)
+                                                  (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst))
+                                                  (@CSR.zero (TreeQ α)
+                                                    (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))
+                                                  b →
+                                                @LE.le.{0} (TreeQ α)
+                                                  (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst))
+                                                  (@CSR.zero (TreeQ α)
+                                                    (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))
+                                                  (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                                                    (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) a b))
+                                          (And
+                                            (∀ (a b c : TreeQ α),
+                                              @LT.lt.{0} (TreeQ α)
+                                                  (@TOField.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+                                                  (@CSR.zero (TreeQ α)
+                                                    (@CRing.toCSR (TreeQ α) (@TreeQ.instCRing α inst)))
+                                                  c →
+                                                @LT.lt.{0} (TreeQ α)
+                                                    (@TOField.instLT (TreeQ α) (@TreeQ.instTOField α inst)) a b →
+                                                  @LT.lt.{0} (TreeQ α)
+                                                    (@TOField.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+                                                    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                                                      (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) c a)
+                                                    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α)
+                                                      (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) c b))
+                                            (∀ (a : TreeQ α),
+                                              @LE.le.{0} (TreeQ α)
+                                                (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) a
+                                                (@TField.natCast (TreeQ α) (@TreeQ.instTField α inst)
+                                                  (@TOField.archBound (TreeQ α) (@TreeQ.instTOField α inst)
+                                                    a)))))))))))))))))))))))
+'Task04.treeQ_certificate' depends on axioms: [Quot.sound]
+Task04.treeR_conditional_certificate : And
+  (Iff
+    (∀ (x : TreeRStar),
+      @Ne.{1} TreeRStar x
+          (@CSR.zero TreeRStar
+            (@CRing.toCSR TreeRStar
+              (@TreeR.instCRing QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))) →
+        @Exists.{1} TreeRStar fun (y : TreeRStar) =>
+          @Eq.{1} TreeRStar
+            (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+              (@instHMul.{0} TreeRStar (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+              x y)
+            (@CSR.one TreeRStar
+              (@CRing.toCSR TreeRStar
+                (@TreeR.instCRing QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))))
+    TreeR.MarkovPrinciple)
+  (And (Iff (@TreeR.ZeroOrApart QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) TreeR.LPO)
+    (And (Iff (@TreeR.DecidableZero QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) TreeR.WLPO)
+      (And (Iff (@TreeR.Trichotomy QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) TreeR.LPO)
+        (And
+          (@TreeR.ZeroOrApart QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) →
+            @TreeR.ZeroProductDisjunction QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+          (And
+            (Iff (@TreeR.UnrestrictedCompleteness QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+              (@TreeR.CauchyApprox QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+            (And
+              (TreeR.ChoiceNN →
+                @TreeR.UnrestrictedCompleteness QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+              (And
+                (TreeR.ChoiceNN →
+                  @TreeR.ModulusFreeCompleteness QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                (And
+                  (@TreeR.UnrestrictedLUB QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) → TreeR.WLPO)
+                  (@TreeR.BoundedMonotoneConvergence QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) →
+                    TreeR.LPO)))))))))
+'Task04.treeR_conditional_certificate' depends on axioms: [propext, Quot.sound]
+Task04.treeR_convergence_certificate : And
+  (∀ (c : @TOField.CSeq QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)),
+    @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+      (fun (n : TreeN) =>
+        @TreeR.ofQ QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+          (@TOField.CSeq.seq QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) c n))
+      (@TreeR.mkR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) c))
+  (And
+    (∀ (f : TreeN → TreeRStar) (L L' : TreeRStar),
+      @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f L →
+        @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f L' → @Eq.{1} TreeRStar L L')
+    (And
+      (∀ (f : TreeN → TreeRStar) (T : @TreeR.Tracked QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f),
+        @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f
+          (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f T))
+      (And
+        (∀ (f g : TreeN → TreeRStar) (L L' : TreeRStar),
+          @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f L →
+            @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) g L' →
+              @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+                (fun (i : TreeN) =>
+                  @HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                    (@instHMul.{0} TreeRStar
+                      (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                    (f i) (g i))
+                (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                  (@instHMul.{0} TreeRStar
+                    (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                  L L'))
+        (And
+          (∀ (f g : TreeN → TreeRStar)
+            (T : @TreeR.Tracked QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f)
+            (S : @TreeR.Tracked QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) g),
+            And
+              (@Eq.{1} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+                  (fun (i : TreeN) =>
+                    @HMul.hMul.{0, 0, 0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                      (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                      (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                      (@instHMul.{0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                        (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                      (f i) (g i))
+                  (@TreeR.Tracked.mul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f g T S))
+                (@HMul.hMul.{0, 0, 0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                  (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                  (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                  (@instHMul.{0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                    (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                  (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f T)
+                  (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) g S)))
+              (And
+                (@Eq.{1} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                  (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+                    (fun (i : TreeN) =>
+                      @HAdd.hAdd.{0, 0, 0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                        (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                        (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                        (@instHAdd.{0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                          (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                        (f i) (g i))
+                    (@TreeR.Tracked.add QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f g T S))
+                  (@HAdd.hAdd.{0, 0, 0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                    (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                    (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                    (@instHAdd.{0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                      (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                    (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f T)
+                    (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) g S)))
+                (@Eq.{1} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                  (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+                    (fun (i : TreeN) =>
+                      @Neg.neg.{0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                        (@TreeR.instNeg QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) (f i))
+                    (@TreeR.Tracked.neg QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f T))
+                  (@Neg.neg.{0} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                    (@TreeR.instNeg QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                    (@TreeR.Tracked.lim QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) f T)))))
+          (∀ (s : TreeN → QStar) (ν : TreeN → TreeN),
+            @TreeR.RCauchyMod QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+                (fun (i : TreeN) => @TreeR.ofQ QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) (s i)) ν →
+              @Exists.{1} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                fun (L : @TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) =>
+                @TreeR.ConvergesTo QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+                  (fun (i : TreeN) => @TreeR.ofQ QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) (s i))
+                  L)))))
+'Task04.treeR_convergence_certificate' depends on axioms: [propext, Quot.sound]
+Task04.treeR_unconditional_certificate : And
+  (∀ (a b c : TreeRStar),
+    @Eq.{1} TreeRStar
+      (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+        (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+        (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+          (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))) a b)
+        c)
+      (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+        (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))) a
+        (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+          (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))) b
+          c)))
+  (And
+    (∀ (a b : TreeRStar),
+      @Eq.{1} TreeRStar
+        (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+          (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))) a b)
+        (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+          (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))) b
+          a))
+    (And
+      (∀ (a : TreeRStar),
+        @Eq.{1} TreeRStar
+          (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+            (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+            (@CSR.zero TreeRStar
+              (@CRing.toCSR TreeRStar
+                (@TreeR.instCRing QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))))
+            a)
+          a)
+      (And
+        (∀ (a : TreeRStar),
+          @Eq.{1} TreeRStar
+            (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+              (@instHAdd.{0} TreeRStar (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+              (@Neg.neg.{0} TreeRStar (@TreeR.instNeg QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a)
+              a)
+            (@CSR.zero TreeRStar
+              (@CRing.toCSR TreeRStar
+                (@TreeR.instCRing QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))))
+        (And
+          (∀ (a b c : TreeRStar),
+            @Eq.{1} TreeRStar
+              (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                (@instHMul.{0} TreeRStar
+                  (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                  (@instHMul.{0} TreeRStar
+                    (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                  a b)
+                c)
+              (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                (@instHMul.{0} TreeRStar
+                  (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                a
+                (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                  (@instHMul.{0} TreeRStar
+                    (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                  b c)))
+          (And
+            (∀ (a b : TreeRStar),
+              @Eq.{1} TreeRStar
+                (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                  (@instHMul.{0} TreeRStar
+                    (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                  a b)
+                (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                  (@instHMul.{0} TreeRStar
+                    (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                  b a))
+            (And
+              (∀ (a : TreeRStar),
+                @Eq.{1} TreeRStar
+                  (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                    (@instHMul.{0} TreeRStar
+                      (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                    (@CSR.one TreeRStar
+                      (@CRing.toCSR TreeRStar
+                        (@TreeR.instCRing QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))))
+                    a)
+                  a)
+              (And
+                (∀ (a b c : TreeRStar),
+                  @Eq.{1} TreeRStar
+                    (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                      (@instHMul.{0} TreeRStar
+                        (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                      a
+                      (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                        (@instHAdd.{0} TreeRStar
+                          (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                        b c))
+                    (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                      (@instHAdd.{0} TreeRStar
+                        (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                      (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                        (@instHMul.{0} TreeRStar
+                          (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                        a b)
+                      (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                        (@instHMul.{0} TreeRStar
+                          (@TreeR.instMul QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                        a c)))
+                (And
+                  (@Ne.{1} TreeRStar
+                    (@CSR.zero TreeRStar
+                      (@CRing.toCSR TreeRStar
+                        (@TreeR.instCRing QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))))
+                    (@CSR.one TreeRStar
+                      (@CRing.toCSR TreeRStar
+                        (@TreeR.instCRing QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))))
+                  (And
+                    (∀ (a : TreeRStar),
+                      Not
+                        (@LT.lt.{0} TreeRStar
+                          (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a a))
+                    (And
+                      (∀ (a b c : TreeRStar),
+                        @LT.lt.{0} TreeRStar
+                            (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a b →
+                          @LT.lt.{0} TreeRStar
+                              (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) b c →
+                            @LT.lt.{0} TreeRStar
+                              (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a c)
+                      (And
+                        (∀ (a b c : TreeRStar),
+                          @LT.lt.{0} TreeRStar
+                              (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a b →
+                            Or
+                              (@LT.lt.{0} TreeRStar
+                                (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a c)
+                              (@LT.lt.{0} TreeRStar
+                                (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) c b))
+                        (And
+                          (∀ (a b : TreeRStar),
+                            Not (@TreeR.RApart QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) a b) →
+                              @Eq.{1} TreeRStar a b)
+                          (And
+                            (∀ (a b : TreeRStar),
+                              And
+                                (@LE.le.{0} TreeRStar
+                                    (@TreeR.instLE QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a b →
+                                  Not
+                                    (@LT.lt.{0} TreeRStar
+                                      (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) b
+                                      a))
+                                (Not
+                                    (@LT.lt.{0} TreeRStar
+                                      (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) b
+                                      a) →
+                                  @LE.le.{0} TreeRStar
+                                    (@TreeR.instLE QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a b))
+                            (And
+                              (∀ (a b c : TreeRStar),
+                                @LT.lt.{0} TreeRStar
+                                    (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)) a b →
+                                  @LT.lt.{0} TreeRStar
+                                    (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                    (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                      (@instHAdd.{0} TreeRStar
+                                        (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                      a c)
+                                    (@HAdd.hAdd.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                      (@instHAdd.{0} TreeRStar
+                                        (@TreeR.instAdd QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                      b c))
+                              (And
+                                (∀ (a b : TreeRStar),
+                                  @LT.lt.{0} TreeRStar
+                                      (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                      (@CSR.zero TreeRStar
+                                        (@CRing.toCSR TreeRStar
+                                          (@TreeR.instCRing QStar
+                                            (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))))
+                                      a →
+                                    @LT.lt.{0} TreeRStar
+                                        (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                        (@CSR.zero TreeRStar
+                                          (@CRing.toCSR TreeRStar
+                                            (@TreeR.instCRing QStar
+                                              (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))))
+                                        b →
+                                      @LT.lt.{0} TreeRStar
+                                        (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                        (@CSR.zero TreeRStar
+                                          (@CRing.toCSR TreeRStar
+                                            (@TreeR.instCRing QStar
+                                              (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))))
+                                        (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                          (@instHMul.{0} TreeRStar
+                                            (@TreeR.instMul QStar
+                                              (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                          a b))
+                                (And
+                                  (@LT.lt.{0} TreeRStar
+                                    (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                    (@CSR.zero TreeRStar
+                                      (@CRing.toCSR TreeRStar
+                                        (@TreeR.instCRing QStar
+                                          (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))))
+                                    (@CSR.one TreeRStar
+                                      (@CRing.toCSR TreeRStar
+                                        (@TreeR.instCRing QStar
+                                          (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))))
+                                  (And
+                                    (∀ (a : TreeRStar),
+                                      @Exists.{1} TreeN fun (n : TreeN) =>
+                                        @LT.lt.{0} TreeRStar
+                                          (@TreeR.instLT QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                          a
+                                          (@TreeR.natR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)
+                                            n))
+                                    (And
+                                      (∀ (a b : TreeRStar),
+                                        @LT.lt.{0} TreeRStar
+                                            (@TreeR.instLT QStar
+                                              (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                            a b →
+                                          @Exists.{1} QStar fun (q : QStar) =>
+                                            And
+                                              (@LT.lt.{0} TreeRStar
+                                                (@TreeR.instLT QStar
+                                                  (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                                a
+                                                (@TreeR.ofQ QStar
+                                                  (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) q))
+                                              (@LT.lt.{0}
+                                                (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                                (@TreeR.instLT QStar
+                                                  (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                                (@TreeR.ofQ QStar
+                                                  (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) q)
+                                                b))
+                                      (And
+                                        (∀ (a : TreeRStar),
+                                          @TreeR.RApart QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) a
+                                              (@CSR.zero
+                                                (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                                (@CRing.toCSR
+                                                  (@TreeR QStar
+                                                    (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                                  (@TreeR.instCRing QStar
+                                                    (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))) →
+                                            @Exists.{1} TreeRStar fun (b : TreeRStar) =>
+                                              @Eq.{1} TreeRStar
+                                                (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                                  (@instHMul.{0} TreeRStar
+                                                    (@TreeR.instMul QStar
+                                                      (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                                  a b)
+                                                (@CSR.one TreeRStar
+                                                  (@CRing.toCSR TreeRStar
+                                                    (@TreeR.instCRing QStar
+                                                      (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))))
+                                        (And
+                                          (∀ (a b : TreeRStar),
+                                            @Eq.{1} TreeRStar
+                                                (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                                  (@instHMul.{0} TreeRStar
+                                                    (@TreeR.instMul QStar
+                                                      (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                                  a b)
+                                                (@CSR.one TreeRStar
+                                                  (@CRing.toCSR TreeRStar
+                                                    (@TreeR.instCRing QStar
+                                                      (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))) →
+                                              @TreeR.RApart QStar
+                                                (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) a
+                                                (@CSR.zero
+                                                  (@TreeR QStar
+                                                    (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                                  (@CRing.toCSR
+                                                    (@TreeR QStar
+                                                      (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+                                                    (@TreeR.instCRing QStar
+                                                      (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))))
+                                          (And
+                                            (∀ (a b c : TreeRStar),
+                                              @Ne.{1} TreeRStar a
+                                                  (@CSR.zero TreeRStar
+                                                    (@CRing.toCSR TreeRStar
+                                                      (@TreeR.instCRing QStar
+                                                        (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))) →
+                                                @Eq.{1} TreeRStar
+                                                    (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                                      (@instHMul.{0} TreeRStar
+                                                        (@TreeR.instMul QStar
+                                                          (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                                      a b)
+                                                    (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                                      (@instHMul.{0} TreeRStar
+                                                        (@TreeR.instMul QStar
+                                                          (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                                      a c) →
+                                                  @Eq.{1} TreeRStar b c)
+                                            (And
+                                              (∀ (a b : TreeRStar),
+                                                @Ne.{1} TreeRStar a
+                                                    (@CSR.zero TreeRStar
+                                                      (@CRing.toCSR TreeRStar
+                                                        (@TreeR.instCRing QStar
+                                                          (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))) →
+                                                  @Eq.{1} TreeRStar
+                                                      (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                                        (@instHMul.{0} TreeRStar
+                                                          (@TreeR.instMul QStar
+                                                            (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))
+                                                        a b)
+                                                      (@CSR.zero TreeRStar
+                                                        (@CRing.toCSR TreeRStar
+                                                          (@TreeR.instCRing QStar
+                                                            (@TreeQ.instTOField ChildOmega
+                                                              instTwoLettersChildOmega)))) →
+                                                    @Eq.{1} TreeRStar b
+                                                      (@CSR.zero TreeRStar
+                                                        (@CRing.toCSR TreeRStar
+                                                          (@TreeR.instCRing QStar
+                                                            (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))))
+                                              (∀ (a : TreeRStar),
+                                                @Ne.{1} TreeRStar a
+                                                    (@CSR.zero TreeRStar
+                                                      (@CRing.toCSR TreeRStar
+                                                        (@TreeR.instCRing QStar
+                                                          (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega)))) →
+                                                  Not
+                                                    (Not
+                                                      (@Exists.{1} TreeRStar fun (b : TreeRStar) =>
+                                                        @Eq.{1} TreeRStar
+                                                          (@HMul.hMul.{0, 0, 0} TreeRStar TreeRStar TreeRStar
+                                                            (@instHMul.{0} TreeRStar
+                                                              (@TreeR.instMul QStar
+                                                                (@TreeQ.instTOField ChildOmega
+                                                                  instTwoLettersChildOmega)))
+                                                            a b)
+                                                          (@CSR.one TreeRStar
+                                                            (@CRing.toCSR TreeRStar
+                                                              (@TreeR.instCRing QStar
+                                                                (@TreeQ.instTOField ChildOmega
+                                                                  instTwoLettersChildOmega)))))))))))))))))))))))))))))
+'Task04.treeR_unconditional_certificate' depends on axioms: [propext, Quot.sound]
+Task04.treeZ_certificate : And
+  (∀ (a b c : TreeZ),
+    @Eq.{1} TreeZ
+      (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd)
+        (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) a b) c)
+      (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) a
+        (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) b c)))
+  (And
+    (∀ (a b : TreeZ),
+      @Eq.{1} TreeZ (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) a b)
+        (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) b a))
+    (And
+      (∀ (a : TreeZ),
+        @Eq.{1} TreeZ
+          (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd)
+            (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)) a)
+          a)
+      (And
+        (∀ (a : TreeZ),
+          @Eq.{1} TreeZ
+            (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd)
+              (@Neg.neg.{0} TreeZ TreeZ.instNeg a) a)
+            (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+        (And
+          (∀ (a b c : TreeZ),
+            @Eq.{1} TreeZ
+              (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul)
+                (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a b) c)
+              (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a
+                (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) b c)))
+          (And
+            (∀ (a b : TreeZ),
+              @Eq.{1} TreeZ (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a b)
+                (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) b a))
+            (And
+              (∀ (a : TreeZ),
+                @Eq.{1} TreeZ
+                  (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul)
+                    (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)) a)
+                  a)
+              (And
+                (∀ (a b c : TreeZ),
+                  @Eq.{1} TreeZ
+                    (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a
+                      (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) b c))
+                    (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd)
+                      (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a b)
+                      (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a c)))
+                (And
+                  (@Ne.{1} TreeZ (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+                    (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+                  (And
+                    (∀ (a b : TreeZ),
+                      @Eq.{1} TreeZ (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a b)
+                          (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)) →
+                        Or (@Eq.{1} TreeZ a (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+                          (@Eq.{1} TreeZ b (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))))
+                    (And
+                      (∀ (a b c : TreeZ),
+                        @Ne.{1} TreeZ a (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)) →
+                          @Eq.{1} TreeZ (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a b)
+                              (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) a c) →
+                            @Eq.{1} TreeZ b c)
+                      (And (∀ (a b : TreeZ), Or (@Eq.{1} TreeZ a b) (Not (@Eq.{1} TreeZ a b)))
+                        (And (∀ (a : TreeZ), TreeZ.LE a a)
+                          (And (∀ (a b c : TreeZ), TreeZ.LE a b → TreeZ.LE b c → TreeZ.LE a c)
+                            (And (∀ (a b : TreeZ), TreeZ.LE a b → TreeZ.LE b a → @Eq.{1} TreeZ a b)
+                              (And (∀ (a b : TreeZ), Or (TreeZ.LE a b) (TreeZ.LE b a))
+                                (And (∀ (a b : TreeZ), Or (TreeZ.LE a b) (Not (TreeZ.LE a b)))
+                                  (And
+                                    (∀ (a b c : TreeZ),
+                                      TreeZ.LE a b →
+                                        TreeZ.LE
+                                          (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) c
+                                            a)
+                                          (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) c
+                                            b))
+                                    (And
+                                      (∀ (a b c : TreeZ),
+                                        TreeZ.NonNeg c →
+                                          TreeZ.LE a b →
+                                            TreeZ.LE
+                                              (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ
+                                                (@instHMul.{0} TreeZ TreeZ.instMul) c a)
+                                              (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ
+                                                (@instHMul.{0} TreeZ TreeZ.instMul) c b))
+                                      (And
+                                        (TreeZ.LT (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+                                          (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+                                        (And
+                                          (∀ (m n : TreeN),
+                                            @Eq.{1} TreeZ (TreeZ.ofN m) (TreeZ.ofN n) → @Eq.{1} TreeN m n)
+                                          (And
+                                            (∀ (m n : TreeN),
+                                              @Eq.{1} TreeZ
+                                                (TreeZ.ofN
+                                                  (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN
+                                                    (@instHAdd.{0} TreeN TreeN.instAdd) m n))
+                                                (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ
+                                                  (@instHAdd.{0} TreeZ TreeZ.instAdd) (TreeZ.ofN m) (TreeZ.ofN n)))
+                                            (And
+                                              (∀ (m n : TreeN),
+                                                @Eq.{1} TreeZ
+                                                  (TreeZ.ofN
+                                                    (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN
+                                                      (@instHMul.{0} TreeN TreeN.instMul) m n))
+                                                  (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ
+                                                    (@instHMul.{0} TreeZ TreeZ.instMul) (TreeZ.ofN m) (TreeZ.ofN n)))
+                                              (And
+                                                (@Eq.{1} TreeZ (TreeZ.ofN TreeN.zero)
+                                                  (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+                                                (And
+                                                  (@Eq.{1} TreeZ (TreeZ.ofN TreeN.one)
+                                                    (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+                                                  (And
+                                                    (∀ (m n : TreeN),
+                                                      TreeN.PathLE m n → TreeZ.LE (TreeZ.ofN m) (TreeZ.ofN n))
+                                                    (∀ (m n : TreeN),
+                                                      TreeZ.LE (TreeZ.ofN m) (TreeZ.ofN n) →
+                                                        TreeN.PathLE m n))))))))))))))))))))))))))
+'Task04.treeZ_certificate' does not depend on any axioms
+TreeN.add_assoc : ∀ (a b c : TreeN),
+  @Eq.{1} TreeN
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a b) c)
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) b c))
+'TreeN.add_assoc' does not depend on any axioms
+@TreeN.add_diff : ∀ {m n : TreeN} (h : TreeN.PathLE m n),
+  @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m (TreeN.diff m n)) n
+'TreeN.add_diff' does not depend on any axioms
+@TreeN.add_le_add_left : ∀ {m n : TreeN} (k : TreeN) (h : TreeN.PathLE m n),
+  TreeN.PathLE (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k m)
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k n)
+'TreeN.add_le_add_left' does not depend on any axioms
+@TreeN.add_left_cancel : ∀ {k m n : TreeN}
+  (h :
+    @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k m)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k n)),
+  @Eq.{1} TreeN m n
+'TreeN.add_left_cancel' does not depend on any axioms
+@TreeN.add_lt_add_left : ∀ {m n : TreeN} (k : TreeN) (h : TreeN.PathLT m n),
+  TreeN.PathLT (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k m)
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k n)
+'TreeN.add_lt_add_left' does not depend on any axioms
+@TreeN.add_right_cancel : ∀ {k m n : TreeN}
+  (h :
+    @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m k)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) n k)),
+  @Eq.{1} TreeN m n
+'TreeN.add_right_cancel' does not depend on any axioms
+TreeN.add_zero : ∀ (m : TreeN),
+  @Eq.{1} TreeN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m TreeN.zero) m
+'TreeN.add_zero' does not depend on any axioms
+TreeN.compare : (m n : TreeN) → TreeN.Trichotomy m n
+'TreeN.compare' does not depend on any axioms
+TreeN.decEq : (m n : TreeN) → Decidable (@Eq.{1} TreeN m n)
+'TreeN.decEq' does not depend on any axioms
+TreeN.decLE : (m n : TreeN) → Decidable (TreeN.PathLE m n)
+'TreeN.decLE' does not depend on any axioms
+TreeN.decLT : (m n : TreeN) → Decidable (TreeN.PathLT m n)
+'TreeN.decLT' does not depend on any axioms
+TreeN.diff_add : ∀ (m k : TreeN),
+  @Eq.{1} TreeN (TreeN.diff m (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m k)) k
+'TreeN.diff_add' does not depend on any axioms
+@TreeN.le_of_add_le_add_left : ∀ {k m n : TreeN}
+  (h :
+    TreeN.PathLE (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k m)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) k n)),
+  TreeN.PathLE m n
+'TreeN.le_of_add_le_add_left' does not depend on any axioms
+TreeN.le_refl : ∀ (n : TreeN), TreeN.PathLE n n
+'TreeN.le_refl' does not depend on any axioms

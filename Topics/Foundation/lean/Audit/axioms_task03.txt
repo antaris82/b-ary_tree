@@ -1,0 +1,181 @@
+'TreeR.RClose' depends on axioms: [Quot.sound]
+'TreeR.rclose_symm' depends on axioms: [Quot.sound]
+'TreeR.rclose_mono' depends on axioms: [propext, Quot.sound]
+'TreeR.le_add_add' depends on axioms: [propext, Quot.sound]
+'TreeR.rclose_trans' depends on axioms: [propext, Quot.sound]
+'TreeR.rclose_self' depends on axioms: [Quot.sound]
+'TreeR.convergesTo_iff' depends on axioms: [Quot.sound]
+'TreeR.rcauchyMod_close' depends on axioms: [Quot.sound]
+'TreeR.rcauchyMod_iff_close' depends on axioms: [Quot.sound]
+'TreeR.rcauchy_iff_close' depends on axioms: [Quot.sound]
+'TreeR.rcauchy_of_rcauchyMod' depends on axioms: [Quot.sound]
+'TreeR.rcauchy_of_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.rcauchyMod_of_converges_mod' depends on axioms: [propext, Quot.sound]
+'TreeR.rclose_ofQ' depends on axioms: [Quot.sound]
+'TreeR.abs_le_of_rclose_ofQ' depends on axioms: [propext, Quot.sound]
+'TreeR.rcauchyMod_ofQ' depends on axioms: [Quot.sound]
+'TreeR.isModulus_of_rcauchyMod_ofQ' depends on axioms: [propext, Quot.sound]
+'TreeR.isCauchy_of_rcauchy_ofQ' depends on axioms: [propext, Quot.sound]
+'TreeR.rcauchy_ofQ_of_isCauchy' depends on axioms: [Quot.sound]
+'TreeR.mkR_close_seq' depends on axioms: [Quot.sound]
+'TreeR.approxAt' does not depend on any axioms
+'TreeR.approxAt_close' depends on axioms: [Quot.sound]
+'TreeR.mkR_reg' depends on axioms: [Quot.sound]
+'TreeR.rclose_of_forall_add_eps' depends on axioms: [propext, Quot.sound]
+'TreeR.regular_close' depends on axioms: [propext, Quot.sound]
+'TreeR.regular_rep_bishop' depends on axioms: [propext]
+'TreeR.exists_regular_rep' depends on axioms: [Quot.sound]
+'TreeR.exists_rat_close' depends on axioms: [Quot.sound]
+'TreeR.ApproxData' depends on axioms: [Quot.sound]
+'TreeR.approxData_of_pointwise' depends on axioms: [propext, Quot.sound]
+'TreeR.approxMod' does not depend on any axioms
+'TreeR.approx_isModulus' depends on axioms: [propext, Quot.sound]
+'TreeR.approxSeq' depends on axioms: [propext, Quot.sound]
+'TreeR.approxSeq_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.limit_of_approx' depends on axioms: [propext, Quot.sound]
+'TreeR.close_of_cauchy_of_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.TrackedCauchyTower.approx' depends on axioms: [propext, Quot.sound]
+'TreeR.tower_limit_via_approx' depends on axioms: [propext, Quot.sound]
+'TreeR.tower_limit_eq_approx_limit' depends on axioms: [propext, Quot.sound]
+'TreeR.CauchySequenceLifting' depends on axioms: [Quot.sound]
+'TreeR.SequenceApprox' depends on axioms: [Quot.sound]
+'TreeR.CauchyApprox' depends on axioms: [Quot.sound]
+'TreeR.ModulusSelection' depends on axioms: [Quot.sound]
+'TreeR.RatModulusSelection' does not depend on any axioms
+'TreeR.ModulusFreeCompleteness' depends on axioms: [Quot.sound]
+'TreeR.cauchyLifting_of_lifting' depends on axioms: [Quot.sound]
+'TreeR.seqApprox_of_lifting' depends on axioms: [Quot.sound]
+'TreeR.cauchyApprox_of_cauchyLifting' depends on axioms: [propext, Quot.sound]
+'TreeR.cauchyApprox_of_seqApprox' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_cauchyApprox' depends on axioms: [propext, Quot.sound]
+'TreeR.cauchyApprox_of_complete' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_iff_cauchyApprox' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_cauchyLifting' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_seqApprox' depends on axioms: [propext, Quot.sound]
+'TreeR.modulusSelection_of_choice' depends on axioms: [Quot.sound]
+'TreeR.ratModulusSelection_of_modulusSelection' depends on axioms: [propext, Quot.sound]
+'TreeR.ratModulusSelection_of_choice' does not depend on any axioms
+'TreeR.modulusFree_of_modulusSelection' depends on axioms: [Quot.sound]
+'TreeR.complete_of_modulusFree' depends on axioms: [Quot.sound]
+'TreeR.dyad' does not depend on any axioms
+'TreeR.floor_aux' does not depend on any axioms
+'TreeR.exists_floor' does not depend on any axioms
+'TreeR.exists_dyad_close' depends on axioms: [propext, Quot.sound]
+'TreeR.choice_pair' does not depend on any axioms
+'TreeR.seqApprox_of_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.modulusFreeComplete_of_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.inv_iff_neImpliesApart' depends on axioms: [propext, Quot.sound]
+'TreeR.eq_of_not_not_eq' depends on axioms: [propext, Quot.sound]
+'TreeR.eq_zero_of_mul_eq_zero_of_apart' depends on axioms: [Quot.sound]
+'TreeR.eq_zero_of_mul_eq_zero_of_ne' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_left_cancel_of_ne' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_left_cancel_of_apart' depends on axioms: [Quot.sound]
+'TreeR.mul_ne_zero'' depends on axioms: [propext, Quot.sound]
+'TreeR.apart_mul' depends on axioms: [propext, Quot.sound]
+'TreeR.apart_of_apart_mul_left' depends on axioms: [propext, Quot.sound]
+'TreeR.apart_of_apart_mul_right' depends on axioms: [propext, Quot.sound]
+'TreeR.not_not_exists_inv' depends on axioms: [propext, Quot.sound]
+'TreeR.MarkovPrinciple' does not depend on any axioms
+'TreeR.LPO' does not depend on any axioms
+'TreeR.ZeroOrApart' depends on axioms: [Quot.sound]
+'TreeR.ZeroProductDisjunction' depends on axioms: [Quot.sound]
+'TreeR.bool_false_of_ne_true' does not depend on any axioms
+'TreeR.markov_of_lpo' does not depend on any axioms
+'TreeR.gapTest' does not depend on any axioms
+'TreeR.regular_neg' does not depend on any axioms
+'TreeR.lower_of_gap' does not depend on any axioms
+'TreeR.apart_of_gap' depends on axioms: [Quot.sound]
+'TreeR.eq_zero_of_no_gap' depends on axioms: [Quot.sound]
+'TreeR.markovSeq' does not depend on any axioms
+'TreeR.false_below_of_not_found' does not depend on any axioms
+'TreeR.findFirst_le_of_true' does not depend on any axioms
+'TreeR.found_of_true' does not depend on any axioms
+'TreeR.findFirst_eq_of_found' does not depend on any axioms
+'TreeR.markovSeq_nonneg' does not depend on any axioms
+'TreeR.markovSeq_isMod' does not depend on any axioms
+'TreeR.markovReal' does not depend on any axioms
+'TreeR.markovReal_eq_zero_of_none' depends on axioms: [Quot.sound]
+'TreeR.none_of_markovReal_eq_zero' depends on axioms: [propext, Quot.sound]
+'TreeR.exists_true_of_markovReal_apart' depends on axioms: [propext, Quot.sound]
+'TreeR.neImpliesApart_of_markov' depends on axioms: [Quot.sound]
+'TreeR.markov_of_neImpliesApart' depends on axioms: [propext, Quot.sound]
+'TreeR.neImpliesApart_iff_markov' depends on axioms: [propext, Quot.sound]
+'TreeR.inv_iff_markov' depends on axioms: [propext, Quot.sound]
+'TreeR.zeroOrApart_of_lpo' depends on axioms: [Quot.sound]
+'TreeR.lpo_of_zeroOrApart' depends on axioms: [propext, Quot.sound]
+'TreeR.zeroOrApart_iff_lpo' depends on axioms: [propext, Quot.sound]
+'TreeR.zeroProduct_of_zeroOrApart' depends on axioms: [Quot.sound]
+'TreeR.neImpliesApart_of_zeroOrApart' depends on axioms: [Quot.sound]
+'TreeR.IsUpperBound' depends on axioms: [Quot.sound]
+'TreeR.IsLUB' depends on axioms: [Quot.sound]
+'TreeR.lub_unique' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.sup_least' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.isLUB' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.eq_sup_of_isLUB' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.sup_eq' depends on axioms: [propext, Quot.sound]
+'TreeR.ifD' does not depend on any axioms
+'TreeR.ifD_pos' does not depend on any axioms
+'TreeR.ifD_neg' does not depend on any axioms
+'TreeR.SupData.singleton' depends on axioms: [Quot.sound]
+'TreeR.SupData.union' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.ListSet' does not depend on any axioms
+'TreeR.SupData.ofList' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.ofList_isLUB' depends on axioms: [propext, Quot.sound]
+'TreeR.Monotone' depends on axioms: [Quot.sound]
+'TreeR.Range' does not depend on any axioms
+'TreeR.lub_of_monotone_converges' depends on axioms: [propext, Quot.sound]
+'TreeR.tower_monotone_lub' depends on axioms: [propext, Quot.sound]
+'TreeR.monotone_lub_of_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.monoIdx' does not depend on any axioms
+'TreeR.SupData.ofMonotone' depends on axioms: [propext, Quot.sound]
+'TreeR.UnrestrictedLUB' depends on axioms: [Quot.sound]
+'TreeR.BoundedMonotoneConvergence' depends on axioms: [Quot.sound]
+'TreeR.WLPO' does not depend on any axioms
+'TreeR.wlpo_of_lpo' does not depend on any axioms
+'TreeR.zero_lt_ofQ_eps' depends on axioms: [Quot.sound]
+'TreeR.ofQ_eps_succ_lt' depends on axioms: [Quot.sound]
+'TreeR.wlpo_of_unrestrictedLUB' depends on axioms: [propext, Quot.sound]
+'TreeR.findFirst_le_self' does not depend on any axioms
+'TreeR.foundInd' does not depend on any axioms
+'TreeR.foundInd_mono' does not depend on any axioms
+'TreeR.lpo_of_bmc' depends on axioms: [propext, Quot.sound]
+'PrimitiveScope.provenance_chain' depends on axioms: [Quot.sound]
+'PrimitiveScope.prefixCount' does not depend on any axioms
+'PrimitiveScope.prefixCount_eq' does not depend on any axioms
+'PrimitiveScope.prefixCount_succ' does not depend on any axioms
+'PrimitiveScope.prefixCount_not_isCauchy' does not depend on any axioms
+'PrimitiveScope.prefixCount_not_rcauchy' depends on axioms: [propext, Quot.sound]
+'PrimitiveScope.prefixCount_indep' depends on axioms: [Quot.sound]
+'PrimitiveScope.prefixCount_observation_indep' depends on axioms: [Quot.sound]
+'PrimitiveScope.prefixCount_indep_alphabet' depends on axioms: [Quot.sound]
+'Ray.swappedLetters' does not depend on any axioms
+'Ray.psum_all_l0' does not depend on any axioms
+'Ray.psum_all_l1' does not depend on any axioms
+'Ray.encode_all_l0' depends on axioms: [Quot.sound]
+'Ray.encode_all_l1' depends on axioms: [Quot.sound]
+'Ray.encode_distinguishes' depends on axioms: [propext, Quot.sound]
+'Ray.encode_letter_choice_dependence' depends on axioms: [propext, Quot.sound]
+'TreeR.UCMod' does not depend on any axioms
+'TreeR.mapSeqUC' does not depend on any axioms
+'TreeR.mapSeqUC_resp' does not depend on any axioms
+'TreeR.extendR' depends on axioms: [Quot.sound]
+'TreeR.extendR_mk' depends on axioms: [Quot.sound]
+'TreeR.extendR_indep' depends on axioms: [Quot.sound]
+'TreeR.extendR_ofQ' depends on axioms: [Quot.sound]
+'TreeR.RatSeqContinuous' depends on axioms: [Quot.sound]
+'TreeR.extendR_ratSeqContinuous' depends on axioms: [Quot.sound]
+'TreeR.eq_of_ratSeqContinuous' depends on axioms: [propext, Quot.sound]
+'TreeR.extendR_unique' depends on axioms: [propext, Quot.sound]
+'TreeR.extendR_modulus_indep' depends on axioms: [propext, Quot.sound]
+'TreeR.ucMod_comp' does not depend on any axioms
+'TreeR.extendR_comp' depends on axioms: [Quot.sound]
+'TreeR.ucMod_neg' does not depend on any axioms
+'TreeR.extendR_neg' depends on axioms: [Quot.sound]
+'Task03.star_complete_iff_cauchyApprox' depends on axioms: [propext, Quot.sound]
+'Task03.star_modulusFreeComplete_of_choice' depends on axioms: [propext, Quot.sound]
+'Task03.star_inv_iff_markov' depends on axioms: [propext, Quot.sound]
+'Task03.star_zeroOrApart_iff_lpo' depends on axioms: [propext, Quot.sound]
+'Task03.star_supData_isLUB' depends on axioms: [propext, Quot.sound]
+'Task03.star_order_completeness_strength' depends on axioms: [propext, Quot.sound]
+'Task03.star_prefixCount_not_isCauchy' depends on axioms: [Quot.sound]

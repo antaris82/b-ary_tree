@@ -1,0 +1,88 @@
+'TreeQ.instTOField' depends on axioms: [Quot.sound]
+'TreeQ.le_ofF_of_lef' depends on axioms: [Quot.sound]
+'TreeQ.lef_of_le_ofF' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_le' depends on axioms: [Quot.sound]
+'TreeQ.ofZ_injective' does not depend on any axioms
+'TreeQ.archQ_spec' depends on axioms: [Quot.sound]
+'TOField.le_antisymm' does not depend on any axioms
+'TOField.le_total' does not depend on any axioms
+'TOField.abs_add' does not depend on any axioms
+'TOField.abs_mul' does not depend on any axioms
+'TOField.eq_zero_of_abs_eq_zero' does not depend on any axioms
+'TOField.dist_triangle' does not depend on any axioms
+'TOField.eps_pos' does not depend on any axioms
+'TOField.eps_succ_add' does not depend on any axioms
+'TOField.exists_eps_lt' does not depend on any axioms
+'TOField.le_of_forall_le_add_eps' does not depend on any axioms
+'TOField.isCauchy_of_isRegular' does not depend on any axioms
+'TOField.isRegular_reg' does not depend on any axioms
+'TOField.reg_equiv' does not depend on any axioms
+'TOField.reg_resp' does not depend on any axioms
+'TOField.exists_modulus_of_choice' does not depend on any axioms
+'TOField.seqEquiv_trans' does not depend on any axioms
+'TOField.seqEquiv_iff_bishop' does not depend on any axioms
+'TreeR.mkR_sound' depends on axioms: [Quot.sound]
+'TreeR.mkR_exact' depends on axioms: [propext]
+'TreeR.mkR_eq_iff' depends on axioms: [propext, Quot.sound]
+'TreeR.ofQ_injective' depends on axioms: [propext]
+'TOField.mulSeq_resp' does not depend on any axioms
+'TOField.mul_invSeq_equiv' does not depend on any axioms
+'TreeR.instCRing' depends on axioms: [Quot.sound]
+'TreeR.zero_ne_one' depends on axioms: [propext, Quot.sound]
+'TreeR.ofQ_add' depends on axioms: [Quot.sound]
+'TreeR.ofQ_mul' depends on axioms: [Quot.sound]
+'TreeR.natR_injective' depends on axioms: [propext]
+'ofZR_injective' depends on axioms: [propext, Quot.sound]
+'treeN_embedding_injective' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_rinv' depends on axioms: [Quot.sound]
+'TreeR.rinv_indep' depends on axioms: [Quot.sound]
+'TreeR.exists_inv_of_apart' depends on axioms: [Quot.sound]
+'TreeR.apart_of_mul_eq_one' depends on axioms: [propext, Quot.sound]
+'exists_inv_of_ne_of_markov' depends on axioms: [Quot.sound]
+'markov_of_inv' depends on axioms: [propext, Quot.sound]
+'TreeR.lt_trans' depends on axioms: [propext, Quot.sound]
+'TreeR.le_antisymm' depends on axioms: [propext, Quot.sound]
+'TreeR.le_of_not_lt' depends on axioms: [Quot.sound]
+'TreeR.eq_of_not_apart' depends on axioms: [propext, Quot.sound]
+'TreeR.not_not_apart_of_ne' depends on axioms: [propext, Quot.sound]
+'TreeR.mul_pos' depends on axioms: [propext, Quot.sound]
+'TreeR.archimedean' depends on axioms: [Quot.sound]
+'TreeR.archimedean_abs' depends on axioms: [propext, Quot.sound]
+'TreeR.exists_rat_between' depends on axioms: [propext, Quot.sound]
+'TreeR.lt_cotrans' depends on axioms: [propext, Quot.sound]
+'TreeR.apart_cotrans' depends on axioms: [propext, Quot.sound]
+'TreeR.limit_unique' depends on axioms: [propext, Quot.sound]
+'TreeR.ofQ_seq_converges' depends on axioms: [Quot.sound]
+'TreeR.rat_dense' depends on axioms: [Quot.sound]
+'TreeR.tower_limit' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_lifting' depends on axioms: [propext, Quot.sound]
+'TreeR.complete_of_lifting_choice' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.le_sup' depends on axioms: [propext, Quot.sound]
+'TreeR.SupData.sup_approx' depends on axioms: [propext, Quot.sound]
+'TreeQ.transfer_le' depends on axioms: [Quot.sound]
+'TreeQ.transfer_abs' depends on axioms: [Quot.sound]
+'realArityIso' depends on axioms: [Quot.sound]
+'finiteRealIso' depends on axioms: [Quot.sound]
+'finiteOmegaRealIso' depends on axioms: [Quot.sound]
+'Ray.cyl_open' does not depend on any axioms
+'Ray.cyl_compl_open' does not depend on any axioms
+'Ray.isOpen_iff_cylinders' does not depend on any axioms
+'Ray.separate_of_diff' does not depend on any axioms
+'Ray.exists_diff_of_separated' does not depend on any axioms
+'Ray.not_not_diff_of_ne' depends on axioms: [Quot.sound]
+'Ray.coherentLimit_agree' does not depend on any axioms
+'Ray.unary_singleton' depends on axioms: [Quot.sound]
+'Ray.no_isolated' does not depend on any axioms
+'Ray.boundary_disconnected' does not depend on any axioms
+'Ray.open_not_connected' does not depend on any axioms
+'Ray.cyl_not_compact' does not depend on any axioms
+'Ray.not_locallyCompactAt' does not depend on any axioms
+'Ray.no_chart_of_connectedPairs' depends on axioms: [Quot.sound]
+'Ray.no_zero_dim_chart' does not depend on any axioms
+'Ray.unary_zero_manifold' depends on axioms: [Quot.sound]
+'no_chart_into_real' depends on axioms: [propext, Quot.sound]
+'Ray.encode_le_of_agree' depends on axioms: [Quot.sound]
+'Ray.encode_not_injective' depends on axioms: [Quot.sound]
+'TreeR.separate_of_lt' depends on axioms: [propext, Quot.sound]
+'TreeR.realIdChart' depends on axioms: [propext, Quot.sound]
+'TreeR.lt_open_left' depends on axioms: [propext, Quot.sound]

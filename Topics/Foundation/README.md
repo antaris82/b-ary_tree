@@ -1,25 +1,29 @@
-# Foundation — rooted trees, path arithmetic, and algebraic child-coordinate spaces
+# Foundation — rooted trees, path arithmetic, and child-coordinate spaces
 
-This directory is reserved for the mathematically complete Task-5 foundation and the preparation of a mathematical paper. It is **not** itself a finished paper.
+The Task-06 mathematical theme paper and frozen Lean 4.28.0 source are stored **unpacked** in this directory.
 
-## Mathematical scope
+## Start here
 
-Finite words and rooted trees (finite and countably infinite arity); unit-edge path sums; natural-number path counts and equal-depth quotients; signed differences and rational triple-path classes; ordered-field comparisons; finite child-coordinate spaces with a rank-one uniform subspace, a rank-(b−1) zero-sum subspace, and explicit direct-sum projections; countably infinite finite-support transverse modules; infinite rays, cylinder topology, and rooted-tree automorphisms; rational Cauchy quotients and the exact constructive scope of their properties.
+- **[Paper overview](paper/README.md)** and **[56-page PDF](paper/main.pdf)**
+- [LaTeX manuscript](paper/main.tex), [extended proof details](paper/extended_proof_details.tex), [bibliography](paper/references.bib)
+- [Proof correspondence](paper/docs/proof_correspondence.md), [verification report](paper/docs/verification_report.md), [open questions](paper/docs/open_questions.md)
+- [Full 89-topic map](paper/docs/scope_89.md) and [historical mathematical outline](docs/PAPER_OUTLINE_AND_SOURCE_MAP.md)
+- [Reviews and revisions](paper/reviews/), [validation evidence](paper/evidence/), [reproducibility helpers](paper/build/)
+- **[Frozen Task-06 Lean source tree](lean/)** with its original release files and scripts
 
-## Planned layout
+## Formal reference state
 
-- `lean/`: frozen Lean 4.28.0 source snapshot (to import from the final Task-5/Q14-repaired archive).
-- `docs/PAPER_OUTLINE_AND_SOURCE_MAP.md`: complete mathematical contents, primary sources, and theorem-level provenance.
-- `docs/PROJECT_CHAT_HANDOFF.md`: instructions for the future paper-drafting project.
-- `docs/references.bib`: verified bibliography before submission.
-- `docs/SOURCE_MANIFEST_SHA256.txt`: source inventory and checksums.
+- Lean: **4.28.0**
+- Frozen Task-06 source fingerprint: `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`
+- [Aristotle formalization project](https://aristotle.harmonic.fun/projects/db97653b-b468-41a1-97fd-7eb835c2087d)
+- Paper editor: **Jan Seeck** · jan.seeck1@gmail.com
 
-**Current repository status:** organizational directory initialized. The unpacked source and complete documentation have been prepared in a separate downloadable project package, but are **not yet committed here**. Do not treat the planned paths as existing files until import is complete.
+## Mathematical scope and limitations
 
-## Interpretation boundaries
+The development begins with rooted word trees and unit-edge path sums, then constructs natural-count arithmetic, normalized integer differences, rational fractions with **operations transported** from the previously constructed fraction structure, and separately the finite child-coordinate decomposition, countably branching algebraic limit, native ray boundary/prefix topology, and constructive Cauchy structures.
 
-The transverse dimension b−1 is an algebraic rank of a child-coordinate module, not the topological dimension of the tree or its boundary. The native ray boundary is not proved canonically identical to the Cauchy quotient. The constructed Cauchy quotient has unconditional ring and constructive order/apartness properties; full classical field and completeness claims require exactly stated additional premises.
+The algebraic transverse rank `b−1` is not a topological or physical dimension. This is **not** a Stern–Brocot address labeling of an already given rational tree. Nor are the native ray boundary and numerical completion canonically identified in the proved scope.
 
-Frozen Aristotle project: https://aristotle.harmonic.fun/projects/db97653b-b468-41a1-97fd-7eb835c2087d
+The manuscript was prepared with AI assistance, including Aristotle-assisted formalization. Internal AI reviews are not external peer review. An external expert assessment will be requested **after** the repository and documentation are published and integrated.
 
-The paper is to be a **mathematical exposition with proofs**, not a Lean review or development log.
+This folder includes archived audit logs and reviews as evidence, not as replacements for the Lean code and its elaborated theorem signatures. Check the [verification report](paper/docs/verification_report.md) for the precise distinction between reproduced checks and reported kernel runs.

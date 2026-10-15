@@ -1,0 +1,95 @@
+@Longitudinal.no_finSupp_uniform_limit : ∀ {K : Type} [inst : TField K],
+  Not
+    (@Exists.{1} (OmegaModule.FO K) fun (f : OmegaModule.FO K) =>
+      And (@OmegaModule.FinSupp K inst f)
+        (∀ (b k : TreeN), TreeN.PathLT k b → @Eq.{1} K (f k) (@CSR.one K (@CRing.toCSR K (@TField.toCRing K inst)))))
+'Longitudinal.no_finSupp_uniform_limit' does not depend on any axioms
+@Longitudinal.padSucc_u_not_inL : ∀ {K : Type} [inst : TField K] {b : TreeN} (hb : TreeN.PathLT TreeN.zero b),
+  Not (@ChildModule.InL K inst (TreeN.succ b) (@OmegaModule.padSucc K inst b (@ChildModule.u K inst b)))
+'Longitudinal.padSucc_u_not_inL' does not depend on any axioms
+Ray : (α : Type) → Type
+'Ray' does not depend on any axioms
+@Ray.prefixAt : {α : Type} → (r : Ray α) → TreeN → Word α
+'Ray.prefixAt' does not depend on any axioms
+@Ray.prefixAt_succ : ∀ {α : Type} (r : Ray α) (n : TreeN),
+  @Eq.{1} (Word α) (@Ray.prefixAt α r (TreeN.succ n)) (@List.cons.{0} α (r n) (@Ray.prefixAt α r n))
+'Ray.prefixAt_succ' does not depend on any axioms
+@Ray.eq_of_prefixAt : ∀ {α : Type} {r r' : Ray α}
+  (h : ∀ (n : TreeN), @Eq.{1} (Word α) (@Ray.prefixAt α r n) (@Ray.prefixAt α r' n)) (n : TreeN), @Eq.{1} α (r n) (r' n)
+'Ray.eq_of_prefixAt' does not depend on any axioms
+@Ray.depth_unbounded : ∀ {α : Type} (r : Ray α) (n : TreeN),
+  @Exists.{1} TreeN fun (m : TreeN) => TreeN.PathLT n (@Word.depth α (@Ray.prefixAt α r m))
+'Ray.depth_unbounded' does not depend on any axioms
+@RayOmega.ofFinite : {b : TreeN} → (r : RayFinite b) → RayOmega
+'RayOmega.ofFinite' does not depend on any axioms
+RayOmega.identityRay_not_finite : ∀ (b : TreeN) (r : RayFinite b),
+  Not (∀ (n : TreeN), @Eq.{1} TreeN (@RayOmega.ofFinite b r n) (RayOmega.identityRay n))
+'RayOmega.identityRay_not_finite' does not depend on any axioms
+RayOmega.union_proper : @Exists.{1} RayOmega fun (ξ : RayOmega) =>
+  ∀ (b : TreeN) (r : RayFinite b), Not (∀ (n : TreeN), @Eq.{1} TreeN (@RayOmega.ofFinite b r n) (ξ n))
+'RayOmega.union_proper' does not depend on any axioms
+@Ray.Agree : {α : Type} → (n : TreeN) → (r r' : Ray α) → Prop
+'Ray.Agree' does not depend on any axioms
+@Ray.Cyl : {α : Type} → (w : Word α) → (r : Ray α) → Prop
+'Ray.Cyl' does not depend on any axioms
+@Ray.cyl_prefixAt : ∀ {α : Type} (r : Ray α) (n : TreeN), @Ray.Cyl α (@Ray.prefixAt α r n) r
+'Ray.cyl_prefixAt' does not depend on any axioms
+@Ray.PrefixOpen : {α : Type} → (U : Ray α → Prop) → Prop
+'Ray.PrefixOpen' does not depend on any axioms
+Ray.prefixTopology : (α : Type) → Topology (Ray α)
+'Ray.prefixTopology' does not depend on any axioms
+@Ray.cyl_open : ∀ {α : Type} (w : Word α), @Ray.PrefixOpen α (@Ray.Cyl α w)
+'Ray.cyl_open' does not depend on any axioms
+@Ray.cyl_compl_open : ∀ {α : Type} (w : Word α), @Ray.PrefixOpen α fun (r : Ray α) => Not (@Ray.Cyl α w r)
+'Ray.cyl_compl_open' does not depend on any axioms
+@Ray.separate_of_diff : ∀ {α : Type} {r r' : Ray α} {n : TreeN} (h : @Ne.{1} α (r n) (r' n)),
+  And (@Ray.Cyl α (@Ray.prefixAt α r (TreeN.succ n)) r)
+    (And (@Ray.Cyl α (@Ray.prefixAt α r' (TreeN.succ n)) r')
+      (And
+        (∀ (x : Ray α),
+          @Ray.Cyl α (@Ray.prefixAt α r (TreeN.succ n)) x → @Ray.Cyl α (@Ray.prefixAt α r' (TreeN.succ n)) x → False)
+        (Not (@Ray.Cyl α (@Ray.prefixAt α r (TreeN.succ n)) r'))))
+'Ray.separate_of_diff' does not depend on any axioms
+@Ray.not_not_diff_of_ne : ∀ {α : Type} [DecidableEq.{1} α] {r r' : Ray α} (h : @Ne.{1} (Ray α) r r'),
+  Not (Not (@Exists.{1} TreeN fun (n : TreeN) => @Ne.{1} α (r n) (r' n)))
+'Ray.not_not_diff_of_ne' depends on axioms: [Quot.sound]
+@Ray.no_isolated : ∀ {α : Type} [DecidableEq.{1} α] [TwoLetters α] {U : Ray α → Prop} (hU : @Ray.PrefixOpen α U)
+  {r : Ray α} (hr : U r),
+  @Exists.{1} (Ray α) fun (r' : Ray α) => @Exists.{1} TreeN fun (n : TreeN) => And (U r') (@Ne.{1} α (r' n) (r n))
+'Ray.no_isolated' does not depend on any axioms
+@Ray.connected_subsingleton : ∀ {α : Type} [DecidableEq.{1} α] {S : Ray α → Prop}
+  (hc : @Topology.Connected (Ray α) (Ray.prefixTopology α) S) {x y : Ray α} (hx : S x) (hy : S y), @Eq.{1} (Ray α) x y
+'Ray.connected_subsingleton' depends on axioms: [Quot.sound]
+@Ray.boundary_disconnected : ∀ {α : Type} [DecidableEq.{1} α] [TwoLetters α],
+  Not (@Topology.Connected (Ray α) (Ray.prefixTopology α) fun (x : Ray α) => True)
+'Ray.boundary_disconnected' does not depend on any axioms
+Ray.cyl_not_compact : ∀ (w : Word TreeN),
+  Not (@Topology.Compact (Ray TreeN) (Ray.prefixTopology TreeN) (@Ray.Cyl TreeN w))
+'Ray.cyl_not_compact' does not depend on any axioms
+Ray.not_locallyCompactAt : ∀ (r : Ray TreeN), Not (@Topology.LocallyCompactAt (Ray TreeN) (Ray.prefixTopology TreeN) r)
+'Ray.not_locallyCompactAt' does not depend on any axioms
+@Topology.Chart : {X Y : Type} → (TX : Topology X) → (TY : Topology Y) → Type
+'Topology.Chart' does not depend on any axioms
+@Ray.no_zero_dim_chart : ∀ {α : Type} [DecidableEq.{1} α] [TwoLetters α]
+  (c : @Topology.Chart (Ray α) Unit (Ray.prefixTopology α) Topology.pointTopology)
+  (hx :
+    @Exists.{1} (Ray α) fun (x : Ray α) =>
+      @Topology.Chart.U (Ray α) Unit (Ray.prefixTopology α) Topology.pointTopology c x),
+  False
+'Ray.no_zero_dim_chart' does not depend on any axioms
+Ray.unaryChart : @Topology.Chart (Ray (Child TreeN.one)) Unit (Ray.prefixTopology (Child TreeN.one))
+  Topology.pointTopology
+'Ray.unaryChart' depends on axioms: [Quot.sound]
+TreeR.IntervalsConnected : (K : Type) → [TOField K] → Prop
+'TreeR.IntervalsConnected' depends on axioms: [propext, Quot.sound]
+@no_chart_into_real : ∀ {α K : Type} [DecidableEq.{1} α] [inst : TOField K] (hI : @TreeR.IntervalsConnected K inst)
+  (c : @Topology.Chart (Ray α) (@TreeR K inst) (Ray.prefixTopology α) (@TreeR.realTopology K inst))
+  (hx :
+    @Exists.{1} (Ray α) fun (x : Ray α) =>
+      @Topology.Chart.U (Ray α) (@TreeR K inst) (Ray.prefixTopology α) (@TreeR.realTopology K inst) c x),
+  False
+'no_chart_into_real' depends on axioms: [propext, Quot.sound]
+TreeR.realIdChart : (K : Type) →
+  [inst : TOField K] →
+    @Topology.Chart (@TreeR K inst) (@TreeR K inst) (@TreeR.realTopology K inst) (@TreeR.realTopology K inst)
+'TreeR.realIdChart' depends on axioms: [propext, Quot.sound]

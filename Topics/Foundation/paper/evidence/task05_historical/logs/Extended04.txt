@@ -1,0 +1,145 @@
+TreeQ.arityIso : (α β : Type) →
+  [inst : TwoLetters α] →
+    [inst_1 : TwoLetters β] → @FieldIso (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1)
+'TreeQ.arityIso' depends on axioms: [Quot.sound]
+@TreeQ.arityIso_fracQ : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β] (y : FracQ),
+  @Eq.{1} (TreeQ β)
+    (@FieldIso.toFun (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1)
+      (@TreeQ.arityIso α β inst inst_1) (@TreeQ.ofFracQ α inst y))
+    (@TreeQ.ofFracQ β inst_1 y)
+'TreeQ.arityIso_fracQ' depends on axioms: [Quot.sound]
+@TreeQ.charZero' : ∀ {α : Type} [inst : TwoLetters α] (n : TreeN),
+  @Ne.{1} (TreeQ α)
+    (@natCastWith (TreeQ α) (@TreeQ.zeroQ α inst) (@TreeQ.oneQ α inst)
+      (fun (x y : TreeQ α) =>
+        @HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) x y)
+      (TreeN.succ n))
+    (@TreeQ.zeroQ α inst)
+'TreeQ.charZero'' depends on axioms: [Quot.sound]
+@TreeQ.denom_eq_of_pathSum_eq : ∀ {α : Type} {t t' : TriplePath α}
+  (h2 : @Eq.{1} TreeN (@Word.pathSum α (@TriplePath.p2 α t)) (@Word.pathSum α (@TriplePath.p2 α t')))
+  (h3 : @Eq.{1} TreeN (@Word.pathSum α (@TriplePath.p3 α t)) (@Word.pathSum α (@TriplePath.p3 α t'))),
+  @Eq.{1} TreeN (@TriplePath.denom α t) (@TriplePath.denom α t')
+'TreeQ.denom_eq_of_pathSum_eq' does not depend on any axioms
+@TreeQ.exact : ∀ {α : Type} {t t' : TriplePath α} (h : @Eq.{1} (TreeQ α) (@TreeQ.mk α t) (@TreeQ.mk α t')),
+  @TriplePath.Rel α t t'
+'TreeQ.exact' does not depend on any axioms
+@TreeQ.exists_ofF : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α),
+  @Exists.{1} Frac fun (f : Frac) => @Eq.{1} (TreeQ α) x (@TreeQ.ofF α inst f)
+'TreeQ.exists_ofF' depends on axioms: [Quot.sound]
+@TreeQ.fieldIso_ext : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ ψ : @FieldIso (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1)) (x : TreeQ α),
+  @Eq.{1} (TreeQ β) (@FieldIso.toFun (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1) φ x)
+    (@FieldIso.toFun (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1) ψ x)
+'TreeQ.fieldIso_ext' depends on axioms: [Quot.sound]
+@TreeQ.fieldIso_unique : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ : @FieldIso (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1)) (x : TreeQ α),
+  @Eq.{1} (TreeQ β) (@FieldIso.toFun (TreeQ α) (TreeQ β) (@TreeQ.instTField α inst) (@TreeQ.instTField β inst_1) φ x)
+    (@TreeQ.transfer α β inst_1 x)
+'TreeQ.fieldIso_unique' depends on axioms: [Quot.sound]
+@TreeQ.instCRing : {α : Type} → [TwoLetters α] → CRing (TreeQ α)
+'TreeQ.instCRing' depends on axioms: [Quot.sound]
+@TreeQ.instTField : {α : Type} → [TwoLetters α] → TField (TreeQ α)
+'TreeQ.instTField' depends on axioms: [Quot.sound]
+@TreeQ.inv_zero' : ∀ {α : Type} [inst : TwoLetters α],
+  @Eq.{1} (TreeQ α) (@TreeQ.invQ α inst (@TreeQ.zeroQ α inst)) (@TreeQ.zeroQ α inst)
+'TreeQ.inv_zero'' depends on axioms: [Quot.sound]
+@TreeQ.le_ofF_of_lef : ∀ {α : Type} [inst : TwoLetters α] {f g : Frac} (h : Frac.LEF f g),
+  @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeQ.ofF α inst f)
+    (@TreeQ.ofF α inst g)
+'TreeQ.le_ofF_of_lef' depends on axioms: [Quot.sound]
+@TreeQ.le_of_ofZ_le : ∀ {α : Type} [inst : TwoLetters α] {z z' : TreeZ}
+  (h :
+    @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeQ.ofZ α inst z)
+      (@TreeQ.ofZ α inst z')),
+  TreeZ.LE z z'
+'TreeQ.le_of_ofZ_le' depends on axioms: [Quot.sound]
+@TreeQ.le_of_toFracQ_le : ∀ {α : Type} [inst : TwoLetters α] {x y : TreeQ α}
+  (h : FracQ.LEF (@TreeQ.toFracQ α x) (@TreeQ.toFracQ α y)),
+  @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) x y
+'TreeQ.le_of_toFracQ_le' depends on axioms: [Quot.sound]
+@TreeQ.lef_of_le_ofF : ∀ {α : Type} [inst : TwoLetters α] {f g : Frac}
+  (h :
+    @LE.le.{0} (TreeQ α) (@TOField.instLE (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeQ.ofF α inst f)
+      (@TreeQ.ofF α inst g)),
+  Frac.LEF f g
+'TreeQ.lef_of_le_ofF' depends on axioms: [Quot.sound]
+@TreeQ.left_distrib' : ∀ {α : Type} [inst : TwoLetters α] (x y z : TreeQ α),
+  @Eq.{1} (TreeQ α)
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x
+      (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) y z))
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+      (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x y)
+      (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x z))
+'TreeQ.left_distrib'' depends on axioms: [Quot.sound]
+@TreeQ.lt_iff_toFracQ : ∀ {α : Type} [inst : TwoLetters α] (x y : TreeQ α),
+  And
+    (@LT.lt.{0} (TreeQ α) (@TOField.instLT (TreeQ α) (@TreeQ.instTOField α inst)) x y →
+      Not (FracQ.LEF (@TreeQ.toFracQ α y) (@TreeQ.toFracQ α x)))
+    (Not (FracQ.LEF (@TreeQ.toFracQ α y) (@TreeQ.toFracQ α x)) →
+      @LT.lt.{0} (TreeQ α) (@TOField.instLT (TreeQ α) (@TreeQ.instTOField α inst)) x y)
+'TreeQ.lt_iff_toFracQ' depends on axioms: [Quot.sound]
+@TreeQ.lt_of_ofZ_lt : ∀ {α : Type} [inst : TwoLetters α] {z z' : TreeZ}
+  (h :
+    @LT.lt.{0} (TreeQ α) (@TOField.instLT (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeQ.ofZ α inst z)
+      (@TreeQ.ofZ α inst z')),
+  TreeZ.LT z z'
+'TreeQ.lt_of_ofZ_lt' depends on axioms: [Quot.sound]
+@TreeQ.mk_eq_ofF : ∀ {α : Type} [inst : TwoLetters α] (t : TriplePath α),
+  @Eq.{1} (TreeQ α) (@TreeQ.mk α t) (@TreeQ.ofF α inst (@TriplePath.toFrac α t))
+'TreeQ.mk_eq_ofF' depends on axioms: [Quot.sound]
+@TreeQ.mk_eq_of_pathSum_eq : ∀ {α : Type} {t t' : TriplePath α}
+  (h1 : @Eq.{1} TreeN (@Word.pathSum α (@TriplePath.p1 α t)) (@Word.pathSum α (@TriplePath.p1 α t')))
+  (h2 : @Eq.{1} TreeN (@Word.pathSum α (@TriplePath.p2 α t)) (@Word.pathSum α (@TriplePath.p2 α t')))
+  (h3 : @Eq.{1} TreeN (@Word.pathSum α (@TriplePath.p3 α t)) (@Word.pathSum α (@TriplePath.p3 α t'))),
+  @Eq.{1} (TreeQ α) (@TreeQ.mk α t) (@TreeQ.mk α t')
+'TreeQ.mk_eq_of_pathSum_eq' depends on axioms: [Quot.sound]
+@TreeQ.mul_assoc' : ∀ {α : Type} [inst : TwoLetters α] (x y z : TreeQ α),
+  @Eq.{1} (TreeQ α)
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst))
+      (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x y) z)
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x
+      (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) y z))
+'TreeQ.mul_assoc'' depends on axioms: [Quot.sound]
+@TreeQ.mul_comm' : ∀ {α : Type} [inst : TwoLetters α] (x y : TreeQ α),
+  @Eq.{1} (TreeQ α)
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x y)
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) y x)
+'TreeQ.mul_comm'' depends on axioms: [Quot.sound]
+@TreeQ.mul_inv_cancel'' : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α)
+  (hx : @Ne.{1} (TreeQ α) x (@TreeQ.zeroQ α inst)),
+  @Eq.{1} (TreeQ α)
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x
+      (@TreeQ.invQ α inst x))
+    (@TreeQ.oneQ α inst)
+'TreeQ.mul_inv_cancel''' depends on axioms: [Quot.sound]
+@TreeQ.natCast_eq_ofZ : ∀ {α : Type} [inst : TwoLetters α] (n : TreeN),
+  @Eq.{1} (TreeQ α) (@TField.natCast (TreeQ α) (@TreeQ.instTField α inst) n) (@TreeQ.ofZ α inst (TreeZ.ofN n))
+'TreeQ.natCast_eq_ofZ' depends on axioms: [Quot.sound]
+@TreeQ.neg_add_cancel' : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α),
+  @Eq.{1} (TreeQ α)
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst))
+      (@Neg.neg.{0} (TreeQ α) (@TreeQ.instNeg α inst) x) x)
+    (@TreeQ.zeroQ α inst)
+'TreeQ.neg_add_cancel'' depends on axioms: [Quot.sound]
+@TreeQ.nonnegQ_add : ∀ {α : Type} [inst : TwoLetters α] (x y : TreeQ α) (hx : @TreeQ.NonnegQ α x)
+  (hy : @TreeQ.NonnegQ α y),
+  @TreeQ.NonnegQ α
+    (@HAdd.hAdd.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHAdd.{0} (TreeQ α) (@TreeQ.instAdd α inst)) x y)
+'TreeQ.nonnegQ_add' depends on axioms: [Quot.sound]
+@TreeQ.nonnegQ_antisymm : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α) (h1 : @TreeQ.NonnegQ α x)
+  (h2 : @TreeQ.NonnegQ α (@Neg.neg.{0} (TreeQ α) (@TreeQ.instNeg α inst) x)), @Eq.{1} (TreeQ α) x (@TreeQ.zeroQ α inst)
+'TreeQ.nonnegQ_antisymm' depends on axioms: [Quot.sound]
+@TreeQ.nonnegQ_mul : ∀ {α : Type} [inst : TwoLetters α] (x y : TreeQ α) (hx : @TreeQ.NonnegQ α x)
+  (hy : @TreeQ.NonnegQ α y),
+  @TreeQ.NonnegQ α
+    (@HMul.hMul.{0, 0, 0} (TreeQ α) (TreeQ α) (TreeQ α) (@instHMul.{0} (TreeQ α) (@TreeQ.instMul α inst)) x y)
+'TreeQ.nonnegQ_mul' depends on axioms: [Quot.sound]
+@TreeQ.nonnegQ_total : ∀ {α : Type} [inst : TwoLetters α] (x : TreeQ α),
+  Or (@TreeQ.NonnegQ α x) (@TreeQ.NonnegQ α (@Neg.neg.{0} (TreeQ α) (@TreeQ.instNeg α inst) x))
+'TreeQ.nonnegQ_total' depends on axioms: [Quot.sound]
+@TreeQ.numer_eq_of_pathSum_eq : ∀ {α : Type} {t t' : TriplePath α}
+  (h1 : @Eq.{1} TreeN (@Word.pathSum α (@TriplePath.p1 α t)) (@Word.pathSum α (@TriplePath.p1 α t')))
+  (h2 : @Eq.{1} TreeN (@Word.pathSum α (@TriplePath.p2 α t)) (@Word.pathSum α (@TriplePath.p2 α t'))),
+  @Eq.{1} TreeZ (@TriplePath.numer α t) (@TriplePath.numer α t')
+'TreeQ.numer_eq_of_pathSum_eq' does not depend on any axioms

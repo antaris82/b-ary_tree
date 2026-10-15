@@ -1,0 +1,81 @@
+Word : (α : Type) → Type
+'Word' does not depend on any axioms
+@Word.root : {α : Type} → Word α
+'Word.root' does not depend on any axioms
+@Word.depth : {α : Type} → Word α → TreeN
+'Word.depth' does not depend on any axioms
+@Word.IsParent : {α : Type} → (p v : Word α) → Prop
+'Word.IsParent' does not depend on any axioms
+Word.Edge : (α : Type) → Type
+'Word.Edge' does not depend on any axioms
+@Word.ChildOf : {α : Type} → (v : Word α) → Type
+'Word.ChildOf' does not depend on any axioms
+@Word.root_no_parent : ∀ {α : Type} (p : Word α), Not (@Word.IsParent α p (@Word.root α))
+'Word.root_no_parent' does not depend on any axioms
+@Word.nonroot_has_parent : ∀ {α : Type} (c : α) (w : Word α), @Word.IsParent α w (@List.cons.{0} α c w)
+'Word.nonroot_has_parent' does not depend on any axioms
+@Word.parent_unique : ∀ {α : Type} {p q v : Word α} (hp : @Word.IsParent α p v) (hq : @Word.IsParent α q v),
+  @Eq.{1} (Word α) p q
+'Word.parent_unique' does not depend on any axioms
+@Word.rootEdges : {α : Type} → Word α → List.{0} (Word.Edge α)
+'Word.rootEdges' does not depend on any axioms
+@Word.dpath_root_unique : ∀ {α : Type} {w : Word α} {es : List.{0} (Word.Edge α)}
+  (h : @Word.DPath α (@Word.root α) w es), @Eq.{1} (List.{0} (Word.Edge α)) es (@Word.rootEdges α w)
+'Word.dpath_root_unique' does not depend on any axioms
+@Word.connected : ∀ {α : Type} (u v : Word α),
+  @Exists.{1} (List.{0} (Word.Edge α)) fun (es : List.{0} (Word.Edge α)) => @Word.Walk α u v es
+'Word.connected' does not depend on any axioms
+@Word.no_cycle : ∀ {α : Type} {u : Word α} {e : Word.Edge α} {es : List.{0} (Word.Edge α)}
+  (h : @Word.Walk α u u (@List.cons.{0} (Word.Edge α) e es))
+  (hnd : @ListOps.NodupL (Word.Edge α) (@List.cons.{0} (Word.Edge α) e es)), False
+'Word.no_cycle' does not depend on any axioms
+@Word.unbounded_depth : ∀ {α : Type} (a : α) (n : TreeN),
+  @Exists.{1} (Word α) fun (w : Word α) => @Eq.{1} TreeN (@Word.depth α w) n
+'Word.unbounded_depth' does not depend on any axioms
+Child : (b : TreeN) → Type
+'Child' does not depend on any axioms
+@Child.inclSucc : {b : TreeN} → (x : Child b) → Child (TreeN.succ b)
+'Child.inclSucc' does not depend on any axioms
+Child.enum : (b : TreeN) → List.{0} (Child b)
+'Child.enum' does not depend on any axioms
+Child.nodup_enum : ∀ (b : TreeN), @ListOps.NodupL (Child b) (Child.enum b)
+'Child.nodup_enum' does not depend on any axioms
+WordOmega : Type
+'WordOmega' does not depend on any axioms
+OmegaTree.childOfIndex : (v : WordOmega) → (n : TreeN) → @Word.ChildOf ChildOmega v
+'OmegaTree.childOfIndex' does not depend on any axioms
+OmegaTree.children_distinct : ∀ (v : WordOmega) {m n : TreeN} (h : @Ne.{1} TreeN m n),
+  @Ne.{1} (List.{0} TreeN) (@List.cons.{0} TreeN m v) (@List.cons.{0} TreeN n v)
+'OmegaTree.children_distinct' does not depend on any axioms
+OmegaTree.infinitely_many_children : ∀ (L : List.{0} TreeN),
+  @Exists.{1} TreeN fun (n : TreeN) => Not (@ListOps.InL TreeN n L)
+'OmegaTree.infinitely_many_children' does not depend on any axioms
+OmegaTree.unbounded_depth : ∀ (n : TreeN),
+  @Exists.{1} WordOmega fun (w : WordOmega) => @Eq.{1} TreeN (@Word.depth ChildOmega w) n
+'OmegaTree.unbounded_depth' does not depend on any axioms
+@ArityEmbedding.mapWord_injective : ∀ {α β : Type} {f : α → β}
+  (hf : ∀ (a a' : α), @Eq.{1} β (f a) (f a') → @Eq.{1} α a a') {w w' : Word α},
+  @Eq.{1} (Word β) (@ArityEmbedding.mapWord α β f w) (@ArityEmbedding.mapWord α β f w') → @Eq.{1} (Word α) w w'
+'ArityEmbedding.mapWord_injective' does not depend on any axioms
+@ArityEmbedding.mapWord_isParent : ∀ {α β : Type} (f : α → β) {p v : Word α} (h : @Word.IsParent α p v),
+  @Word.IsParent β (@ArityEmbedding.mapWord α β f p) (@ArityEmbedding.mapWord α β f v)
+'ArityEmbedding.mapWord_isParent' does not depend on any axioms
+@ArityEmbedding.wordOmega_wordSucc : ∀ {b : TreeN} (w : Word (Child b)),
+  @Eq.{1} (Word TreeN) (@ArityEmbedding.wordOmega (TreeN.succ b) (@ArityEmbedding.wordSucc b w))
+    (@ArityEmbedding.wordOmega b w)
+'ArityEmbedding.wordOmega_wordSucc' does not depend on any axioms
+ArityEmbedding.vertex_union : ∀ (w : Word TreeN),
+  @Exists.{1} TreeN fun (b : TreeN) =>
+    And (∀ (n : TreeN), @ListOps.InL TreeN n w → TreeN.PathLT n b)
+      (@Exists.{1} (Word (Child b)) fun (w' : Word (Child b)) =>
+        @Eq.{1} (Word TreeN) (@ArityEmbedding.wordOmega b w') w)
+'ArityEmbedding.vertex_union' does not depend on any axioms
+ArityEmbedding.edge_union : ∀ (e : Word.Edge TreeN),
+  @Exists.{1} TreeN fun (b : TreeN) =>
+    @Exists.{1} (Word.Edge (Child b)) fun (e' : Word.Edge (Child b)) =>
+      @Eq.{1} (Word.Edge TreeN) (@ArityEmbedding.edgeOmega b e') e
+'ArityEmbedding.edge_union' does not depend on any axioms
+@Word.edgeFold : {α : Type} → (acc : TreeN) → List.{0} (Word.Edge α) → TreeN
+'Word.edgeFold' does not depend on any axioms
+@Word.unitSum : {α : Type} → (es : List.{0} (Word.Edge α)) → TreeN
+'Word.unitSum' does not depend on any axioms

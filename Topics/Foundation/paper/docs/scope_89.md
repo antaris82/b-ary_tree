@@ -1,0 +1,95 @@
+# Coverage of all 89 mathematical outline subsections — Task 06, third-review editorial revision
+
+Each plan topic has its own labelled Appendix-B subsection and actual page number extracted from the **latest** `main.aux`. This is **89 topic treatments**, not 89 independent Lean-checked theorems. A theorem with an explicit apartness witness, Cauchy modulus or `SupData` is proved under the data shown, while an additional unproved logical principle is treated as conditional. Logical equivalences remain proved without asserting either side.
+
+| Plan | Mathematical content | Appendix B topic | PDF page | Source navigation | Mathematical status |
+|---|---|---|---:|---|---|
+| 1.1 | Mathematical objects and construction order | Objects and dependency of the constructions | 36 | (no direct module named in subsection) | Definition / structural comparison |
+| 1.2 | Related established mathematical frameworks | Standard mathematical background versus proved project claims | 36 | (no direct module named in subsection) | Definition / structural comparison |
+| 1.3 | Main theorems and their scope | The scope of the main theorems | 36 | (no direct module named in subsection) | Definition / structural comparison |
+| 1.4 | Logical framework and interpretative scope | Constructive logic and scope of formal verification | 36 | (no direct module named in subsection) | Definition / structural comparison |
+| 2.1 | Alphabets, finite words, root, and directed edges | Alphabet, words, incidence, and the root | 36 | PrimitiveTree/FiniteWords.lean | Proved mathematical argument / established definition |
+| 2.2 | Unique parent and unique finite root path | Root path existence and uniqueness | 37 | PrimitiveTree/FiniteWords.lean | Proved mathematical argument / established definition |
+| 2.3 | Connectedness, absence of cycles, and infinite depth | Connectivity, cycles, and arbitrarily large depth | 37 | PrimitiveTree/FiniteWords.lean | Proved mathematical argument / established definition |
+| 2.4 | Finite arity as a derived indexing object | Finite arity and its enumeration | 37 | PrimitiveTree/FiniteChild.lean ; TreeNumbers/PathNaturals.lean | Proved mathematical argument / established definition |
+| 2.5 | The countably branching tree | The countable branching object | 37 | TreeFoundation/OmegaTree.lean | Proved mathematical argument / established definition |
+| 2.6 | Inclusions and the directed arity union | Embeddings and finite-word exhaustion | 37 | TreeFoundation/ArityEmbeddings.lean | Proved mathematical argument / established definition |
+| 3.1 | Unit contribution and literal finite edge sum | Edge folds and their concatenation identity | 38 | PrimitiveTree/RootEdges.lean | Proved mathematical argument / established definition |
+| 3.2 | Equality of unit-edge sum and depth | Equality with depth | 38 | PrimitiveTree/RootEdges.lean | Proved mathematical argument / established definition |
+| 3.3 | The unbounded path-count sequence along each ray | Ray-prefix counts are non-Cauchy | 38 | TreeFoundation/InfiniteRays.lean ; TreeAnalysis/PrimitiveDataScope.lean | Proved mathematical argument / established definition |
+| 4.1 | Unary paths as natural-count carrier | Unary induction and unique recursion | 38 | PrimitiveTree/UnaryPaths.lean ; TreeNumbers/PathNaturals.lean | Proved mathematical argument / established definition |
+| 4.2 | Addition and multiplication from word operations | Semiring identities | 38 | TreeNumbers/PathNaturals.lean | Proved mathematical argument / established definition |
+| 4.3 | Induction, recursion, order, and cancellation | Cancellation and total order | 38 | TreeNumbers/FoundationsLedger.lean ; TreeNumbers/PathOrder.lean | Proved mathematical argument / established definition |
+| 4.4 | Equal-depth quotient for arbitrary nonempty alphabets | Quotient operation congruences | 39 | TreeNumbers/DepthQuotient.lean | Proved mathematical argument / established definition |
+| 5.1 | Oriented pairs of nonnegative path counts | Oriented differences and the congruence relation | 39 | TreeNumbers/PathIntegers.lean | Proved mathematical argument / established definition |
+| 5.2 | Normal forms and equivalence classes | Normalization and exactness | 39 | TreeNumbers/PathIntegers.lean | Proved mathematical argument / established definition |
+| 5.3 | Ring laws and absence of zero divisors | Integer operations and zero divisors | 39 | TreeNumbers/PathIntegers.lean | Proved mathematical argument / established definition |
+| 5.4 | Order and canonical embedding of natural counts | Integer order and natural embedding | 39 | TreeNumbers/PathOrder.lean ; TreeNumbers/FoundationsLedger.lean ; TreeNumbers/PathIntegers.lean | Proved mathematical argument / established definition |
+| 6.1 | Valid configurations and the positive gap | Admissibility and positive denominators | 40 | TreeNumbers/PathTriples.lean | Proved mathematical argument / established definition |
+| 6.2 | Equivalence by cross multiplication | Fraction equivalence and transitivity | 40 | TreeNumbers/PathTriples.lean ; TreeNumbers/PathFractions.lean | Proved mathematical argument / established definition |
+| 6.3 | Universal representatives using two distinct child symbols | Every signed fraction has a two-letter triple witness | 40 | TreeNumbers/PathTriples.lean ; TreeNumbers/FoundationsLedger.lean | Proved mathematical argument / established definition |
+| 6.4 | Field operations and all field laws | Congruence and the transported field operations | 40 | TreeNumbers/PathRationalField.lean ; TreeNumbers/PathFractions.lean ; TreeAnalysis/FractionCharacterization.lean | Proved mathematical argument / established definition |
+| 6.5 | Ordering and Archimedean structure | The rational order and explicit Archimedean data | 40 | TreeAnalysis/RationalOrder.lean ; TreeAnalysis/DyadicPrecision.lean | Proved mathematical argument / established definition |
+| 6.6 | Identification with internally defined fractions | Exact inverse maps to the auxiliary fraction field | 41 | TreeAnalysis/FractionCharacterization.lean | Proved mathematical argument / established definition |
+| 6.7 | What branching contributes to this representation | The precise contribution of branching | 41 | TreeAnalysis/FractionCharacterization.lean ; TreeNumbers/FoundationsLedger.lean | Proved mathematical argument / established definition |
+| 7.1 | Canonical algebraic comparisons across finite arities | Arity transfer as composition through fractions | 41 | TreeNumbers/RationalArityIndependence.lean ; TreeNumbers/FoundationsLedger.lean | Proved mathematical argument / established definition |
+| 7.2 | Compatibility and uniqueness | Identity, composition and embeddings | 41 | TreeAnalysis/Canonicity.lean ; TreeNumbers/FoundationsLedger.lean | Proved mathematical argument / established definition |
+| 7.3 | Representation versus primitive structure | Arithmetic versus local coordinate rank | 41 | (no direct module named in subsection) | Definition / structural comparison |
+| 8.1 | Coordinate module and algebraic operations | A finite free coordinate module | 42 | DimensionFoundation/FiniteChildModule.lean | Proved mathematical argument / established definition |
+| 8.2 | Coordinate sum and canonical bilinear form | Finite coordinate sums and symmetric bilinearity | 42 | DimensionFoundation/FiniteChildModule.lean ; DimensionFoundation/FiniteSums.lean ; DimensionFoundation/BilinearForm.lean | Proved mathematical argument / established definition |
+| 8.3 | Uniform line and zero-sum submodule | The uniform line and the zero-sum space | 42 | DimensionFoundation/FiniteChildModule.lean | Proved mathematical argument / established definition |
+| 8.4 | Orthogonality relative to the chosen bilinear form | Algebraic orthogonality | 42 | DimensionFoundation/FiniteChildModule.lean ; DimensionFoundation/ProjectionLaws.lean | Proved mathematical argument / established definition |
+| 8.5 | Explicit basis of the uniform line | A basis for the uniform line | 42 | DimensionFoundation/TransverseBasis.lean ; DimensionFoundation/Instances.lean | Proved mathematical argument / established definition |
+| 8.6 | Basis of the zero-sum submodule | The transverse basis with $b-1$ members | 42 | DimensionFoundation/TransverseBasis.lean | Proved mathematical argument / established definition |
+| 8.7 | Explicit projection and direct-sum theorem | Complementary projections and the direct sum | 42 | DimensionFoundation/TransverseBasis.lean ; DimensionFoundation/Instances.lean ; DimensionFoundation/ProjectionLaws.lean | Proved mathematical argument / established definition |
+| 8.8 | Exceptional unary case and permutation invariance | Unary arity and permutation symmetry | 43 | DimensionFoundation/TransverseBasis.lean | Proved mathematical argument / established definition |
+| 8.9 | Interpretation of `b−1` | What $b-1$ measures | 43 | (no direct module named in subsection) | Definition / structural comparison |
+| 9.1 | Finite-support sequences and the zero-sum condition | The algebraic direct sum and finite coordinate sums | 43 | DimensionFoundation/OmegaFiniteSupport.lean | Proved mathematical argument / established definition |
+| 9.2 | A countable explicit basis | A countably indexed algebraic basis | 43 | DimensionFoundation/OmegaFiniteSupport.lean ; DimensionFoundation/Instances.lean | Proved mathematical argument / established definition |
+| 9.3 | Canonical compatible inclusions | Padding embeddings and compatibility | 43 | DimensionFoundation/OmegaFiniteSupport.lean | Proved mathematical argument / established definition |
+| 9.4 | Failure of the uniform line under zero-padding | The zero-padding obstruction for uniform lines | 43 | DimensionFoundation/BoundaryLongitudinal.lean | Proved mathematical argument / established definition |
+| 9.5 | Precise scope of the omega result | Precise statement of the countable result | 44 | (no direct module named in subsection) | Definition / structural comparison |
+| 10.1 | Rays as infinite sequences and coherent prefixes | Rays, coherent prefixes and infinite depth | 44 | TreeFoundation/InfiniteRays.lean | Proved mathematical argument / established definition |
+| 10.2 | Boundary and arity union do not commute | Finite-arity ray inclusions are not exhaustive | 44 | TreeFoundation/InfiniteRays.lean | Proved mathematical argument / established definition |
+| 10.3 | Cylinders and prefix incidence | Cylinders and their clopen structure | 44 | BoundaryTopology/Cylinders.lean | Proved mathematical argument / established definition |
+| 10.4 | Clopen cylinder basis and point separation | Finite witness separation and constructive equality | 44 | BoundaryTopology/PrefixTopology.lean | Proved mathematical argument / established definition |
+| 10.5 | Connected subsets and isolated points | Connected sets, disconnectedness and isolation | 44 | BoundaryTopology/TopologicalObstructions.lean | Proved under DecidableEq alphabet |
+| 10.6 | Countable arity and local compactness | Countable cylinder noncompactness and nonlocal compactness | 45 | BoundaryTopology/TopologicalObstructions.lean | Proved mathematical argument / established definition |
+| 10.7 | Exact status of manifold statements | Precisely conditional chart obstructions | 45 | BoundaryTopology/ManifoldConditions.lean | Proved conditional theorem (extra premise) |
+| 10.8 | Optional numerical encodings are noncanonical | The limits of numerical ray encodings | 45 | BoundaryTopology/BinaryEncoding.lean ; TreeAnalysis/PrimitiveDataScope.lean | Proved mathematical argument / established definition |
+| 11.1 | Levelwise child permutations and induced tree automorphisms | Levelwise permutations and induced automorphisms | 45 | TreeFoundation/RayAutomorphism.lean | Proved mathematical argument / established definition |
+| 11.2 | Explicit transitive action on rays | An explicit transitive action on rays | 45 | TreeFoundation/RayAutomorphism.lean | Proved mathematical argument / established definition |
+| 11.3 | Invariant ray maps are constant | Invariant functions are constant | 46 | TreeFoundation/RayAutomorphism.lean | Proved mathematical argument / established definition |
+| 11.4 | General automorphisms are more numerous | A subtree-supported automorphism is not levelwise | 46 | TreeFoundation/AutomorphismCounterexample.lean | Proved mathematical argument / established definition |
+| 12.1 | Choice of base field and internally derived precision | The base interface and dyadic precision | 46 | TreeAnalysis/OrderedField.lean ; TreeAnalysis/DyadicPrecision.lean | Proved mathematical argument / established definition |
+| 12.2 | Rational Cauchy sequences with explicit modulus | Bare Cauchy, modulated Cauchy and regularity | 46 | TreeAnalysis/CauchyData.lean | Proved mathematical argument / established definition |
+| 12.3 | Equivalence relation, regularization and quotient carrier | Resampling and quotient equivalence | 46 | TreeAnalysis/CauchyData.lean ; TreeAnalysis/RealQuotient.lean | Proved mathematical argument / established definition |
+| 12.4 | Commutative ring laws and rational embedding | Ring congruence and the rational embedding | 47 | TreeAnalysis/RealQuotient.lean | Proved mathematical argument / established definition |
+| 12.5 | Positive cone, weak order, strict order and apartness | Nonnegative classes, strict order and apartness | 47 | TreeAnalysis/RealOrderApartness.lean | Proved mathematical argument / established definition |
+| 12.6 | Separated inversion versus ordinary non-equality | Apartness-based inversion and ordinary inequality | 47 | TreeAnalysis/RealOrderApartness.lean ; TreeAnalysis/ApartnessStrength.lean | Proved with the explicit data/hypotheses |
+| 12.7 | Density, Archimedean control, arity transfer | Quantitative density, bounds and arity transport | 48 | TreeAnalysis/CompletenessScope.lean ; TreeAnalysis/ArityCompletionTransfer.lean ; TreeAnalysis/FoundationsClosure.lean | Proved mathematical argument / established definition |
+| 13.1 | Convergence of embedded rational Cauchy sequences | Convergence and uniqueness of limits | 48 | TreeAnalysis/CompletenessScope.lean | Proved mathematical argument / established definition |
+| 13.2 | Tracked real Cauchy sequences and the diagonal theorem | The tracked diagonal limit | 48 | TreeAnalysis/CompletenessStrength.lean ; TreeAnalysis/CompletenessScope.lean | Proved with the explicit data/hypotheses |
+| 13.3 | Closure of tracked families under finite expressions | Finite algebraic expressions of tracked families | 49 | TreeAnalysis/ApproxClosure.lean ; TreeAnalysis/TrackedExpressions.lean | Proved mathematical argument / established definition |
+| 13.4 | Unrestricted modulated completeness and Cauchy approximation | Modulated completeness versus rational approximation | 49 | TreeAnalysis/LiftingPrinciples.lean | Proved equivalence; principle not asserted |
+| 13.5 | Choice principles and modulus-free completeness | What choice supplies, and what it does not | 49 | TreeAnalysis/LiftingPrinciples.lean | Proved conditional theorem (extra premise) |
+| 13.6 | Least upper bounds with explicit approximation data | Suprema from supplied rational upper data | 49 | TreeAnalysis/SupremumScope.lean | Proved with the explicit data/hypotheses |
+| 13.7 | Continuation of uniformly continuous maps | Uniformly continuous extension with explicit modulus | 50 | TreeAnalysis/CompletionCharacterization.lean | Proved with the explicit data/hypotheses |
+| 14.1 | Markov principle and inverse existence | Markov's principle and inversion from inequality | 50 | TreeAnalysis/ApartnessStrength.lean | Proved equivalence; principle not asserted |
+| 14.2 | LPO and real trichotomy / zero-versus-apartness | LPO, trichotomy and zero-or-apartness | 50 | TreeAnalysis/ApartnessStrength.lean ; TreeAnalysis/FoundationsClosure.lean | Proved equivalence; principle not asserted |
+| 14.3 | WLPO and decidable zero | WLPO and decidable zero | 50 | TreeAnalysis/FoundationsClosure.lean | Proved equivalence; principle not asserted |
+| 14.4 | Logical lower bounds for global Suprema and monotone convergence | One-way logical bounds for strong principles | 51 | TreeAnalysis/SupremumScope.lean | Proved one-way implication |
+| 14.5 | What “constructive” establishes and does not establish | Exact meaning of the constructive scope | 51 | (no direct module named in subsection) | Proved mathematical argument / established definition |
+| 15.1 | Same arithmetic field, different finite child-space ranks | Identical rational values and varying ranks | 51 | (no direct module named in subsection) | Definition / structural comparison |
+| 15.2 | Primitive path counts do not distinguish rays | Why a path-count sequence cannot distinguish rays | 51 | (no direct module named in subsection) | Definition / structural comparison |
+| 15.3 | Boundary, algebraic direct limit, and numerical completion | Three distinct limiting constructions | 51 | (no direct module named in subsection) | Definition / structural comparison |
+| 15.4 | Root and endpoint levels | Root and endpoint level markers | 52 | TreeFoundation/ExtendedLevels.lean | Definition / structural comparison |
+| 16.1 | Algebraic universal properties | Universal properties versus exhibited maps | 52 | (no direct module named in subsection) | Open issue / scope boundary |
+| 16.2 | Cauchy completeness without supplied representatives/moduli | Moduli, representatives and choice | 52 | (no direct module named in subsection) | Open issue / scope boundary |
+| 16.3 | Strong classical real-field and order axioms | Classical field and order properties | 52 | (no direct module named in subsection) | Open issue / scope boundary |
+| 16.4 | Infinite-line compatibility obstruction | Scope of the longitudinal obstruction | 52 | (no direct module named in subsection) | Proved obstruction; broader case open |
+| 16.5 | Boundary-topological limits and missing conditions | Boundary compactness and charts | 52 | (no direct module named in subsection) | Open issue / scope boundary |
+| 16.6 | Full automorphism classification | Remaining automorphism classification problem | 53 | (no direct module named in subsection) | Open issue / scope boundary |
+| 16.7 | Systematic separation of statuses | Distinguishing theorem status precisely | 53 | (no direct module named in subsection) | Open issue / scope boundary |
+| 17.1 | Statements established under the exact hypotheses | Established results at their actual hypotheses | 53 | (no direct module named in subsection) | Definition / structural comparison |
+| 17.2 | Delineation of open properties | Open directions without stronger claims | 53 | (no direct module named in subsection) | Open issue / scope boundary |

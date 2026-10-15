@@ -1,0 +1,101 @@
+@TreeZ.le_of_mul_le_mul_pos : ∀ {x y : TreeZ} {d : TreeN} (hd : TreeN.PathLT TreeN.zero d)
+  (h :
+    TreeZ.LE (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) (TreeZ.ofN d) x)
+      (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) (TreeZ.ofN d) y)),
+  TreeZ.LE x y
+'TreeZ.le_of_mul_le_mul_pos' does not depend on any axioms
+@TreeZ.le_of_ofN_le : ∀ {m n : TreeN} (h : TreeZ.LE (TreeZ.ofN m) (TreeZ.ofN n)), TreeN.PathLE m n
+'TreeZ.le_of_ofN_le' does not depend on any axioms
+TreeZ.le_refl : ∀ (x : TreeZ), TreeZ.LE x x
+'TreeZ.le_refl' does not depend on any axioms
+TreeZ.le_total : ∀ (x y : TreeZ), Or (TreeZ.LE x y) (TreeZ.LE y x)
+'TreeZ.le_total' does not depend on any axioms
+@TreeZ.le_trans : ∀ {x y z : TreeZ} (h1 : TreeZ.LE x y) (h2 : TreeZ.LE y z), TreeZ.LE x z
+'TreeZ.le_trans' does not depend on any axioms
+TreeZ.lt_irrefl : ∀ (x : TreeZ), Not (TreeZ.LT x x)
+'TreeZ.lt_irrefl' does not depend on any axioms
+@TreeZ.lt_of_ofN_lt : ∀ {m n : TreeN} (h : TreeZ.LT (TreeZ.ofN m) (TreeZ.ofN n)), TreeN.PathLT m n
+'TreeZ.lt_of_ofN_lt' does not depend on any axioms
+TreeZ.mkZ_self : ∀ (x : TreeZ), @Eq.{1} TreeZ (TreeZ.mkZ (TreeZ.pos x) (TreeZ.neg x)) x
+'TreeZ.mkZ_self' does not depend on any axioms
+@TreeZ.mul_le_mul_of_nonneg : ∀ {x y z : TreeZ} (hz : TreeZ.NonNeg z) (h : TreeZ.LE x y),
+  TreeZ.LE (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) z x)
+    (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) z y)
+'TreeZ.mul_le_mul_of_nonneg' does not depend on any axioms
+TreeZ.mul_mk : ∀ (a b c d : TreeN),
+  @Eq.{1} TreeZ
+    (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) (TreeZ.mkZ a b) (TreeZ.mkZ c d))
+    (TreeZ.mkZ
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+        (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a c)
+        (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b d))
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd)
+        (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) a d)
+        (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) b c)))
+'TreeZ.mul_mk' does not depend on any axioms
+@TreeZ.mul_right_cancel : ∀ {x y z : TreeZ}
+  (hx : @Ne.{1} TreeZ x (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing)))
+  (h :
+    @Eq.{1} TreeZ (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) y x)
+      (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) z x)),
+  @Eq.{1} TreeZ y z
+'TreeZ.mul_right_cancel' does not depend on any axioms
+@TreeZ.neg_le_neg : ∀ {x y : TreeZ} (h : TreeZ.LE x y),
+  TreeZ.LE (@Neg.neg.{0} TreeZ TreeZ.instNeg y) (@Neg.neg.{0} TreeZ TreeZ.instNeg x)
+'TreeZ.neg_le_neg' does not depend on any axioms
+TreeZ.neg_mk : ∀ (a b : TreeN), @Eq.{1} TreeZ (@Neg.neg.{0} TreeZ TreeZ.instNeg (TreeZ.mkZ a b)) (TreeZ.mkZ b a)
+'TreeZ.neg_mk' does not depend on any axioms
+@TreeZ.nonNeg_mul : ∀ {x y : TreeZ} (hx : TreeZ.NonNeg x) (hy : TreeZ.NonNeg y),
+  TreeZ.NonNeg (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x y)
+'TreeZ.nonNeg_mul' does not depend on any axioms
+@TreeZ.nonNeg_mul_of_nonpos : ∀ {x y : TreeZ} (hx : TreeZ.NonNeg (@Neg.neg.{0} TreeZ TreeZ.instNeg x))
+  (hy : TreeZ.NonNeg (@Neg.neg.{0} TreeZ TreeZ.instNeg y)),
+  TreeZ.NonNeg (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x y)
+'TreeZ.nonNeg_mul_of_nonpos' does not depend on any axioms
+TreeZ.nonNeg_mul_self : ∀ (x : TreeZ),
+  TreeZ.NonNeg (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x x)
+'TreeZ.nonNeg_mul_self' does not depend on any axioms
+TreeZ.nonNeg_or_neg_nonNeg : ∀ (x : TreeZ), Or (TreeZ.NonNeg x) (TreeZ.NonNeg (@Neg.neg.{0} TreeZ TreeZ.instNeg x))
+'TreeZ.nonNeg_or_neg_nonNeg' does not depend on any axioms
+@TreeZ.nonpos_mul_of_nonNeg_of_nonpos : ∀ {x y : TreeZ} (hx : TreeZ.NonNeg x)
+  (hy : TreeZ.NonNeg (@Neg.neg.{0} TreeZ TreeZ.instNeg y)),
+  TreeZ.NonNeg
+    (@Neg.neg.{0} TreeZ TreeZ.instNeg (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) x y))
+'TreeZ.nonpos_mul_of_nonNeg_of_nonpos' does not depend on any axioms
+TreeZ.ofN_add : ∀ (m n : TreeN),
+  @Eq.{1} TreeZ (TreeZ.ofN (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) m n))
+    (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) (TreeZ.ofN m) (TreeZ.ofN n))
+'TreeZ.ofN_add' does not depend on any axioms
+@TreeZ.ofN_le_ofN : ∀ {m n : TreeN} (h : TreeN.PathLE m n), TreeZ.LE (TreeZ.ofN m) (TreeZ.ofN n)
+'TreeZ.ofN_le_ofN' does not depend on any axioms
+TreeZ.ofN_mul : ∀ (m n : TreeN),
+  @Eq.{1} TreeZ (TreeZ.ofN (@HMul.hMul.{0, 0, 0} TreeN TreeN TreeN (@instHMul.{0} TreeN TreeN.instMul) m n))
+    (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) (TreeZ.ofN m) (TreeZ.ofN n))
+'TreeZ.ofN_mul' does not depend on any axioms
+TreeZ.sign : (x : TreeZ) → TreeZ.Sign x
+'TreeZ.sign' does not depend on any axioms
+TreeZ.zero_le_one : TreeZ.LE (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+  (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+'TreeZ.zero_le_one' does not depend on any axioms
+TreeZ.zero_lt_one : TreeZ.LT (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+  (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+'TreeZ.zero_lt_one' does not depend on any axioms
+TreeZ.zero_ne_one : @Ne.{1} TreeZ (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+  (@CSR.one TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))
+'TreeZ.zero_ne_one' does not depend on any axioms
+@TriplePath.denom_spec : ∀ {α : Type} (t : TriplePath α),
+  @Eq.{1} TreeN
+    (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) (@Word.pathSum α (@TriplePath.p3 α t))
+      (@TriplePath.denom α t))
+    (@Word.pathSum α (@TriplePath.p2 α t))
+'TriplePath.denom_spec' does not depend on any axioms
+@TriplePath.rel_refl : ∀ {α : Type} (t : TriplePath α), @TriplePath.Rel α t t
+'TriplePath.rel_refl' does not depend on any axioms
+@TriplePath.rel_symm : ∀ {α : Type} {t t' : TriplePath α} (h : @TriplePath.Rel α t t'), @TriplePath.Rel α t' t
+'TriplePath.rel_symm' does not depend on any axioms
+@TriplePath.rel_trans : ∀ {α : Type} {t t' t'' : TriplePath α} (h1 : @TriplePath.Rel α t t')
+  (h2 : @TriplePath.Rel α t' t''), @TriplePath.Rel α t t''
+'TriplePath.rel_trans' does not depend on any axioms
+@TriplePath.toFrac_ofFrac : ∀ {α : Type} [inst : TwoLetters α] (f : Frac),
+  @Eq.{1} Frac (@TriplePath.toFrac α (@TriplePath.ofFrac α inst f)) f
+'TriplePath.toFrac_ofFrac' does not depend on any axioms

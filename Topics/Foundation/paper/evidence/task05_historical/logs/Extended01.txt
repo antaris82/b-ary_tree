@@ -1,0 +1,149 @@
+FracQ.inv_zero' : @Eq.{1} FracQ (FracQ.invF FracQ.zeroF) FracQ.zeroF
+'FracQ.inv_zero'' depends on axioms: [Quot.sound]
+FracQ.mul_inv_cancel'' : ∀ (x : FracQ) (hx : @Ne.{1} FracQ x FracQ.zeroF),
+  @Eq.{1} FracQ (@HMul.hMul.{0, 0, 0} FracQ FracQ FracQ (@instHMul.{0} FracQ FracQ.instMul) x (FracQ.invF x)) FracQ.oneF
+'FracQ.mul_inv_cancel''' depends on axioms: [Quot.sound]
+@PrimitiveScope.prefixCount_not_rcauchy : ∀ {α K : Type} [inst : TOField K] (r : Ray α),
+  Not (@TreeR.RCauchy K inst fun (n : TreeN) => @TreeR.ofQ K inst (@PrimitiveScope.prefixCount α K inst r n))
+'PrimitiveScope.prefixCount_not_rcauchy' depends on axioms: [propext, Quot.sound]
+@PrimitiveScope.provenance_chain : ∀ {α : Type} (w : Word α),
+  And
+    (@Eq.{1} (@TreeR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega))
+      (@TreeR.natR QStar (@TreeQ.instTOField ChildOmega instTwoLettersChildOmega) (@Word.pathSum α w))
+      (ofZR (TreeZ.ofN (@Word.depth α w))))
+    (And (@Eq.{1} TreeN (@Word.pathSum α w) (@Word.unitSum α (@Word.rootEdges α w)))
+      (@Eq.{1} TreeN (@Word.unitSum α (@Word.rootEdges α w)) (@Word.depth α w)))
+'PrimitiveScope.provenance_chain' depends on axioms: [Quot.sound]
+@RayAutomorphism.depth_wordAct : ∀ {α : Type} (P : RayAutomorphism.LevelPerm α) (w : Word α),
+  @Eq.{1} TreeN (@Word.depth α (@RayAutomorphism.wordAct α P w)) (@Word.depth α w)
+'RayAutomorphism.depth_wordAct' does not depend on any axioms
+@RayAutomorphism.edgeAct : {α : Type} → (P : RayAutomorphism.LevelPerm α) → (e : Word.Edge α) → Word.Edge α
+'RayAutomorphism.edgeAct' does not depend on any axioms
+@RayAutomorphism.isParent_of_wordAct : ∀ {α : Type} (P : RayAutomorphism.LevelPerm α) {p v : Word α}
+  (h : @Word.IsParent α (@RayAutomorphism.wordAct α P p) (@RayAutomorphism.wordAct α P v)), @Word.IsParent α p v
+'RayAutomorphism.isParent_of_wordAct' does not depend on any axioms
+@RayAutomorphism.prefixAt_rayAct : ∀ {α : Type} (P : RayAutomorphism.LevelPerm α) (r : Ray α) (n : TreeN),
+  @Eq.{1} (Word α) (@Ray.prefixAt α (@RayAutomorphism.rayAct α P r) n)
+    (@RayAutomorphism.wordAct α P (@Ray.prefixAt α r n))
+'RayAutomorphism.prefixAt_rayAct' does not depend on any axioms
+@RayAutomorphism.rayAct_symm_rayAct : ∀ {α : Type} (P : RayAutomorphism.LevelPerm α) (r : Ray α),
+  @Eq.{1} (Ray α) (@RayAutomorphism.rayAct α (@RayAutomorphism.LevelPerm.symm α P) (@RayAutomorphism.rayAct α P r)) r
+'RayAutomorphism.rayAct_symm_rayAct' depends on axioms: [Quot.sound]
+@RayAutomorphism.subtreeSwap_append : ∀ {α : Type} [inst : DecidableEq.{1} α] (a b x y : α) (w : Word α),
+  @Eq.{1} (Word α)
+    (@RayAutomorphism.subtreeSwap α inst a b
+      (@HAppend.hAppend.{0, 0, 0} (Word α) (List.{0} α) (Word α)
+        (@instHAppendOfAppend.{0} (Word α) (@List.instAppend.{0} α)) w
+        (@List.cons.{0} α x (@List.cons.{0} α y (@List.nil.{0} α)))))
+    (@HAppend.hAppend.{0, 0, 0} (Word α) (List.{0} α) (Word α)
+      (@instHAppendOfAppend.{0} (Word α) (@List.instAppend.{0} α)) w
+      (@List.cons.{0} α (@RayAutomorphism.condSwap α inst a b y x) (@List.cons.{0} α y (@List.nil.{0} α))))
+'RayAutomorphism.subtreeSwap_append' does not depend on any axioms
+@RayAutomorphism.subtreeSwap_isParent : ∀ {α : Type} [inst : DecidableEq.{1} α] (a b : α) {p v : Word α}
+  (h : @Word.IsParent α p v),
+  @Word.IsParent α (@RayAutomorphism.subtreeSwap α inst a b p) (@RayAutomorphism.subtreeSwap α inst a b v)
+'RayAutomorphism.subtreeSwap_isParent' does not depend on any axioms
+@RayAutomorphism.subtreeSwap_subtreeSwap : ∀ {α : Type} [inst : DecidableEq.{1} α] (a b : α) (w : Word α),
+  @Eq.{1} (Word α) (@RayAutomorphism.subtreeSwap α inst a b (@RayAutomorphism.subtreeSwap α inst a b w)) w
+'RayAutomorphism.subtreeSwap_subtreeSwap' does not depend on any axioms
+@RayAutomorphism.swap_swap : ∀ {α : Type} [inst : DecidableEq.{1} α] (a b x : α),
+  @Eq.{1} α (@RayAutomorphism.swap α inst a b (@RayAutomorphism.swap α inst a b x)) x
+'RayAutomorphism.swap_swap' does not depend on any axioms
+@RayAutomorphism.treeAut_swapPerm_prefix : ∀ {α : Type} [inst : DecidableEq.{1} α] (ξ η : Ray α) (n : TreeN),
+  @Eq.{1} (Word α)
+    (@RayAutomorphism.TreeAut.toFun α (@RayAutomorphism.treeAut α (@RayAutomorphism.swapPerm α inst ξ η))
+      (@Ray.prefixAt α ξ n))
+    (@Ray.prefixAt α η n)
+'RayAutomorphism.treeAut_swapPerm_prefix' depends on axioms: [Quot.sound]
+@RayAutomorphism.wordAct_isParent : ∀ {α : Type} (P : RayAutomorphism.LevelPerm α) {p v : Word α}
+  (h : @Word.IsParent α p v), @Word.IsParent α (@RayAutomorphism.wordAct α P p) (@RayAutomorphism.wordAct α P v)
+'RayAutomorphism.wordAct_isParent' does not depend on any axioms
+@RayAutomorphism.wordAct_symm_wordAct : ∀ {α : Type} (P : RayAutomorphism.LevelPerm α) (w : Word α),
+  @Eq.{1} (Word α) (@RayAutomorphism.wordAct α (@RayAutomorphism.LevelPerm.symm α P) (@RayAutomorphism.wordAct α P w)) w
+'RayAutomorphism.wordAct_symm_wordAct' does not depend on any axioms
+@RayAutomorphism.wordAct_wordAct_symm : ∀ {α : Type} (P : RayAutomorphism.LevelPerm α) (w : Word α),
+  @Eq.{1} (Word α) (@RayAutomorphism.wordAct α P (@RayAutomorphism.wordAct α (@RayAutomorphism.LevelPerm.symm α P) w)) w
+'RayAutomorphism.wordAct_wordAct_symm' does not depend on any axioms
+@TField.eq_zero_of_mul_eq_zero_left : ∀ {K : Type} [inst : TField K] {a b : K}
+  (ha : @Ne.{1} K a (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst))))
+  (h :
+    @Eq.{1} K
+      (@HMul.hMul.{0, 0, 0} K K K (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K inst)))) a b)
+      (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst)))),
+  @Eq.{1} K b (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst)))
+'TField.eq_zero_of_mul_eq_zero_left' does not depend on any axioms
+@TField.mul_left_cancel' : ∀ {K : Type} [inst : TField K] {a b c : K}
+  (ha : @Ne.{1} K a (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst))))
+  (h :
+    @Eq.{1} K
+      (@HMul.hMul.{0, 0, 0} K K K (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K inst)))) a b)
+      (@HMul.hMul.{0, 0, 0} K K K (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K inst)))) a c)),
+  @Eq.{1} K b c
+'TField.mul_left_cancel'' does not depend on any axioms
+@TField.mul_ne_zero' : ∀ {K : Type} [inst : TField K] {a b : K}
+  (ha : @Ne.{1} K a (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst))))
+  (hb : @Ne.{1} K b (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst)))),
+  @Ne.{1} K (@HMul.hMul.{0, 0, 0} K K K (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K inst)))) a b)
+    (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K inst)))
+'TField.mul_ne_zero'' does not depend on any axioms
+@TOField.abs_add : ∀ {K : Type} [inst : TOField K] (x y : K),
+  @LE.le.{0} K (@TOField.instLE K inst)
+    (@TOField.abs K inst
+      (@HAdd.hAdd.{0, 0, 0} K K K
+        (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) x y))
+    (@HAdd.hAdd.{0, 0, 0} K K K
+      (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst)))))
+      (@TOField.abs K inst x) (@TOField.abs K inst y))
+'TOField.abs_add' does not depend on any axioms
+@TOField.abs_mul : ∀ {K : Type} [inst : TOField K] (x y : K),
+  @Eq.{1} K
+    (@TOField.abs K inst
+      (@HMul.hMul.{0, 0, 0} K K K
+        (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) x y))
+    (@HMul.hMul.{0, 0, 0} K K K
+      (@instHMul.{0} K (@CSR.toMul K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst)))))
+      (@TOField.abs K inst x) (@TOField.abs K inst y))
+'TOField.abs_mul' does not depend on any axioms
+@TOField.abs_neg : ∀ {K : Type} [inst : TOField K] (x : K),
+  @Eq.{1} K (@TOField.abs K inst (@Neg.neg.{0} K (@CRing.toNeg K (@TField.toCRing K (@TOField.toTField K inst))) x))
+    (@TOField.abs K inst x)
+'TOField.abs_neg' does not depend on any axioms
+@TOField.abs_nonneg : ∀ {K : Type} [inst : TOField K] (x : K),
+  @LE.le.{0} K (@TOField.instLE K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+    (@TOField.abs K inst x)
+'TOField.abs_nonneg' does not depend on any axioms
+@TOField.add_lt_add_left : ∀ {K : Type} [inst : TOField K] {x y : K} (z : K)
+  (h : @LT.lt.{0} K (@TOField.instLT K inst) x y),
+  @LT.lt.{0} K (@TOField.instLT K inst)
+    (@HAdd.hAdd.{0, 0, 0} K K K
+      (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) z x)
+    (@HAdd.hAdd.{0, 0, 0} K K K
+      (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) z y)
+'TOField.add_lt_add_left' does not depend on any axioms
+@TOField.add_resp : ∀ {K : Type} [inst : TOField K] {s s' t t' : TreeN → K} (h1 : @TOField.SeqEquiv K inst s s')
+  (h2 : @TOField.SeqEquiv K inst t t'),
+  @TOField.SeqEquiv K inst
+    (fun (n : TreeN) =>
+      @HAdd.hAdd.{0, 0, 0} K K K
+        (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) (s n) (t n))
+    fun (n : TreeN) =>
+    @HAdd.hAdd.{0, 0, 0} K K K
+      (@instHAdd.{0} K (@CSR.toAdd K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))) (s' n) (t' n)
+'TOField.add_resp' does not depend on any axioms
+@TOField.eq_zero_of_abs_eq_zero : ∀ {K : Type} [inst : TOField K] {x : K}
+  (h : @Eq.{1} K (@TOField.abs K inst x) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))),
+  @Eq.{1} K x (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+'TOField.eq_zero_of_abs_eq_zero' does not depend on any axioms
+@TOField.inv_pos : ∀ {K : Type} [inst : TOField K] {a : K}
+  (ha :
+    @LT.lt.{0} K (@TOField.instLT K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+      a),
+  @LT.lt.{0} K (@TOField.instLT K inst) (@CSR.zero K (@CRing.toCSR K (@TField.toCRing K (@TOField.toTField K inst))))
+    (@TField.inv K (@TOField.toTField K inst) a)
+'TOField.inv_pos' does not depend on any axioms
+@TOField.le_antisymm : ∀ {K : Type} [inst : TOField K] {x y : K} (h1 : @LE.le.{0} K (@TOField.instLE K inst) x y)
+  (h2 : @LE.le.{0} K (@TOField.instLE K inst) y x), @Eq.{1} K x y
+'TOField.le_antisymm' does not depend on any axioms
+@TOField.le_archBound : ∀ {K : Type} [inst : TOField K] (x : K),
+  @LE.le.{0} K (@TOField.instLE K inst) x (@TField.natCast K (@TOField.toTField K inst) (@TOField.archBound K inst x))
+'TOField.le_archBound' does not depend on any axioms

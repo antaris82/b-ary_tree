@@ -1,0 +1,16 @@
+@TreeR.decidableZero_iff_wlpo : ∀ {K : Type} [inst : TOField K], Iff (@TreeR.DecidableZero K inst) TreeR.WLPO
+'TreeR.decidableZero_iff_wlpo' depends on axioms: [propext, Quot.sound]
+@TreeR.wlpo_of_unrestrictedLUB : ∀ {K : Type} [inst : TOField K] (h : @TreeR.UnrestrictedLUB K inst), TreeR.WLPO
+'TreeR.wlpo_of_unrestrictedLUB' depends on axioms: [propext, Quot.sound]
+@TreeR.lpo_of_bmc : ∀ {K : Type} [inst : TOField K] (h : @TreeR.BoundedMonotoneConvergence K inst), TreeR.LPO
+'TreeR.lpo_of_bmc' depends on axioms: [propext, Quot.sound]
+@ExtLevel.vertexLevel : {α : Type} → (w : Word α) → ExtLevel
+'ExtLevel.vertexLevel' does not depend on any axioms
+@ExtLevel.rayLevel : {α : Type} → (_r : Ray α) → ExtLevel
+'ExtLevel.rayLevel' does not depend on any axioms
+ExtLevel.root_level : ∀ (α : Type),
+  @Eq.{1} ExtLevel (@ExtLevel.vertexLevel α (@Word.root α)) (ExtLevel.finite TreeN.zero)
+'ExtLevel.root_level' does not depend on any axioms
+@ExtLevel.first_edge_unit : ∀ {α : Type} (c : α),
+  @Eq.{1} TreeN (@Word.pathSum α (@List.cons.{0} α c (@List.nil.{0} α))) TreeN.one
+'ExtLevel.first_edge_unit' does not depend on any axioms

@@ -1,0 +1,189 @@
+@TreeR.ofZRα_lt : ∀ {α : Type} [inst : TwoLetters α] {z z' : TreeZ} (h : TreeZ.LT z z'),
+  @LT.lt.{0} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+    (@TreeR.ofZRα α inst z) (@TreeR.ofZRα α inst z')
+'TreeR.ofZRα_lt' depends on axioms: [Quot.sound]
+@TreeR.ofZRα_mul : ∀ {α : Type} [inst : TwoLetters α] (z z' : TreeZ),
+  @Eq.{1} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst))
+    (@TreeR.ofZRα α inst (@HMul.hMul.{0, 0, 0} TreeZ TreeZ TreeZ (@instHMul.{0} TreeZ TreeZ.instMul) z z'))
+    (@HMul.hMul.{0, 0, 0} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR (TreeQ α) (@TreeQ.instTOField α inst))
+      (@instHMul.{0} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst))
+        (@TreeR.instMul (TreeQ α) (@TreeQ.instTOField α inst)))
+      (@TreeR.ofZRα α inst z) (@TreeR.ofZRα α inst z'))
+'TreeR.ofZRα_mul' depends on axioms: [Quot.sound]
+@TreeR.ofZRα_neg : ∀ {α : Type} [inst : TwoLetters α] (z : TreeZ),
+  @Eq.{1} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR.ofZRα α inst (@Neg.neg.{0} TreeZ TreeZ.instNeg z))
+    (@Neg.neg.{0} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR.instNeg (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.ofZRα α inst z))
+'TreeR.ofZRα_neg' depends on axioms: [Quot.sound]
+@TreeR.ratModulusSelection_of_choice : ∀ {K : Type} [inst : TOField K] (hc : TreeR.ChoiceNN),
+  @TreeR.RatModulusSelection K inst
+'TreeR.ratModulusSelection_of_choice' does not depend on any axioms
+@TreeR.rcauchyMod_iff_close : ∀ {K : Type} [inst : TOField K] (f : TreeN → @TreeR K inst) (ν : TreeN → TreeN),
+  And
+    (@TreeR.RCauchyMod K inst f ν →
+      ∀ (k i j : TreeN),
+        TreeN.PathLE (ν k) i → TreeN.PathLE (ν k) j → @TreeR.RClose K inst (f i) (f j) (@TOField.eps K inst k))
+    ((∀ (k i j : TreeN),
+        TreeN.PathLE (ν k) i → TreeN.PathLE (ν k) j → @TreeR.RClose K inst (f i) (f j) (@TOField.eps K inst k)) →
+      @TreeR.RCauchyMod K inst f ν)
+'TreeR.rcauchyMod_iff_close' depends on axioms: [Quot.sound]
+@TreeR.rcauchy_of_rcauchyMod : ∀ {K : Type} [inst : TOField K] {f : TreeN → @TreeR K inst} {ν : TreeN → TreeN}
+  (h : @TreeR.RCauchyMod K inst f ν), @TreeR.RCauchy K inst f
+'TreeR.rcauchy_of_rcauchyMod' depends on axioms: [Quot.sound]
+@TreeR.realArityIso_natR : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β] (n : TreeN),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) (@realArityIso α β inst inst_1)
+      (@TreeR.natR (TreeQ α) (@TreeQ.instTOField α inst) n))
+    (@TreeR.natR (TreeQ β) (@TreeQ.instTOField β inst_1) n)
+'TreeR.realArityIso_natR' depends on axioms: [Quot.sound]
+@TreeR.realArityIso_ofFracQ : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β] (y : FracQ),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) (@realArityIso α β inst inst_1)
+      (@TreeR.ofQ (TreeQ α) (@TreeQ.instTOField α inst) (@TreeQ.ofFracQ α inst y)))
+    (@TreeR.ofQ (TreeQ β) (@TreeQ.instTOField β inst_1) (@TreeQ.ofFracQ β inst_1 y))
+'TreeR.realArityIso_ofFracQ' depends on axioms: [Quot.sound]
+@TreeR.realArityIso_ofZRα : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β] (z : TreeZ),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) (@realArityIso α β inst inst_1) (@TreeR.ofZRα α inst z))
+    (@TreeR.ofZRα β inst_1 z)
+'TreeR.realArityIso_ofZRα' depends on axioms: [Quot.sound]
+@TreeR.realArityIso_self : ∀ {α : Type} [inst : TwoLetters α] (x : @TreeR (TreeQ α) (@TreeQ.instTOField α inst)),
+  @Eq.{1} (@TreeR (TreeQ α) (@TreeQ.instTOField α inst))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@realArityIso α α inst inst) x)
+    x
+'TreeR.realArityIso_self' depends on axioms: [Quot.sound]
+@TreeR.realIso_natR : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ :
+    @RealIso (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)))
+  (n : TreeN),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) φ (@TreeR.natR (TreeQ α) (@TreeQ.instTOField α inst) n))
+    (@TreeR.natR (TreeQ β) (@TreeQ.instTOField β inst_1) n)
+'TreeR.realIso_natR' depends on axioms: [Quot.sound]
+@TreeR.realIso_ofFracQ : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ :
+    @RealIso (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)))
+  (y : FracQ),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) φ
+      (@TreeR.ofQ (TreeQ α) (@TreeQ.instTOField α inst) (@TreeQ.ofFracQ α inst y)))
+    (@TreeR.ofQ (TreeQ β) (@TreeQ.instTOField β inst_1) (@TreeQ.ofFracQ β inst_1 y))
+'TreeR.realIso_ofFracQ' depends on axioms: [propext, Quot.sound]
+@TreeR.realIso_ofQ : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ :
+    @RealIso (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)))
+  (q : TreeQ α),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) φ (@TreeR.ofQ (TreeQ α) (@TreeQ.instTOField α inst) q))
+    (@TreeR.ofQ (TreeQ β) (@TreeQ.instTOField β inst_1) (@TreeQ.transfer α β inst_1 q))
+'TreeR.realIso_ofQ' depends on axioms: [propext, Quot.sound]
+@TreeR.realIso_ofZRα : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ :
+    @RealIso (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)))
+  (z : TreeZ),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) φ (@TreeR.ofZRα α inst z))
+    (@TreeR.ofZRα β inst_1 z)
+'TreeR.realIso_ofZRα' depends on axioms: [Quot.sound]
+@TreeR.realIso_unique : ∀ {α β : Type} [inst : TwoLetters α] [inst_1 : TwoLetters β]
+  (φ :
+    @RealIso (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)))
+  (x : @TreeR (TreeQ α) (@TreeQ.instTOField α inst)),
+  @Eq.{1} (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) φ x)
+    (@RealIso.toFun (@TreeR (TreeQ α) (@TreeQ.instTOField α inst)) (@TreeR (TreeQ β) (@TreeQ.instTOField β inst_1))
+      (@TreeR.instCRing (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instCRing (TreeQ β) (@TreeQ.instTOField β inst_1)) (@TreeR.instLT (TreeQ α) (@TreeQ.instTOField α inst))
+      (@TreeR.instLT (TreeQ β) (@TreeQ.instTOField β inst_1)) (@realArityIso α β inst inst_1) x)
+'TreeR.realIso_unique' depends on axioms: [propext, Quot.sound]
+@TreeR.rinv_indep : ∀ {K : Type} [inst : TOField K] (x : @TreeR K inst) (h h' : @TreeR.ApartW K inst x),
+  @Eq.{1} (@TreeR K inst) (@TreeR.rinv K inst x h) (@TreeR.rinv K inst x h')
+'TreeR.rinv_indep' depends on axioms: [Quot.sound]
+@TreeR.wlpo_of_decidableZero : ∀ {K : Type} [inst : TOField K] (h : @TreeR.DecidableZero K inst), TreeR.WLPO
+'TreeR.wlpo_of_decidableZero' depends on axioms: [propext, Quot.sound]
+TreeR.wlpo_of_lpo : ∀ (h : TreeR.LPO), TreeR.WLPO
+'TreeR.wlpo_of_lpo' does not depend on any axioms
+@TreeR.zeroProduct_of_zeroOrApart : ∀ {K : Type} [inst : TOField K] (h : @TreeR.ZeroOrApart K inst),
+  @TreeR.ZeroProductDisjunction K inst
+'TreeR.zeroProduct_of_zeroOrApart' depends on axioms: [Quot.sound]
+@TreeR.zero_lt_one : ∀ {K : Type} [inst : TOField K],
+  @LT.lt.{0} (@TreeR K inst) (@TreeR.instLT K inst)
+    (@CSR.zero (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))
+    (@CSR.one (@TreeR K inst) (@CRing.toCSR (@TreeR K inst) (@TreeR.instCRing K inst)))
+'TreeR.zero_lt_one' depends on axioms: [Quot.sound]
+TreeZ.LT : (x y : TreeZ) → Prop
+'TreeZ.LT' does not depend on any axioms
+@TreeZ.absN_pos : ∀ {x : TreeZ} (h : @Ne.{1} TreeZ x (@CSR.zero TreeZ (@CRing.toCSR TreeZ TreeZ.instCRing))),
+  TreeN.PathLT TreeN.zero (TreeZ.absN x)
+'TreeZ.absN_pos' does not depend on any axioms
+@TreeZ.add_le_add_left : ∀ {x y : TreeZ} (z : TreeZ) (h : TreeZ.LE x y),
+  TreeZ.LE (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) z x)
+    (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) z y)
+'TreeZ.add_le_add_left' does not depend on any axioms
+@TreeZ.add_le_add_right : ∀ {x y : TreeZ} (z : TreeZ) (h : TreeZ.LE x y),
+  TreeZ.LE (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) x z)
+    (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) y z)
+'TreeZ.add_le_add_right' does not depend on any axioms
+TreeZ.add_mk : ∀ (a b c d : TreeN),
+  @Eq.{1} TreeZ
+    (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) (TreeZ.mkZ a b) (TreeZ.mkZ c d))
+    (TreeZ.mkZ (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) a c)
+      (@HAdd.hAdd.{0, 0, 0} TreeN TreeN TreeN (@instHAdd.{0} TreeN TreeN.instAdd) b d))
+'TreeZ.add_mk' does not depend on any axioms
+TreeZ.decEq : (x y : TreeZ) → Decidable (@Eq.{1} TreeZ x y)
+'TreeZ.decEq' does not depend on any axioms
+@TreeZ.ind_mk : ∀ {P : TreeZ → Prop} (h : ∀ (m n : TreeN), P (TreeZ.mkZ m n)) (x : TreeZ), P x
+'TreeZ.ind_mk' does not depend on any axioms
+@TreeZ.le_antisymm : ∀ {x y : TreeZ} (h1 : TreeZ.LE x y) (h2 : TreeZ.LE y x), @Eq.{1} TreeZ x y
+'TreeZ.le_antisymm' does not depend on any axioms
+@TreeZ.le_of_add_le_add_left : ∀ {x y z : TreeZ}
+  (h :
+    TreeZ.LE (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) z x)
+      (@HAdd.hAdd.{0, 0, 0} TreeZ TreeZ TreeZ (@instHAdd.{0} TreeZ TreeZ.instAdd) z y)),
+  TreeZ.LE x y
+'TreeZ.le_of_add_le_add_left' does not depend on any axioms
+@TreeZ.le_of_lt : ∀ {x y : TreeZ} (h : TreeZ.LT x y), TreeZ.LE x y
+'TreeZ.le_of_lt' does not depend on any axioms
