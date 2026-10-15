@@ -8,10 +8,10 @@ Generated from the current compiled LaTeX labels; this is navigation, not a new 
 | **Standard mathematical background versus proved project claims** (supp:1-2) | Introduction (sec:intro) | 6 | (no direct module named in subsection); *Definition / structural comparison* |
 | **The scope of the main theorems** (supp:1-3) | Introduction (sec:intro) | 6 | (no direct module named in subsection); *Definition / structural comparison* |
 | **Constructive logic and scope of formal verification** (supp:1-4) | Introduction (sec:intro) | 6 | (no direct module named in subsection); *Definition / structural comparison* |
-| **Alphabet, words, incidence, and the root** (supp:2-1) | Words, root and parent relation (main:sub-01) | 8 | PrimitiveTree/FiniteWords.lean; *Proved mathematical argument / established definition* |
+| **Alphabet, words, incidence, and the root** (supp:2-1) | Words, root and parent relation (main:sub-01) | 9 | PrimitiveTree/FiniteWords.lean; *Proved mathematical argument / established definition* |
 | **Root path existence and uniqueness** (supp:2-2) | Words, root and parent relation (main:sub-01) | 9 | PrimitiveTree/FiniteWords.lean; *Proved mathematical argument / established definition* |
 | **Connectivity, cycles, and arbitrarily large depth** (supp:2-3) | Connectedness, cycles and depth (main:sub-03) | 10 | PrimitiveTree/FiniteWords.lean; *Proved mathematical argument / established definition* |
-| **Finite arity and its enumeration** (supp:2-4) | Finite and countable branching (main:sub-04) | 10 | PrimitiveTree/FiniteChild.lean ; TreeNumbers/PathNaturals.lean; *Proved mathematical argument / established definition* |
+| **Finite arity and its enumeration** (supp:2-4) | Finite and countable branching (main:sub-04) | 11 | PrimitiveTree/FiniteChild.lean ; TreeNumbers/PathNaturals.lean; *Proved mathematical argument / established definition* |
 | **The countable branching object** (supp:2-5) | Finite and countable branching (main:sub-04) | 11 | TreeFoundation/OmegaTree.lean; *Proved mathematical argument / established definition* |
 | **Embeddings and finite-word exhaustion** (supp:2-6) | Finite and countable branching (main:sub-04) | 11 | TreeFoundation/ArityEmbeddings.lean; *Proved mathematical argument / established definition* |
 | **Edge folds and their concatenation identity** (supp:3-1) | Finite sums on the actual root-edge list (main:sub-05) | 12 | PrimitiveTree/RootEdges.lean; *Proved mathematical argument / established definition* |

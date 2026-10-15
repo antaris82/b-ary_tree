@@ -3,10 +3,10 @@ supp:1-1,Objects and dependency of the constructions,sec:intro,Introduction,cont
 supp:1-2,Standard mathematical background versus proved project claims,sec:intro,Introduction,context,6,5,(no direct module named in subsection),Definition / structural comparison
 supp:1-3,The scope of the main theorems,sec:intro,Introduction,context,6,5,(no direct module named in subsection),Definition / structural comparison
 supp:1-4,Constructive logic and scope of formal verification,sec:intro,Introduction,context,6,5,(no direct module named in subsection),Definition / structural comparison
-supp:2-1,"Alphabet, words, incidence, and the root",main:sub-01,"Words, root and parent relation",direct,8,8,PrimitiveTree/FiniteWords.lean,Proved mathematical argument / established definition
-supp:2-2,Root path existence and uniqueness,main:sub-01,"Words, root and parent relation",direct,9,8,PrimitiveTree/FiniteWords.lean,Proved mathematical argument / established definition
+supp:2-1,"Alphabet, words, incidence, and the root",main:sub-01,"Words, root and parent relation",direct,9,9,PrimitiveTree/FiniteWords.lean,Proved mathematical argument / established definition
+supp:2-2,Root path existence and uniqueness,main:sub-01,"Words, root and parent relation",direct,9,9,PrimitiveTree/FiniteWords.lean,Proved mathematical argument / established definition
 supp:2-3,"Connectivity, cycles, and arbitrarily large depth",main:sub-03,"Connectedness, cycles and depth",direct,10,10,PrimitiveTree/FiniteWords.lean,Proved mathematical argument / established definition
-supp:2-4,Finite arity and its enumeration,main:sub-04,Finite and countable branching,direct,10,10,PrimitiveTree/FiniteChild.lean ; TreeNumbers/PathNaturals.lean,Proved mathematical argument / established definition
+supp:2-4,Finite arity and its enumeration,main:sub-04,Finite and countable branching,direct,11,10,PrimitiveTree/FiniteChild.lean ; TreeNumbers/PathNaturals.lean,Proved mathematical argument / established definition
 supp:2-5,The countable branching object,main:sub-04,Finite and countable branching,direct,11,10,TreeFoundation/OmegaTree.lean,Proved mathematical argument / established definition
 supp:2-6,Embeddings and finite-word exhaustion,main:sub-04,Finite and countable branching,direct,11,10,TreeFoundation/ArityEmbeddings.lean,Proved mathematical argument / established definition
 supp:3-1,Edge folds and their concatenation identity,main:sub-05,Finite sums on the actual root-edge list,direct,12,12,PrimitiveTree/RootEdges.lean,Proved mathematical argument / established definition
