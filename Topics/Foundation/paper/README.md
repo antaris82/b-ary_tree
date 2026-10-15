@@ -7,7 +7,7 @@ The manuscript treats rooted word-tree incidence, unary arithmetic, normalized i
 
 ## Read the paper
 
-- [`main.pdf`](main.pdf): previously compiled PDF; **not yet regenerated** after the motivation/title revision of 15 October 2026. Read `main.tex` for the latest edition.
+- [`main.pdf`](main.pdf): freshly compiled PDF for the motivation/title revision of 15 October 2026 (GitHub Actions run 38723389434).
 - [`main.tex`](main.tex): current LaTeX manuscript, now including an expanded introduction, a motivation section, and targeted clarifications of rational structure transport and real-number scope, alongside the **89 inline supporting treatments**.
 - [`references.tex`](references.tex) is the typeset bibliography; [`references.bib`](references.bib) supplies structured metadata.
 - [`scope_89.md`](scope_89.md) and [`scope_89.csv`](scope_89.csv): 89 mathematical topics matched to their real inline LaTeX anchors and PDF pages.
@@ -28,4 +28,4 @@ Additional logical principles (`ChoiceNN`, MP, LPO, WLPO) are never assumed glob
 
 ## 15 October 2026 motivation revision
 
-The title and explanatory framing were revised to distinguish the primitive construction, the resulting tree properties, the internal derivation of arithmetic, transported rational operations, and the limits of constructive completion. No mathematical Lean declarations or theorem proofs were modified. **A fresh Lean build and a successful LaTeX compilation of this revision have not been performed.** The checked Task-06 fingerprint and historical verification logs continue to refer to the unchanged frozen Lean sources. No discussion-thread material or participant references were introduced into the manuscript.
+The title and explanatory framing were revised to distinguish the primitive construction, the resulting tree properties, the internal derivation of arithmetic, transported rational operations, and the limits of constructive completion. No mathematical Lean declarations or theorem proofs were modified. **The LaTeX compilation was successful in GitHub Actions run 38723389434; a fresh Lean build was not performed.** The checked Task-06 fingerprint and historical verification logs continue to refer to the unchanged frozen Lean sources. No discussion-thread material or participant references were introduced into the manuscript.
