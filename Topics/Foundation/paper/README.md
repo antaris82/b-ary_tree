@@ -1,4 +1,4 @@
-# Task-06 foundations — mathematical manuscript with integrated proofs
+# From Primitive Words to Arithmetic: Constructions, Dependencies, and Limitations
 
 **Editor:** Jan Seeck — jan.seeck1@gmail.com. **Date:** 15 October 2026.
 **Formally checked source:** frozen Task-06 Lean 4.28.0; source fingerprint `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e`.
@@ -7,8 +7,8 @@ The manuscript treats rooted word-tree incidence, unary arithmetic, normalized i
 
 ## Read the paper
 
-- [`main.pdf`](main.pdf): **56-page** compiled mathematical manuscript with all detailed arguments in the relevant sections.
-- [`main.tex`](main.tex): complete, self-contained mathematical LaTeX source for **89 inline supporting treatments**; there is **no separate Appendix B of mathematical proofs**.
+- [`main.pdf`](main.pdf): previously compiled PDF; **not yet regenerated** after the motivation/title revision of 15 October 2026. Read `main.tex` for the latest edition.
+- [`main.tex`](main.tex): current LaTeX manuscript, now including an expanded introduction, a motivation section, and targeted clarifications of rational structure transport and real-number scope, alongside the **89 inline supporting treatments**.
 - [`references.tex`](references.tex) is the typeset bibliography; [`references.bib`](references.bib) supplies structured metadata.
 - [`scope_89.md`](scope_89.md) and [`scope_89.csv`](scope_89.csv): 89 mathematical topics matched to their real inline LaTeX anchors and PDF pages.
 - [`proof_correspondence.md`](proof_correspondence.md): independent Lean theorem correspondence, assumptions and archival verification status.
@@ -25,3 +25,7 @@ Run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`, then `pytho
 ## Scope and submission
 
 Additional logical principles (`ChoiceNN`, MP, LPO, WLPO) are never assumed globally. All statements about inversion from mere non-equality, unrestricted modulated or modulus-free completeness, general suprema, boundary-to-reals identifications and positive-dimensional charts remain conditional or open exactly as in the frozen source. Aristotle and other AI assistance are acknowledged; AI review does not replace independent expert peer review. External review may follow the publication of the integrated repository, not precede it.
+
+## 15 October 2026 motivation revision
+
+The title and explanatory framing were revised to distinguish the primitive construction, the resulting tree properties, the internal derivation of arithmetic, transported rational operations, and the limits of constructive completion. No mathematical Lean declarations or theorem proofs were modified. **A fresh Lean build and a successful LaTeX compilation of this revision have not been performed.** The checked Task-06 fingerprint and historical verification logs continue to refer to the unchanged frozen Lean sources. No discussion-thread material or participant references were introduced into the manuscript.
