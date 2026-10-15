@@ -52,3 +52,19 @@ for i,(sec,title,n,tracked) in enumerate(sections,1):
     out.append("| {} | {} | {} | {} | {} | {} |".format(i,sec,title,n,topic.get(title,"—"),status))
 (docs/"MAIN_TEXT_SUBSECTION_MAP.md").write_text("\n".join(out)+"\n")
 print("PASS: 25 results, 72 subsections, 89 PDF destinations")
+
+# A generated checksum register cannot include its own checksum.
+# Hash every Git-tracked Foundation file present in the checked-out worktree.
+import hashlib, subprocess
+root=p.parents[2]
+manifest=docs/"REPO_FILE_MANIFEST_SHA256.txt"
+tracked=subprocess.check_output(["git","ls-files","-z","Topics/Foundation"],cwd=root).decode().split("\0")
+entries=[]
+for relative in sorted(filter(None,tracked)):
+    candidate=root/relative
+    if candidate==manifest or not candidate.is_file():
+        continue
+    digest=hashlib.sha256(candidate.read_bytes()).hexdigest()
+    entries.append(f"{digest}  {relative}")
+manifest.write_text("\n".join(entries)+"\n")
+print(f"PASS: refreshed {len(entries)} SHA-256 entries (self-excluding manifest)")
