@@ -34,8 +34,9 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add Topics/Foundation/paper/main.pdf Topics/Foundation/paper/docs/scope_89.csv Topics/Foundation/paper/docs/scope_89.md Topics/Foundation/paper/docs/25_MAIN_RESULTS_CROSSWALK.md Topics/Foundation/paper/docs/MAIN_TEXT_SUBSECTION_MAP.md Topics/Foundation/paper/docs/MAIN_RESULT_PROOF_CHAINS.md
+          git add Topics/Foundation/paper/main.pdf Topics/Foundation/paper/docs/scope_89.csv Topics/Foundation/paper/docs/scope_89.md Topics/Foundation/paper/docs/25_MAIN_RESULTS_CROSSWALK.md Topics/Foundation/paper/docs/MAIN_TEXT_SUBSECTION_MAP.md Topics/Foundation/paper/docs/MAIN_RESULT_PROOF_CHAINS.md Topics/Foundation/paper/docs/REPO_FILE_MANIFEST_SHA256.txt
           if ! git diff --cached --quiet; then
             git commit -m 'docs(foundation): rebuild manuscript PDF'
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
