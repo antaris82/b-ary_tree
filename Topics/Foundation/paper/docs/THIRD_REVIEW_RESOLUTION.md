@@ -1,3 +1,5 @@
+> **Historical document:** This file describes an earlier editorial stage, not the current 18-section PDF. The 89 mathematical treatments are now inline, and Appendix B now denotes formal verification. Use the current `main.tex`, `paper/README.md`, and automatically regenerated navigation in `docs/scope_89.csv` for the released state.
+
 # Third-review synthesis and publication-layout revision — 15 October 2026
 
 **Formal reference:** Frozen Task--06 Lean 4.28.0, source fingerprint `7e12641454b9d2e387eee0c034d02f834836829c2e7d2926da5e8f63554b0b7e` (no source changes). This is an editorial/manuscript revision, not a new Lean kernel build.
