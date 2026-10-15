@@ -1,3 +1,5 @@
+> **Historical document:** This file describes an earlier editorial stage, not the current 18-section PDF. The 89 mathematical treatments are now inline, and Appendix B now denotes formal verification. Use the current `main.tex`, `paper/README.md`, and automatically regenerated navigation in `docs/scope_89.csv` for the released state.
+
 # Task-06 mathematical foundations — third-review editorial revision
 
 **Editor:** Jan Seeck (`jan.seeck1@gmail.com`, confirmed on 15 October 2026). **Author and affiliation:** not yet supplied; no author has been invented. This version adds an acknowledgement of AI-assisted work, including Aristotle, and differentiates the intrinsically constructed word tree from the rationally labelled Stern--Brocot tree and arbitrary graphs with address labels.
