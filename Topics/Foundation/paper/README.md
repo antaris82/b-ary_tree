@@ -7,20 +7,20 @@ The manuscript treats rooted word-tree incidence, unary arithmetic, normalized i
 
 ## Read the paper
 
-- [`main.pdf`](main.pdf): freshly compiled PDF for the motivation/title revision of 15 October 2026 (GitHub Actions run 38723389434).
+- [`main.pdf`](main.pdf): freshly compiled PDF for the motivation/title revision of 15 October 2026 (GitHub Actions (see workflow history)).
 - [`main.tex`](main.tex): current LaTeX manuscript, now including an expanded introduction, a motivation section, and targeted clarifications of rational structure transport and real-number scope, alongside the **89 inline supporting treatments**.
 - [`references.tex`](references.tex) is the typeset bibliography; [`references.bib`](references.bib) supplies structured metadata.
-- [`scope_89.md`](scope_89.md) and [`scope_89.csv`](scope_89.csv): 89 mathematical topics matched to their real inline LaTeX anchors and PDF pages.
-- [`proof_correspondence.md`](proof_correspondence.md): independent Lean theorem correspondence, assumptions and archival verification status.
-- [`MAIN_RESULT_PROOF_CHAINS.md`](MAIN_RESULT_PROOF_CHAINS.md): main theorem dependencies; [`INTEGRATION_89.md`](INTEGRATION_89.md): integration methodology and acceptance checks.
+- [`scope_89.md`](docs/scope_89.md) and [`scope_89.csv`](docs/scope_89.csv): 89 mathematical topics matched to their real inline LaTeX anchors and PDF pages.
+- [`proof_correspondence.md`](docs/proof_correspondence.md): independent Lean theorem correspondence, assumptions and archival verification status.
+- [`MAIN_RESULT_PROOF_CHAINS.md`](docs/MAIN_RESULT_PROOF_CHAINS.md): main theorem dependencies; [`INTEGRATION_89.md`](docs/INTEGRATION_89.md): integration methodology and acceptance checks.
 
 ## Document structure
 
-Sections 1–17 contain definitions, statements, mathematical proofs and **all 89 previously separate explanations** in context. The unnumbered third-level headings improve scanning without expanding the numbered table of contents. For introduction/conclusion topics without dedicated main-text subsections, details occur in the containing main *section*. The remaining appendices cover focused technical estimates and formal verification/source declarations; they do not duplicate the 89-topic proof catalogue.
+Sections 1–18 contain definitions, statements, mathematical proofs and **all 89 previously separate explanations** in context. The unnumbered third-level headings improve scanning without expanding the numbered table of contents. For introduction/conclusion topics without dedicated main-text subsections, details occur in the containing main *section*. The remaining appendices cover focused technical estimates and formal verification/source declarations; they do not duplicate the 89-topic proof catalogue.
 
 ## Rebuilding
 
-Run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`, then `python3 build_scope.py`. The latter requires the generated `main.aux` and updates `scope_89.csv` page numbers. Source-level proof verifications are archival, not freshly rerun by this manuscript editing operation.
+Run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex`, then `python3 build/rebuild_navigation.py`. The latter requires the generated `main.aux` and updates `scope_89.csv` page numbers. Source-level proof verifications are archival, not freshly rerun by this manuscript editing operation.
 
 ## Scope and submission
 
