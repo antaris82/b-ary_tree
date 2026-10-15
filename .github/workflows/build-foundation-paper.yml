@@ -26,11 +26,15 @@ jobs:
           latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
           test -s main.pdf
           if grep -E "LaTeX Warning: (Reference|Citation).*undefined|There were undefined references" build/compile.log 2>/dev/null; then exit 1; fi
+      - name: Regenerate manuscript navigation
+        working-directory: Topics/Foundation/paper
+        run: |
+          python3 build/rebuild_navigation.py
       - name: Commit resulting PDF
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add Topics/Foundation/paper/main.pdf
+          git add Topics/Foundation/paper/main.pdf Topics/Foundation/paper/docs/scope_89.csv Topics/Foundation/paper/docs/scope_89.md Topics/Foundation/paper/docs/25_MAIN_RESULTS_CROSSWALK.md Topics/Foundation/paper/docs/MAIN_TEXT_SUBSECTION_MAP.md Topics/Foundation/paper/docs/MAIN_RESULT_PROOF_CHAINS.md
           if ! git diff --cached --quiet; then
             git commit -m 'docs(foundation): rebuild manuscript PDF'
             git push
