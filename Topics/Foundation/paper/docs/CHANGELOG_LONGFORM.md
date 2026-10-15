@@ -1,3 +1,5 @@
+> **Historical document:** This file describes an earlier editorial stage, not the current 18-section PDF. The 89 mathematical treatments are now inline, and Appendix B now denotes formal verification. Use the current `main.tex`, `paper/README.md`, and automatically regenerated navigation in `docs/scope_89.csv` for the released state.
+
 # Long-form mathematical revision — change log
 
 ## What was requested
